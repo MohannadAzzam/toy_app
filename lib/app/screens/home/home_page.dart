@@ -3,11 +3,11 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:toy_app/app/data/data_source/helper_list.dart';
+import 'package:toy_app/app/data/data_source/home_new_blog_list.dart';
 import 'package:toy_app/app/data/data_source/home_ticket_booking_card_list.dart';
-import 'package:toy_app/app/data/models/home_ticket_booking_card.dart';
-import 'package:toy_app/app/data/models/home_top_card.dart';
 import 'package:toy_app/app/screens/home/widgets/custom_card.dart';
 import 'package:toy_app/app/screens/home/widgets/custom_helper.dart';
+import 'package:toy_app/app/screens/home/widgets/custom_new_blog_card.dart';
 import 'package:toy_app/app/screens/home/widgets/custom_ticket_booking_card.dart';
 import 'package:toy_app/my_icons_icons.dart';
 
@@ -126,6 +126,21 @@ class HomePage extends StatelessWidget {
                           fontWeight: FontWeight.bold),
                     ),
                   )),
+              Container(
+                margin: EdgeInsets.only(right: 5.w),
+                height: 234.h,
+                width: Get.width,
+                child: ListView.separated(
+                    scrollDirection: Axis.horizontal,
+                    itemBuilder: (context, index) {
+                      return CustomNewBlogCard(homeNewBlog: homeNewBlogList[index])
+                      ;
+                    },
+                    separatorBuilder: (context, i) => SizedBox(
+                      width: 8.w,
+                    ),
+                    itemCount: homeNewBlogList.length),
+              ),SizedBox(height: 5,)
             ],
           ),
         ),

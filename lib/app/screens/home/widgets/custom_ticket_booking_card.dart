@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:toy_app/app/data/models/home_ticket_booking_card.dart';
 
+// ignore: camel_case_types
 class customTicketBookingCard extends StatelessWidget {
   final HomeTicketBookingCard homeTicketBookingCardItems;
 
@@ -14,7 +15,7 @@ class customTicketBookingCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.all(5),
+      margin: const EdgeInsets.all(5),
       height: 400.h,
       // color: Colors.blue,
       width: 317.7.w,
@@ -29,7 +30,7 @@ class customTicketBookingCard extends StatelessWidget {
               width: 317.7.w,
             ),
           ),
-          Container(
+          SizedBox(
             // alignment: Alignment.bottomRight,
             // margin: EdgeInsets.only(top: 180.h,right: 28.w),
             width: Get.width,
@@ -59,7 +60,7 @@ class customTicketBookingCard extends StatelessWidget {
                     homeTicketBookingCardItems.subTitle,
                     style: GoogleFonts.cairo(
                         textStyle: TextStyle(
-                      color: Color(0xffC1C1C1),
+                      color: const Color(0xffC1C1C1),
                       fontSize: 14.sp,
                     )),
                   ),
@@ -68,7 +69,7 @@ class customTicketBookingCard extends StatelessWidget {
                   margin:
                       EdgeInsets.only(left: 60.w, right: 60.w, bottom: 20.h),
                   decoration: BoxDecoration(
-                      color: Color(0xffA92F86),
+                      color: const Color(0xffA92F86),
                       border: Border.all(color: Colors.transparent),
                       borderRadius: BorderRadius.circular(10)),
                   height: 60,
