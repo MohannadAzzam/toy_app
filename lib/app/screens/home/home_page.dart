@@ -2,10 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:toy_app/app/data/data_source/helper_list.dart';
 import 'package:toy_app/app/data/data_source/home_ticket_booking_card_list.dart';
 import 'package:toy_app/app/data/models/home_ticket_booking_card.dart';
 import 'package:toy_app/app/data/models/home_top_card.dart';
 import 'package:toy_app/app/screens/home/widgets/custom_card.dart';
+import 'package:toy_app/app/screens/home/widgets/custom_helper.dart';
 import 'package:toy_app/app/screens/home/widgets/custom_ticket_booking_card.dart';
 import 'package:toy_app/my_icons_icons.dart';
 
@@ -78,7 +80,52 @@ class HomePage extends StatelessWidget {
                     separatorBuilder: (context, i) => SizedBox(),
                     itemCount: homeTicketBookingCardList.length),
               ),
-
+              Container(
+                  margin: EdgeInsets.only(top: 15.h, right: 12.w, left: 12.w),
+                  alignment: Alignment.bottomRight,
+                  child: Text(
+                    'المساعدة',
+                    style: GoogleFonts.cairo(
+                        textStyle: TextStyle(
+                            color: Color(0xff911D74), fontSize: 20.sp),
+                        fontWeight: FontWeight.bold),
+                  )),
+              Container(
+                  margin: EdgeInsets.only(right: 12.w, left: 12.w),
+                  alignment: Alignment.bottomRight,
+                  child: Text(
+                    'سيسعد فريق المبيعات لدينا بالإجابة على أي\nأسئلة قد تكون لديك ومساعدتك في التسجيل',
+                    style: GoogleFonts.cairo(
+                      textStyle:
+                          TextStyle(color: Colors.black, fontSize: 16.sp),
+                    ),
+                  )),
+              Container(
+                // margin: EdgeInsets.symmetric(horizontal: 12.w,vertical: 10),
+                height: 234.h,
+                width: Get.width,
+                child: ListView.separated(
+                    scrollDirection: Axis.horizontal,
+                    itemBuilder: (context, index) {
+                      return HomeCustomHelper(customHelper: helperList[index]);
+                    },
+                    separatorBuilder: (context, i) => SizedBox(
+                          width: 8.w,
+                        ),
+                    itemCount: helperList.length),
+              ),
+              Container(
+                  margin: EdgeInsets.only(right: 12.w, left: 12.w),
+                  alignment: Alignment.bottomRight,
+                  child: Text(
+                    'جديد المدونة',
+                    style: GoogleFonts.cairo(
+                      textStyle: TextStyle(
+                          color: Color(0xff911D74),
+                          fontSize: 20.sp,
+                          fontWeight: FontWeight.bold),
+                    ),
+                  )),
             ],
           ),
         ),

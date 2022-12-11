@@ -22,82 +22,68 @@ class TestPage extends StatelessWidget {
       body: Directionality(
         textDirection: TextDirection.rtl,
         child: Container(
+          height: 234.h,
+          width: 173.w,
           margin: EdgeInsets.only(top: 100, left: 20, right: 20),
-          height: 400.h,
-          width: 317.7.w,
-          child: Stack(
-            children: [
-              Container(
-                child: ClipRRect(
-                  borderRadius: BorderRadius.circular(8.0),
-                  child : Image(
-                    image: AssetImage('assets/images/home_page_up.png'),
-                    fit: BoxFit.cover,
-                    height: 400.h,
-                    width: 317.7.w,
+          child: Card(
+            shape:
+                RoundedRectangleBorder(borderRadius: BorderRadius.circular(25)),
+            elevation: 5,
+            child: Column(
+              children: [
+                Container(
+                    margin: EdgeInsets.only(top: 10.h, left: 40.w, right: 40.w),
+                    child: CircleAvatar(
+                      radius: 50.r,
+                      backgroundImage:
+                          AssetImage('assets/images/helper_avatar.png'),
+                      // child: Image(
+                      //   image: AssetImage('assets/images/helper_avatar.png'),
+                      //   height: 94.h,
+                      //   width: 94.w,
+                      // ),
+                    )),
+                Container(
+                  margin: EdgeInsets.only(top: 2.h, left: 40.w, right: 40.w),
+                  child: Text(
+                    'احمد محمد',
+                    style: GoogleFonts.cairo(
+                        color: Colors.black,
+                        fontSize: 14.sp,
+                        fontWeight: FontWeight.bold),
                   ),
                 ),
-              ),
-              Container(
-                // alignment: Alignment.bottomRight,
-                // margin: EdgeInsets.only(top: 180.h,right: 28.w),
-                width: Get.width,
-                child: Column(
-                  children: [
-                    Container(
-                      margin:
-                          EdgeInsets.only(top: 130.h, left: 176.w, right: 27.w),
-                      child: Text(
-                        'معرض الرياض',
-                        style: GoogleFonts.cairo(
-                            textStyle: TextStyle(
-                                color: Colors.white, fontSize: 20.sp)),
-                      ),
+                Container(
+                  margin: EdgeInsets.only(top: 2.h, left: 40.w, right: 40.w),
+                  child: Text(
+                    'مدير مبيعات',
+                    style: GoogleFonts.cairo(
+                      color: Color(0xff949494),
+                      fontSize: 14.sp,
                     ),
-                    Container(
-                      margin:
-                          EdgeInsets.only(top: 5.h, left: 120.w, right: 27.w),
-                      child: Text(
-                        'لألعــــاب الأطفــــــــال',
-                        style: GoogleFonts.cairo(
-                            textStyle: TextStyle(
-                                color: Colors.white, fontSize: 18.sp)),
-                      ),
-                    ),
-                    Container(
-                      margin: EdgeInsets.only(left: 17.w, right: 27.w),
-                      child: Text(
-                        'ها هو معرض الرياض لألعاب الأطفال قد انطلق   \nوهو يعدّ من أهم وامتع المعارض التي تقدمها\nالمملكة العربية السعودية',
-                        style: GoogleFonts.cairo(
-                            textStyle: TextStyle(
-                          color: Color(0xffC1C1C1),
-                          fontSize: 14.sp,
-                        )),
-                      ),
-                    ),
-                    Container(
-                      margin: EdgeInsets.only(
-                          left: 60.w, right: 60.w, bottom: 20.h),
-                      decoration: BoxDecoration(
-                          color: Color(0xffA92F86),
-                          border: Border.all(color: Colors.transparent),
-                          borderRadius: BorderRadius.circular(10)),
-                      height: 60,
-                      width: 220,
-                      child: MaterialButton(
-                        onPressed: () {},
-                        child: Text(
-                          'احجز تذاكر',
-                          style: GoogleFonts.cairo(
-                              textStyle: TextStyle(
-                                  color: Colors.white, fontSize: 20.sp)),
-                        ),
-                      ),
-                    )
-                  ],
+                  ),
                 ),
-              )
-            ],
+                SizedBox(
+                  height: 20.h,
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: [
+                    InkWell(
+                      child: Icon(
+                        MyIcons.phone,
+                        size: 16,
+                        color: Color(0xff911D74),
+                      ),
+                    ),
+                    InkWell(
+                      child: Icon(MyIcons.message,
+                          size: 16, color: Color(0xff911D74)),
+                    ),
+                  ],
+                )
+              ],
+            ),
           ),
         ),
       ),

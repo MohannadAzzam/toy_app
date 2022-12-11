@@ -2,11 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:toy_app/app/screens/home/home_page.dart';
+import 'package:toy_app/app/screens/home/widgets/custom_helper.dart';
 import 'package:toy_app/app/screens/splash/splash_screen.dart';
 import 'package:toy_app/app/testPage.dart';
 
 void main() {
-  runApp( const MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -15,14 +16,14 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return  ScreenUtilInit(
+    return ScreenUtilInit(
       designSize: const Size(360, 690),
-      builder: (context , child) {
+      builder: (context, child) {
         return GetMaterialApp(
           home: child,
         );
       },
-      child: const HomePage(),
+      child:  HomePage(),
     );
   }
 }

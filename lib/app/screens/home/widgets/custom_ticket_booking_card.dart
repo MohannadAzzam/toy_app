@@ -16,6 +16,7 @@ class customTicketBookingCard extends StatelessWidget {
     return Container(
       margin: EdgeInsets.all(5),
       height: 400.h,
+      // color: Colors.blue,
       width: 317.7.w,
       child: Stack(
         children: [
@@ -35,7 +36,7 @@ class customTicketBookingCard extends StatelessWidget {
             child: Column(
               children: [
                 Container(
-                  margin: EdgeInsets.only(top: 130.h, left: 176.w, right: 27.w),
+                  margin: EdgeInsets.only(top: 160.h, left: 176.w, right: 27.w),
                   child: Text(
                     homeTicketBookingCardItems.firstTitle,
                     style: GoogleFonts.cairo(
