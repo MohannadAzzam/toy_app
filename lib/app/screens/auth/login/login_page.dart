@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:toy_app/app/screens/auth/account_type/account_type_page.dart';
+import 'package:toy_app/app/screens/auth/login/widgets/custom_bottom_sheet.dart';
 import 'package:toy_app/app/screens/auth/login/widgets/custom_button.dart';
+import 'package:toy_app/app/screens/auth/login/widgets/custom_image_bottom_sheet.dart';
 import 'package:toy_app/app/screens/auth/login/widgets/custom_text.dart';
 import 'package:toy_app/app/screens/auth/login/widgets/custom_text_form_field.dart';
 import 'package:toy_app/app/screens/home/home_page.dart';
@@ -46,35 +49,34 @@ class _LoginPageState extends State<LoginPage> {
                   child: Column(
                 children: [
                   const CustomTextFormField(
+                      isObscure: false,
                       icon: MyIcons.message, hint: 'البريد الإلكتروني'),
                   SizedBox(
                     height: 9.h,
                   ),
                   const CustomTextFormField(
+                      isObscure: true ,
                       icon: MyIcons.locker, hint: 'كلمة المرور'),
                 ],
               )),
               Container(
                 margin: EdgeInsets.only(right: 10.w, left: 10.w, top: 5.h),
-                // color: Colors.red,
                 child: Row(
                   children: [
-                    Container(
-                      child: Checkbox(
-                          checkColor: const Color(0xff1BBAA2),
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(2),
-                            side: MaterialStateBorderSide.resolveWith(
-                              (states) => const BorderSide(
-                                  width: 0.5, color: Color(0xffF0F0F0)),
-                            ),
+                    Checkbox(
+                        checkColor: const Color(0xff1BBAA2),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(2),
+                          side: MaterialStateBorderSide.resolveWith(
+                            (states) => const BorderSide(
+                                width: 0.5, color: Color(0xffF0F0F0)),
                           ),
-                          activeColor: Colors.white,
-                          value: true,
-                          onChanged: (bool) {
-                            bool = !value;
-                          }),
-                    ),
+                        ),
+                        activeColor: Colors.white,
+                        value: true,
+                        onChanged: (val) {
+                          val = !value;
+                        }),
                     const CustomText(
                         textText: 'تذكرني', color: Colors.black, fontSize: 16),
                   ],
@@ -85,6 +87,7 @@ class _LoginPageState extends State<LoginPage> {
                 child: Column(
                   children: [
                     CustomButton(
+                        onPressed: () {},
                         leftMargin: 0,
                         rightMargin: 0,
                         bottomMargin: 32,
@@ -92,29 +95,47 @@ class _LoginPageState extends State<LoginPage> {
                         height: 60,
                         width: 200,
                         text: 'دخول'),
-                    const CustomText(
-                        textText: 'نسيت كلمة المرور؟',
-                        color: Color(0xff646464),
-                        fontSize: 16),
+                    MaterialButton(
+                        onPressed: () {
+                          Get.bottomSheet(CustomBottomSheet(
+                            bottomSheetOnPressed: () {
+                              Get.bottomSheet(const CustomImageBottomSheet(
+                                  image: 'assets/images/login_bottom_sheet.png',
+                                  firstText: 'نسيت كلمة المرورو ؟',
+                                  secondText:
+                                      'ستصل رسالة على البريد الإلكتروني لتفعيل الحساب',
+                                  buttonText: 'دخول'));
+                            },
+                          ));
+                        },
+                        child: const CustomText(
+                            textText: 'نسيت كلمة المرور؟',
+                            color: Color(0xff646464),
+                            fontSize: 16)),
                     SizedBox(
                       height: 20.h,
                     ),
-                    InkWell(
-                      onTap: () {},
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: const [
-                          CustomText(
-                              textText: 'ليس لديك حساب ؟',
-                              color: Color(0xff646464),
-                              fontSize: 16),
-                          CustomText(
-                              textText: 'انشاء حساب',
-                              color: Colors.black,
-                              fontSize: 16),
-
-                        ],
-                      ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        MaterialButton(
+                          onPressed: () {
+                            Get.to(() => const AccountTypePage());
+                          },
+                          child: Row(
+                            children: const [
+                              CustomText(
+                                  textText: 'ليس لديك حساب ؟',
+                                  color: Color(0xff646464),
+                                  fontSize: 16),
+                              CustomText(
+                                  textText: ' انشاء حساب',
+                                  color: Colors.black,
+                                  fontSize: 16)
+                            ],
+                          ),
+                        ),
+                      ],
                     ),
                     SizedBox(
                       height: 20.h,

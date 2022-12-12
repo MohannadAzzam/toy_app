@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:toy_app/my_icons_icons.dart';
 
 class CustomTextFormField extends StatelessWidget {
   final IconData icon;
   final String hint;
-  const CustomTextFormField({Key? key, required this.icon, required this.hint}) : super(key: key);
+  final Widget? suffixWidget;
+final bool isObscure;
+  const CustomTextFormField({Key? key, required this.icon, required this.hint, this.suffixWidget, required this.isObscure}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -15,10 +16,12 @@ class CustomTextFormField extends StatelessWidget {
       height: 60.h,
       width: 320.w,
       child: TextFormField(
+        obscureText: isObscure,
         decoration: InputDecoration(
+          suffixIcon: suffixWidget,
             // contentPadding: EdgeInsets.only(top: 22.h,bottom: 22.h,right: 20.w),
-            prefixIcon: const Icon(
-              MyIcons.message,
+            prefixIcon:  Icon(
+               icon,
               size: 16,
               color: Color(0xff911D74),
             ),

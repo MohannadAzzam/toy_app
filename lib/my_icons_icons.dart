@@ -22,6 +22,7 @@ class MyIcons {
   static const String? _kFontPkg = null;
 
   static const IconData info = IconData(0xe800, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData file = IconData(0xe801, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData ionic_ios_arrow_back = IconData(0xe802, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData linkedin = IconData(0xe803, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData location = IconData(0xe804, fontFamily: _kFontFam, fontPackage: _kFontPkg);
@@ -44,4 +45,6 @@ class MyIcons {
   static const IconData facebook = IconData(0xe815, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData home = IconData(0xe816, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData instagram = IconData(0xe817, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData group_3097 = IconData(0xe818, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData company = IconData(0xe819, fontFamily: _kFontFam, fontPackage: _kFontPkg);
 }
