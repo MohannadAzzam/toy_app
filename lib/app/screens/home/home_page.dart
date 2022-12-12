@@ -9,6 +9,7 @@ import 'package:toy_app/app/screens/home/widgets/custom_card.dart';
 import 'package:toy_app/app/screens/home/widgets/custom_helper.dart';
 import 'package:toy_app/app/screens/home/widgets/custom_new_blog_card.dart';
 import 'package:toy_app/app/screens/home/widgets/custom_ticket_booking_card.dart';
+import 'package:toy_app/app/screens/home/widgets/home_custom_drawer.dart';
 import 'package:toy_app/my_icons_icons.dart';
 
 import '../../data/data_source/Home_top_card_list.dart';
@@ -20,7 +21,7 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       // backgroundColor: Color(0xff6D2B70),
-      endDrawer: const Drawer(),
+      endDrawer: const HomeCustomDrawer(),
       appBar: AppBar(
         elevation: 0,
         backgroundColor: const Color(0xff6D2B70),
@@ -133,14 +134,17 @@ class HomePage extends StatelessWidget {
                 child: ListView.separated(
                     scrollDirection: Axis.horizontal,
                     itemBuilder: (context, index) {
-                      return CustomNewBlogCard(homeNewBlog: homeNewBlogList[index])
-                      ;
+                      return CustomNewBlogCard(
+                          homeNewBlog: homeNewBlogList[index]);
                     },
                     separatorBuilder: (context, i) => SizedBox(
-                      width: 8.w,
-                    ),
+                          width: 8.w,
+                        ),
                     itemCount: homeNewBlogList.length),
-              ),SizedBox(height: 5,)
+              ),
+              SizedBox(
+                height: 5,
+              )
             ],
           ),
         ),
