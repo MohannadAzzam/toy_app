@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:toy_app/app/controllers/home_controller.dart';
 import 'package:toy_app/app/screens/auth/account_type/account_type_page.dart';
 import 'package:toy_app/app/screens/auth/login/widgets/custom_bottom_sheet.dart';
 import 'package:toy_app/app/screens/auth/login/widgets/custom_button.dart';
@@ -10,17 +11,12 @@ import 'package:toy_app/app/screens/auth/login/widgets/custom_text_form_field.da
 import 'package:toy_app/app/screens/home/home_page.dart';
 import 'package:toy_app/my_icons_icons.dart';
 
-class LoginPage extends StatefulWidget {
+class LoginPage extends GetView<LoginController> {
   const LoginPage({Key? key}) : super(key: key);
 
   @override
-  State<LoginPage> createState() => _LoginPageState();
-}
-
-class _LoginPageState extends State<LoginPage> {
-  @override
   Widget build(BuildContext context) {
-    const bool value = true;
+ Get.lazyPut(() => LoginController());
     return Directionality(
       textDirection: TextDirection.rtl,
       child: Scaffold(
@@ -50,35 +46,48 @@ class _LoginPageState extends State<LoginPage> {
                 children: [
                   const CustomTextFormField(
                       isObscure: false,
-                      icon: MyIcons.message, hint: 'البريد الإلكتروني'),
+                      icon: MyIcons.message,
+                      hint: 'البريد الإلكتروني'),
                   SizedBox(
                     height: 9.h,
                   ),
                   const CustomTextFormField(
-                      isObscure: true ,
-                      icon: MyIcons.locker, hint: 'كلمة المرور'),
+                      isObscure: true,
+                      icon: MyIcons.locker,
+                      hint: 'كلمة المرور'),
                 ],
               )),
               Container(
                 margin: EdgeInsets.only(right: 10.w, left: 10.w, top: 5.h),
                 child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    Checkbox(
-                        checkColor: const Color(0xff1BBAA2),
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(2),
-                          side: MaterialStateBorderSide.resolveWith(
-                            (states) => const BorderSide(
-                                width: 0.5, color: Color(0xffF0F0F0)),
-                          ),
-                        ),
-                        activeColor: Colors.white,
-                        value: true,
-                        onChanged: (val) {
-                          val = !value;
-                        }),
+                    Container(
+                      height: 20.h,
+                      width: 20.w,
+                      margin: EdgeInsets.only(right: 9.w, left: 9.w, top: 5.h),
+                      decoration: BoxDecoration(
+                        // color : Colors.grey,
+                        border: Border.all(color: Color(0xffF0F0F0) ),
+                        shape: BoxShape.rectangle,
+                      ),
+                      child:
+                          GetBuilder
+                            <LoginController>
+                            (
+                              builder: (con) => Checkbox(
+                                    checkColor: const Color(0xff1BBAA2),
+                                    fillColor: MaterialStateColor.resolveWith(
+                                        (states) => Colors.transparent),
+                                    value: con.isChecked,
+                                    onChanged: (var value ) {
+                                      con.isClicked(value);
+                                    },
+                                  )),
+
+                      ),
                     const CustomText(
-                        textText: 'تذكرني', color: Colors.black, fontSize: 16),
+                        textText: 'تذكرني', color: Colors.black, fontSize: 12),
                   ],
                 ),
               ),

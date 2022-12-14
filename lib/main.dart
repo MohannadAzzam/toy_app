@@ -16,6 +16,10 @@ class MyApp extends StatelessWidget {
       designSize: const Size(360, 690),
       builder: (context, child) {
         return GetMaterialApp(
+          theme: ThemeData(
+            primarySwatch: Colors.blue,
+            unselectedWidgetColor: Colors.grey, // <-- your color
+          ),
           home: child,
         );
       },
