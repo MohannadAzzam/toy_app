@@ -6,7 +6,6 @@ class LoginController extends GetxController{
 
    isClicked(newVal){
      isChecked = newVal;
-     print(newVal);
      update();
    }
 

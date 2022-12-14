@@ -3,6 +3,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:toy_app/app/screens/auth/login/login_page.dart';
+import 'package:toy_app/app/screens/from_drawer_screens/choose_exhibition_location/chosoe_exhibition_location_page.dart';
+import 'package:toy_app/app/screens/home/widgets/custom_drawer_unit.dart';
 import 'package:toy_app/my_icons_icons.dart';
 
 class HomeCustomDrawer extends StatelessWidget {
@@ -16,14 +18,14 @@ class HomeCustomDrawer extends StatelessWidget {
         scrollDirection: Axis.vertical,
         child: Column(
           children: [
-            const Image(image: AssetImage('assets/images/home_drawer_uper.png')),
+            const Image(
+                image: AssetImage('assets/images/home_drawer_uper.png')),
             Container(
               padding: EdgeInsets.only(top: 20.h, bottom: 16.h),
               color: const Color(0xff622665),
               child: InkWell(
-                onTap: (){
-                  Get.to(()=>const LoginPage());
-
+                onTap: () {
+                  Get.to(() => const LoginPage());
                 },
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -47,225 +49,37 @@ class HomeCustomDrawer extends StatelessWidget {
             ),
             Column(
               children: [
-                Container(
-                  padding: EdgeInsets.only(top: 25.h, right: 42.w),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    children: [
-                      Text(
-                        'الرئيسية',
-                        style: GoogleFonts.cairo(
-                            fontSize: 16.sp, color: Colors.white),
-                      ),
-                      SizedBox(
-                        width: 10.w,
-                      ),
-                      const Icon(
-                        MyIcons.home,
-                        color: Colors.white,
-                        size: 14,
-                      ),
-                    ],
-                  ),
+                const SizedBox(
+                  height: 13,
                 ),
-                Container(
-                  padding:
-                  EdgeInsets.only(top: 12.h, right: 42.w /*,bottom: 24*/),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    children: [
-                      Text(
-                        'العارضين',
-                        style: GoogleFonts.cairo(
-                            fontSize: 16.sp, color: Colors.white),
-                      ),
-                      SizedBox(
-                        width: 10.w,
-                      ),
-                      const Icon(
-                        MyIcons.store,
-                        color: Colors.white,
-                        size: 14,
-                      ),
-                    ],
-                  ),
-                ),
-                Container(
-                  padding:
-                  EdgeInsets.only(top: 12.h, right: 42.w /*,bottom: 24*/),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    children: [
-                      Text(
-                        'الرعاة',
-                        style: GoogleFonts.cairo(
-                            fontSize: 16.sp, color: Colors.white),
-                      ),
-                      SizedBox(
-                        width: 10.w,
-                      ),
-                      const Icon(
-                        MyIcons.sponsors,
-                        color: Colors.white,
-                        size: 14,
-                      ),
-                    ],
-                  ),
-                ),
-                Container(
-                  padding:
-                  EdgeInsets.only(top: 12.h, right: 42.w /*,bottom: 24*/),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    children: [
-                      Text(
-                        'التذاكر',
-                        style: GoogleFonts.cairo(
-                            fontSize: 16.sp, color: Colors.white),
-                      ),
-                      SizedBox(
-                        width: 10.w,
-                      ),
-                      const Icon(
-                        MyIcons.ticket,
-                        color: Colors.white,
-                        size: 14,
-                      ),
-                    ],
-                  ),
-                ),
-                Container(
-                  padding:
-                  EdgeInsets.only(top: 12.h, right: 42.w /*,bottom: 24*/),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    children: [
-                      Text(
-                        'السفر والقنادق',
-                        style: GoogleFonts.cairo(
-                            fontSize: 16.sp, color: Colors.white),
-                      ),
-                      SizedBox(
-                        width: 10.w,
-                      ),
-                      const Icon(
-                        MyIcons.travelandhote,
-                        color: Colors.white,
-                        size: 14,
-                      ),
-                    ],
-                  ),
-                ),
-                Container(
-                  padding:
-                  EdgeInsets.only(top: 12.h, right: 42.w /*,bottom: 24*/),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    children: [
-                      Text(
-                        'المدونة',
-                        style: GoogleFonts.cairo(
-                            fontSize: 16.sp, color: Colors.white),
-                      ),
-                      SizedBox(
-                        width: 10.w,
-                      ),
-                      const Icon(
-                        MyIcons.blog,
-                        color: Colors.white,
-                        size: 14,
-                      ),
-                    ],
-                  ),
-                ),
-                Container(
-                  padding:
-                  EdgeInsets.only(top: 12.h, right: 42.w /*,bottom: 24*/),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    children: [
-                      Text(
-                        'من نحن',
-                        style: GoogleFonts.cairo(
-                            fontSize: 16.sp, color: Colors.white),
-                      ),
-                      SizedBox(
-                        width: 10.w,
-                      ),
-                      const Icon(
-                        MyIcons.info,
-                        color: Colors.white,
-                        size: 14,
-                      ),
-                    ],
-                  ),
-                ),
-                Container(
-                  padding:
-                  EdgeInsets.only(top: 12.h, right: 42.w /*,bottom: 24*/),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    children: [
-                      Text(
-                        'الأسئلة الشائعة',
-                        style: GoogleFonts.cairo(
-                            fontSize: 16.sp, color: Colors.white),
-                      ),
-                      SizedBox(
-                        width: 10.w,
-                      ),
-                      const Icon(
-                        MyIcons.question_circle,
-                        color: Colors.white,
-                        size: 14,
-                      ),
-                    ],
-                  ),
-                ),
-                Container(
-                  padding:
-                  EdgeInsets.only(top: 12.h, right: 42.w /*,bottom: 24*/),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    children: [
-                      Text(
-                        'English',
-                        style: GoogleFonts.cairo(
-                            fontSize: 16.sp, color: Colors.white),
-                      ),
-                      SizedBox(
-                        width: 10.w,
-                      ),
-                      const Icon(
-                        MyIcons.english,
-                        color: Colors.white,
-                        size: 14,
-                      ),
-                    ],
-                  ),
-                ),
-                Container(
-                  padding:
-                  EdgeInsets.only(top: 12.h, right: 42.w /*,bottom: 24*/),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    children: [
-                      Text(
-                        'اتصل بنا',
-                        style: GoogleFonts.cairo(
-                            fontSize: 16.sp, color: Colors.white),
-                      ),
-                      SizedBox(
-                        width: 10.w,
-                      ),
-                      const Icon(
-                        MyIcons.message,
-                        color: Colors.white,
-                        size: 14,
-                      ),
-                    ],
-                  ),
-                ),
+                const CustomDrawerUnit(
+                    unitName: 'الرئيسية', unitIcon: MyIcons.home),
+                 CustomDrawerUnit(
+                  onTap: (){
+                    Get.to(ChooseExhibitionLocationPage());
+                  },
+                    // nextPage: ChooseExhibitionLocationPage(),
+
+                    unitName: 'العارضين',
+                    unitIcon: MyIcons.store),
+                const CustomDrawerUnit(
+                    unitName: 'الرعاة', unitIcon: MyIcons.sponsors),
+                const CustomDrawerUnit(
+                    unitName: 'التذاكر', unitIcon: MyIcons.ticket),
+                const CustomDrawerUnit(
+                    unitName: 'السفر والفنادق',
+                    unitIcon: MyIcons.travelandhote),
+                const CustomDrawerUnit(
+                    unitName: 'المدونة', unitIcon: MyIcons.blog),
+                const CustomDrawerUnit(
+                    unitName: 'من نحن', unitIcon: MyIcons.info),
+                const CustomDrawerUnit(
+                    unitName: 'الأسئلة الشائعة',
+                    unitIcon: MyIcons.question_circle),
+                const CustomDrawerUnit(
+                    unitName: 'English', unitIcon: MyIcons.english),
+                const CustomDrawerUnit(
+                    unitName: 'اتصل بنا', unitIcon: MyIcons.message),
                 Container(
                   width: 240.w,
                   padding: EdgeInsets.only(top: 44.h, bottom: 28.h),

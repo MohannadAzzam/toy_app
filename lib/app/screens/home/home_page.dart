@@ -59,16 +59,16 @@ class HomePage extends StatelessWidget {
                         scrollDirection: Axis.horizontal,
                         itemBuilder: (context, index) {
                           return CustomCard(
-                              homeTopCardItems: HomeTopCardList[index]);
+                              homeTopCardItems: homeTopCardList[index]);
                         },
                         separatorBuilder: (context, i) => SizedBox(
                               width: 8.w,
                             ),
-                        itemCount: HomeTopCardList.length),
+                        itemCount: homeTopCardList.length),
                   ),
                 ],
               ),
-              Container(
+              SizedBox(
                 width: Get.width,
                 height: 400.h,
                 child: ListView.separated(
@@ -78,7 +78,7 @@ class HomePage extends StatelessWidget {
                           homeTicketBookingCardItems:
                               homeTicketBookingCardList[index]);
                     },
-                    separatorBuilder: (context, i) => SizedBox(),
+                    separatorBuilder: (context, i) => const SizedBox(),
                     itemCount: homeTicketBookingCardList.length),
               ),
               Container(
@@ -88,7 +88,7 @@ class HomePage extends StatelessWidget {
                     'المساعدة',
                     style: GoogleFonts.cairo(
                         textStyle: TextStyle(
-                            color: Color(0xff911D74), fontSize: 20.sp),
+                            color: const Color(0xff911D74), fontSize: 20.sp),
                         fontWeight: FontWeight.bold),
                   )),
               Container(
@@ -101,7 +101,7 @@ class HomePage extends StatelessWidget {
                           TextStyle(color: Colors.black, fontSize: 16.sp),
                     ),
                   )),
-              Container(
+              SizedBox(
                 // margin: EdgeInsets.symmetric(horizontal: 12.w,vertical: 10),
                 height: 234.h,
                 width: Get.width,
@@ -122,7 +122,7 @@ class HomePage extends StatelessWidget {
                     'جديد المدونة',
                     style: GoogleFonts.cairo(
                       textStyle: TextStyle(
-                          color: Color(0xff911D74),
+                          color: const Color(0xff911D74),
                           fontSize: 20.sp,
                           fontWeight: FontWeight.bold),
                     ),
@@ -142,7 +142,7 @@ class HomePage extends StatelessWidget {
                         ),
                     itemCount: homeNewBlogList.length),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 5,
               )
             ],

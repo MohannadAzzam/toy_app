@@ -39,6 +39,7 @@ dependencies:
   get: ^4.6.5
   google_fonts: ^3.0.1
   flutter_screenutil: ^5.6.0
+#  full_screen_image: ^1.0.2
 
 dev_dependencies:
   flutter_test:

@@ -7,6 +7,7 @@ import 'package:toy_app/app/screens/auth/login/widgets/custom_text.dart';
 import 'package:toy_app/app/screens/auth/login/widgets/custom_text_form_field.dart';
 import 'package:toy_app/app/screens/auth/registers/register_viewer_account/widgets/text_form_field_suffix.dart';
 import 'package:toy_app/app/screens/auth/registers/register_visitor_account/widgets/drop_down_button_form_field.dart';
+import 'package:toy_app/app/screens/from_drawer_screens/choose_exhibition_location/chosoe_exhibition_location_page.dart';
 import 'package:toy_app/my_icons_icons.dart';
 
 // ignore: camel_case_types
@@ -132,7 +133,9 @@ class registerViewerAccountPage extends StatelessWidget {
                   isObscure: true,
                   icon: MyIcons.locker, hint: 'اعادة كلمة المرور'),
               CustomButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Get.to(()=> ChooseExhibitionLocationPage() );
+                  },
                   bottomMargin: 20,
                   topMargin: 40,
                   height: 60,

@@ -68,7 +68,7 @@ class LoginPage extends GetView<LoginController> {
                       margin: EdgeInsets.only(right: 9.w, left: 9.w, top: 5.h),
                       decoration: BoxDecoration(
                         // color : Colors.grey,
-                        border: Border.all(color: Color(0xffF0F0F0) ),
+                        border: Border.all(color: const Color(0xffF0F0F0) ),
                         shape: BoxShape.rectangle,
                       ),
                       child:

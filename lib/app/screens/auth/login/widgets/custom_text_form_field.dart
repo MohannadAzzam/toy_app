@@ -23,7 +23,7 @@ final bool isObscure;
             prefixIcon:  Icon(
                icon,
               size: 16,
-              color: Color(0xff911D74),
+              color: const Color(0xff911D74),
             ),
             hintText: hint ,
             hintStyle: GoogleFonts.cairo(fontSize: 18, color: Colors.black),

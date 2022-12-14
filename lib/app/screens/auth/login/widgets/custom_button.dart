@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:toy_app/app/screens/auth/login/widgets/custom_text.dart';
 
+// ignore: must_be_immutable
 class CustomButton extends StatelessWidget {
   void Function() onPressed;
   final double bottomMargin;
@@ -36,7 +37,7 @@ class CustomButton extends StatelessWidget {
         elevation: 0,
         minWidth: width.w,
         height: height.h,
-        color:  Color(0xffA92F86),
+        color:  const Color(0xffA92F86),
         onPressed: onPressed,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
         child: CustomText(

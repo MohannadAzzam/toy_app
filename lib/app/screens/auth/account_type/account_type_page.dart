@@ -24,7 +24,7 @@ class AccountTypePage extends StatelessWidget {
           backgroundColor: Colors.transparent,
           appBar: AppBar(
             elevation: 0,
-            backgroundColor: Color(0xff6D2B70),
+            backgroundColor: const Color(0xff6D2B70),
             leading: IconButton(
               onPressed: () {
                 Get.to(() => const LoginPage());
@@ -32,14 +32,14 @@ class AccountTypePage extends StatelessWidget {
               icon: const Icon(MyIcons.ionic_ios_arrow_back),
             ),
           ),
-          body: Container(
+          body: SizedBox(
             width: Get.width,
             child: SingleChildScrollView(
               scrollDirection: Axis.vertical,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  CustomText(
+                  const CustomText(
                       textText: 'اختر نوع الحساب',
                       color: Colors.white,
                       fontSize: 20),
@@ -48,30 +48,30 @@ class AccountTypePage extends StatelessWidget {
                   ),
                   GestureDetector(
                       onTap: () {
-                        Get.to(() => RegisterVisitorAccountPage());
+                        Get.to(() => const RegisterVisitorAccountPage());
                       },
                       child: Image(
-                        image: AssetImage('assets/images/visitor_account.png'),
+                        image: const AssetImage('assets/images/visitor_account.png'),
                         height: 165.h,
                         width: 215.w,
                       )),
                   GestureDetector(
                     onTap: (){
-                      Get.to(() => registerViewerAccountPage());
+                      Get.to(() => const registerViewerAccountPage());
 
                     },
                       child: Image(
-                    image: AssetImage('assets/images/viewer_account.png'),
+                    image: const AssetImage('assets/images/viewer_account.png'),
                     height: 150.h,
                     width: 200.w,
                   )),
                   GestureDetector(
                       child: Image(
-                    image: AssetImage('assets/images/sponsor_account.png'),
+                    image: const AssetImage('assets/images/sponsor_account.png'),
                     height: 150.h,
                     width: 200.w,
                   )),
-                  SizedBox(
+                  const SizedBox(
                     height: 150,
                   )
                 ],
