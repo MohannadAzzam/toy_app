@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:toy_app/app/screens/splash/splash_screen.dart';
+import 'package:toy_app/app/screens/from_drawer_screens/choose_exhibition_location/choose_package_page.dart';
 
 
 void main() {
@@ -23,7 +23,7 @@ class MyApp extends StatelessWidget {
           home: child,
         );
       },
-      child:  const SplashScreen(),
+      child:   ChoosePackagePage(),
     );
   }
 }

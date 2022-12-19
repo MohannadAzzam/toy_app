@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:toy_app/app/data/data_source/sponsor_packages_list.dart';
 import 'package:toy_app/app/screens/from_drawer_screens/choose_exhibition_location/chosoe_exhibition_location_page.dart';
+import 'package:toy_app/app/screens/from_drawer_screens/choose_exhibition_location/widgets/custom_choose_package_grid.dart';
 import 'package:toy_app/my_icons_icons.dart';
 
 import '../../auth/login/widgets/custom_text.dart';
@@ -36,19 +38,31 @@ class ChoosePackagePage extends StatelessWidget {
                 const CustomText(
                     textAlign: TextAlign.center,
                     textText:
-                    'اختر الباقة حسب ما يظهر بالخريطة الاماكن التي\nتخص الراعي حسب اللون',
+                        'اختر الباقة حسب ما يظهر بالخريطة الاماكن التي\nتخص الراعي حسب اللون',
                     color: Colors.black,
                     fontSize: 14),
                 Container(
                   margin: EdgeInsets.only(left: 3.w, right: 3.w, bottom: 8.h),
-                  child:  InkWell(
-                    onTap: (){
+                  child: InkWell(
+                    onTap: () {
                       // Get.to(()=>FullExhibitionMapPage());
                     },
                     child: Image(
                       image: AssetImage('assets/images/exhibition_map.png'),
                     ),
                   ),
+                ),
+                Container(
+                  height:450,
+                  // width: 170.w,
+                  child: GridView.builder(
+                    itemCount:  sponsorPackagesList.length,
+                      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                          crossAxisCount: 2),
+                      itemBuilder: (context, index) {
+                        return CustomChoosePackageGrid(
+                            sponsorPackages: sponsorPackagesList[index]);
+                      }),
                 ),
               ],
             ),

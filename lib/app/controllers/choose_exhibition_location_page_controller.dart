@@ -8,7 +8,7 @@ class ChooseExhibitionLocationPageController extends GetxController {
     selectedPlace = newPlace;
     isSelected = !isSelected;
     // print(isSelected);
-    print(selectedPlace);
+    // print(selectedPlace);
     update();
   }
 }

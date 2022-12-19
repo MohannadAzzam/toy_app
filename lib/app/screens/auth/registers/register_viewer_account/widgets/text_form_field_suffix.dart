@@ -23,10 +23,10 @@ class TextFormFieldSuffex extends StatelessWidget {
           minWidth: 76.w,
           color: const Color(0xffF5F5F5),
           height: 56.h,
-          child: const CustomText(
+          child:  CustomText(
               textText: 'استعراض',
               color: Colors.black,
-              fontSize: 10),
+              fontSize: 10.sp),
         ),
       ),
     );
