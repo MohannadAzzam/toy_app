@@ -1,5 +1,5 @@
 class SponsorPackages {
-  final String sponsorId;
+  final int sponsorId;
   final String sponsorImage;
   final String sponsorName;
 
