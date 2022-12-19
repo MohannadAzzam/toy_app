@@ -35,6 +35,7 @@ class CustomButton extends StatelessWidget {
           right: rightMargin.w),
       child: MaterialButton(
         elevation: 0,
+
         minWidth: width.w,
         height: height.h,
         color:  const Color(0xffA92F86),
