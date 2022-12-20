@@ -47,13 +47,13 @@ class CustomButtonWithIcon extends StatelessWidget {
             children: [
               Icon(
                 icon,
-                size: 24,
+                size: 20,
                 color: Colors.white,
               ),
               SizedBox(
-                width: 10.w,
+                width: 5.w,
               ),
-              CustomText(textText: text, color: Colors.white, fontSize: 20)
+              CustomText(textText: text, color: Colors.white, fontSize: 18)
             ],
           ),
         ),

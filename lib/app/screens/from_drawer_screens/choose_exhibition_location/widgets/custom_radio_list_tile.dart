@@ -14,9 +14,9 @@ class CustomRadioListTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.only(bottom: 10.h),
-      width: 336.w,
-      // height: 67,
+      margin: EdgeInsets.only(bottom: 10.h,left: 20.h,right:  20.h),
+      // width: 336.w,
+      // height: 65,
       child: GetBuilder<ChooseExhibitionLocationPageController>(
           init: ChooseExhibitionLocationPageController(),
           builder: (controller) => RadioListTile(
