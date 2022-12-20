@@ -109,7 +109,7 @@ class LoginPage extends GetView<LoginController> {
                           Get.bottomSheet(CustomBottomSheet(
                             bottomSheetOnPressed: () {
                               Get.bottomSheet(const CustomImageBottomSheet(
-                                  image: 'assets/images/login_bottom_sheet.png',
+                                  image: Image(image: AssetImage('assets/images/login_bottom_sheet.png')),
                                   firstText: 'نسيت كلمة المرورو ؟',
                                   secondText:
                                       'ستصل رسالة على البريد الإلكتروني لتفعيل الحساب',

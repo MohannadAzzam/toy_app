@@ -18,7 +18,7 @@ class CustomChoosePackageGrid extends StatelessWidget {
       onTap: () {
         // print(sponsorPackages.sponsorId);
         Get.bottomSheet(CustomImageBottomSheet(
-          image: '${sponsorPackages.sponsorImage}',
+          image: Image(image: AssetImage('${sponsorPackages.sponsorImage}')),
           firstText: '${sponsorPackages.sponsorName}',
           secondText: ' لقد اخترت ان تكون ${sponsorPackages.sponsorName}',
           buttonText: 'حجز',
@@ -65,7 +65,7 @@ class CustomChoosePackageGrid extends StatelessWidget {
                     CustomText(
                         textText: sponsorPackages.sponsorName,
                         color: Colors.black,
-                        fontSize: 20)
+                        fontSize: 16)
                   ],
                 ),
               ),

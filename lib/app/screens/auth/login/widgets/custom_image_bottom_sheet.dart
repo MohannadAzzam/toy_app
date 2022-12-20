@@ -6,7 +6,7 @@ import 'package:toy_app/app/screens/auth/login/widgets/custom_button.dart';
 import 'package:toy_app/app/screens/auth/login/widgets/custom_text.dart';
 
 class CustomImageBottomSheet extends StatelessWidget {
-  final String image;
+  final Widget image;
   final String firstText;
   final String secondText;
   final String buttonText;
@@ -41,7 +41,7 @@ class CustomImageBottomSheet extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Container(
-                    margin: EdgeInsets.only(top: 10.h,left: 15.w,right: 15.w),
+                    margin: EdgeInsets.only(top: 10.h, left: 15.w, right: 15.w),
                     child: optionalWidget,
                   ),
                   Directionality(
@@ -50,20 +50,11 @@ class CustomImageBottomSheet extends StatelessWidget {
                       width: Get.width,
                       child: Column(
                         children: [
-                          SizedBox(
-                              // height: 20.h,
-                              ),
-                          Image(image: AssetImage(image)),
-                          SizedBox(
-                              // height: 5.h,
-                              ),
+                          image,
                           CustomText(
                               textText: firstText,
                               color: Colors.black,
                               fontSize: 18),
-                          SizedBox(
-                              // height: 5.h,
-                              ),
                           CustomText(
                               textText: secondText,
                               color: Colors.black,

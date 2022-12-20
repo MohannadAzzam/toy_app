@@ -17,24 +17,29 @@ class CustomCompanyName extends StatelessWidget {
     return InkWell(
         onTap: () {
           Get.bottomSheet(CustomImageBottomSheet(
-            image: '${travelAndHotels.companyAvatar}',
-            firstText: '${travelAndHotels.companyName}',
-            secondText: '',
+            image: CircleAvatar(
+                radius: 51.r,
+                backgroundColor: const Color(0xffF5F5F5),
+                child: CircleAvatar(
+                  backgroundImage:
+                      AssetImage(travelAndHotels.companyAvatar),
+                  radius: 49.r,
+                  // backgroundColor: Colors.red,
+                )),
+            firstText: travelAndHotels.companyName,
             buttonText: 'حجز',
-            optionalWidget: Container(
-              child: IconButton(
-                  onPressed: () {
-                    Get.back();
-                  },
-                  icon: Icon(
-                    MyIcons.exit,
-                    color: Color(0xffD4D4D4),
-                  )),
-            ),
+            optionalWidget: IconButton(
+                onPressed: () {
+                  Get.back();
+                },
+                icon: const Icon(
+                  MyIcons.exit,
+                  color: Color(0xffD4D4D4),
+                )),
+            secondText: '',
           ));
         },
-        child:
-        Container(
+        child: Container(
           // color: Colors.red,
           // margin: EdgeInsets.only(bottom: 3.h,/* bottom: 12.h, left: 8.w, right: 8.w*/),
           height: 165.h,
@@ -43,7 +48,7 @@ class CustomCompanyName extends StatelessWidget {
           child: Card(
             elevation: 3,
             shape:
-            RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+                RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
             child: Stack(
               children: [
                 SizedBox(
@@ -55,16 +60,15 @@ class CustomCompanyName extends StatelessWidget {
                     children: [
                       CircleAvatar(
                           radius: 51.r,
-                          backgroundColor: Color(0xffF5F5F5),
+                          backgroundColor: const Color(0xffF5F5F5),
                           child: CircleAvatar(
-                            backgroundImage: AssetImage(
-                                "${travelAndHotels.companyAvatar}"),
+                            backgroundImage:
+                                AssetImage(travelAndHotels.companyAvatar),
                             radius: 49.r,
                             // backgroundColor: Colors.red,
-                          ))
-                      ,
+                          )),
                       CustomText(
-                          textText: "${travelAndHotels.companyName}",
+                          textText: travelAndHotels.companyName,
                           color: Colors.black,
                           fontSize: 20)
                     ],
@@ -74,7 +78,6 @@ class CustomCompanyName extends StatelessWidget {
             ),
           ),
           // ),
-        )
-    );
+        ));
   }
 }

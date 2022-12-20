@@ -32,7 +32,7 @@ class TravelAndHotelsPage extends StatelessWidget {
           child: Column(
             children: [
               Container(
-                margin: EdgeInsets.only(top: 8.h),
+                margin: EdgeInsets.all( 5.h),
                 width: Get.width,
                 child: const CustomText(
                     textAlign: TextAlign.center,

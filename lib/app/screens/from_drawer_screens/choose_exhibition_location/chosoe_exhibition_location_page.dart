@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:toy_app/app/data/data_source/place_radio_list.dart';
 import 'package:toy_app/app/screens/auth/login/widgets/custom_button.dart';
 import 'package:toy_app/app/screens/auth/login/widgets/custom_text.dart';
 import 'package:toy_app/app/screens/from_drawer_screens/choose_exhibition_location/choose_package_page.dart';
@@ -53,18 +54,16 @@ class ChooseExhibitionLocationPage extends StatelessWidget {
                     ),
                   ),
                 ),
-                const CustomRadioListTile(
-                    value: 1, placeNumber: '1', placeArea: '1×9'),
-                const CustomRadioListTile(
-                    value: 2, placeNumber: '1', placeArea: '1×9'),
-                const CustomRadioListTile(
-                    value: 3, placeNumber: '1', placeArea: '1×9'),
-                const CustomRadioListTile(
-                    value: 4, placeNumber: '1', placeArea: '1×9'),
-                const CustomRadioListTile(
-                    value: 5, placeNumber: '1', placeArea: '1×9'),
-                const CustomRadioListTile(
-                    value: 6, placeNumber: '1', placeArea: '1×9'),
+                Container(
+                  padding: EdgeInsets.only(left: 20.h,right:  20.h),
+                  height: 500,
+                  child: ListView.builder(
+                    physics: BouncingScrollPhysics(),
+                      itemCount: placeRadioList.length,
+                      itemBuilder: (context,index){
+                    return CustomRadioListTile(placeRadio: placeRadioList[index]);
+                  }),
+                ),
                 CustomButton(
                     onPressed: () {
                       Get.to(()=> ChoosePackagePage());

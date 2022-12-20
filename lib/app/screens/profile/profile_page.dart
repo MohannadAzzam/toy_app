@@ -4,6 +4,9 @@ import 'package:get/get.dart';
 import 'package:toy_app/app/screens/auth/login/widgets/custom_text.dart';
 
 import 'package:toy_app/app/screens/home/home_page.dart';
+import 'package:toy_app/app/screens/profile/change_password_page.dart';
+import 'package:toy_app/app/screens/profile/edit_personal_details.dart';
+import 'package:toy_app/app/screens/profile/widgets/custom_button_with_icon.dart';
 import 'package:toy_app/app/screens/profile/widgets/custom_tab_bar.dart';
 import 'package:toy_app/my_icons_icons.dart';
 
@@ -16,8 +19,6 @@ class ProfilePage extends StatelessWidget {
       textDirection: TextDirection.rtl,
       child: Scaffold(
         appBar: AppBar(
-          /* title: const CustomText(
-              textText: 'السفر والفنادق', color: Colors.white, fontSize: 18),*/
           elevation: 0,
           backgroundColor: const Color(0xff6D2B70),
           leading: IconButton(
@@ -26,14 +27,89 @@ class ProfilePage extends StatelessWidget {
             },
             icon: const Icon(MyIcons.ionic_ios_arrow_back),
           ),
-          actions: [IconButton(onPressed: () {}, icon: Icon(Icons.more_vert))],
+          actions: [
+            IconButton(
+                onPressed: () {
+                  Get.bottomSheet(BottomSheet(
+                      backgroundColor: Colors.transparent,
+                      onClosing: () {},
+                      builder: (context) {
+                        return Container(
+                          height: 250.h,
+                          decoration: BoxDecoration(
+                              color: Colors.white,
+                              border: Border.all(color: Colors.transparent),
+                              borderRadius: const BorderRadius.only(
+                                  topLeft: Radius.circular(20),
+                                  topRight: Radius.circular(20))),
+                          child: SingleChildScrollView(
+                            scrollDirection: Axis.vertical,
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Container(
+                                    margin: EdgeInsets.only(
+                                        top: 25.h, left: 30.w, right: 30.w),
+                                    child: IconButton(
+                                        onPressed: () {
+                                          Get.back();
+                                        },
+                                        icon: const Icon(
+                                          MyIcons.exit,
+                                          color: Color(0xffD4D4D4),
+                                        ))),
+                                Directionality(
+                                  textDirection: TextDirection.rtl,
+                                  child: Container(
+                                    width: Get.width,
+                                    child: Column(
+                                      crossAxisAlignment: CrossAxisAlignment.center,
+                                      mainAxisAlignment: MainAxisAlignment.center,
+                                      children: [
+                                        CustomButtonWithIcon(
+                                            height: 60,
+                                            width: 294,
+                                            icon: MyIcons.person,
+                                            text: "تعديل البيانات الشخصية",
+                                            top: 20,
+                                            bottom: 10,
+                                            left: 0,
+                                            right: 0,
+                                            onTap: () {
+                                              Get.to(()=> EditPersonalDetails());
+                                            }),
+                                        CustomButtonWithIcon(
+                                            height: 60,
+                                            width: 294,
+                                            icon: MyIcons.locker,
+                                            text: "تغيير كلمة المرور",
+                                            top: 0,
+                                            bottom: 10,
+                                            left: 0,
+                                            right: 0,
+                                            onTap: () {
+                                              Get.to(()=> ChangePasswordPage());
+
+                                            }),
+                                      ],
+                                    ),
+                                  ),
+                                )
+                              ],
+                            ),
+                          ),
+                        );
+                      }));
+                },
+                icon: const Icon(Icons.more_vert))
+          ],
         ),
         body: SingleChildScrollView(
           scrollDirection: Axis.vertical,
           child: Column(
             children: [
               Container(
-                color: Color(0xff6d2b70),
+                color: const Color(0xff6d2b70),
                 height: 200.h,
                 // margin: EdgeInsets.only(top: 8.h),
                 width: Get.width,
@@ -53,7 +129,7 @@ class ProfilePage extends StatelessWidget {
                         ),
                       ),
                     ),
-                    CustomText(
+                    const CustomText(
                         textText: 'الملف الشخصي',
                         color: Colors.white,
                         fontSize: 18),
@@ -63,19 +139,8 @@ class ProfilePage extends StatelessWidget {
               Container(
                 height: 500,
                 color: Colors.blue,
-                child: CustomTabBar(),
+                child: const CustomTabBar(),
               ) // DefaultTabController(
-              //
-              //     length: 2, child: Column(children: [
-              //       Container(
-              //         height: 50,
-              //         color: Colors.red,),
-              //       Container(
-              //         height: 100,
-              //         color: Colors.blue,),
-              // ],)
-              //
-              // ),
             ],
           ),
         ),

@@ -71,32 +71,19 @@ class RegisterVisitorAccountPage extends StatelessWidget {
               SizedBox(
                 height: 50.h,
               ),
-              Container(
-                  margin: EdgeInsets.only(bottom: 14.h),
-                  child: const CustomTextFormField(
+              const CustomTextFormField(
+                  isObscure: false,
+                  icon: MyIcons.person, hint: 'الاسم'),
+               const CustomTextFormField(
                       isObscure: false,
-                      icon: MyIcons.person, hint: 'الاسم')),
-              Container(
-                  margin: EdgeInsets.only(bottom: 14.h),
-                  child: const CustomTextFormField(
-                      isObscure: false,
-                      icon: MyIcons.message, hint: 'البريد الإلكتروني')),
-              Container(
-                  margin: EdgeInsets.only(bottom: 14.h),
-                  child: const CustomTextFormField(
-                      isObscure: false,
-                      icon: MyIcons.phone, hint: 'رقم الجوال')),
-              Container(
-                margin: EdgeInsets.only(left: 20.w, right: 20.w, bottom: 14.h),
-                height: 60.h,
-                width: 320.w,
-                child: const CustomDropDownButtonFormField(),
-              ),
-              Container(
-                  margin: EdgeInsets.only(bottom: 14.h),
-                  child: const CustomTextFormField(
-                      isObscure: true,
-                      icon: MyIcons.locker, hint: 'كلمة المرور')),
+                      icon: MyIcons.message, hint: 'البريد الإلكتروني'),
+              const CustomTextFormField(
+                  isObscure: false,
+                  icon: MyIcons.phone, hint: 'رقم الجوال'),
+              const CustomDropDownButtonFormField(),
+              const CustomTextFormField(
+                  isObscure: true,
+                  icon: MyIcons.locker, hint: 'كلمة المرور'),
               const CustomTextFormField(
                   isObscure: true,
                   icon: MyIcons.locker, hint: 'اعادة كلمة المرور'),

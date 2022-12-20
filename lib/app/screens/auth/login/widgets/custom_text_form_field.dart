@@ -12,7 +12,7 @@ final bool isObscure;
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.only(left: 20.w, right: 20.w),
+      margin: EdgeInsets.only(left: 20.w, right: 20.w,bottom: 10.h),
       height: 60.h,
       width: 320.w,
       child: TextFormField(

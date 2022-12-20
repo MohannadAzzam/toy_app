@@ -74,48 +74,31 @@ class registerViewerAccountPage extends StatelessWidget {
               SizedBox(
                 height: 50.h,
               ),
-              Container(
-                  margin: EdgeInsets.only(bottom: 14.h),
-                  child: const CustomTextFormField(
-                      isObscure: false,
-                      icon: MyIcons.person, hint: 'الاسم')),
-              Container(
-                  margin: EdgeInsets.only(bottom: 14.h),
-                  child: const CustomTextFormField(
-                      isObscure: false,
-                      icon: MyIcons.message, hint: 'البريد الإلكتروني')),
-              Container(
-                  margin: EdgeInsets.only(bottom: 14.h),
-                  child: const CustomTextFormField(
-                      isObscure: false,
-                      icon: MyIcons.phone, hint: 'رقم الجوال')),
-              Container(
-                  margin: EdgeInsets.only(bottom: 14.h),
-                  child: const CustomTextFormField(
-                      isObscure: false,
-                      icon: MyIcons.company, hint: 'اسم الشركة')),
-              Container(
-                margin: EdgeInsets.only(left: 20.w, right: 20.w, bottom: 14.h),
-                height: 60.h,
-                width: 320.w,
-                child: const CustomDropDownButtonFormField(),
-              ),
-              Container(
-                  margin: EdgeInsets.only(bottom: 14.h),
-                  child:  CustomTextFormField(
-                      isObscure: false,
-                      suffixWidget:  TextFormFieldSuffex(onPressed: (){}) ,
+              const CustomTextFormField(
+                  isObscure: false,
+                  icon: MyIcons.person, hint: 'الاسم'),
+              const CustomTextFormField(
+                  isObscure: false,
+                  icon: MyIcons.message, hint: 'البريد الإلكتروني'),
+              const CustomTextFormField(
+                  isObscure: false,
+                  icon: MyIcons.phone, hint: 'رقم الجوال'),
+              const CustomTextFormField(
+                  isObscure: false,
+                  icon: MyIcons.company, hint: 'اسم الشركة'),
+              const CustomDropDownButtonFormField(),
+              CustomTextFormField(
+                  isObscure: false,
+                  suffixWidget:  TextFormFieldSuffex(onPressed: (){}) ,
 
-                      icon: MyIcons.file,
-                      hint: 'شعار الشركة')),
-              Container(
-                  margin: EdgeInsets.only(bottom: 14.h),
-                  child:  CustomTextFormField(
-                      isObscure: false,
-                      suffixWidget:  TextFormFieldSuffex(onPressed: (){}) ,
+                  icon: MyIcons.file,
+                  hint: 'شعار الشركة'),
+              CustomTextFormField(
+                  isObscure: false,
+                  suffixWidget:  TextFormFieldSuffex(onPressed: (){}) ,
 
-                      icon: MyIcons.file,
-                      hint: 'ملفات الشركة التعريفية')), Container(
+                  icon: MyIcons.file,
+                  hint: 'ملفات الشركة التعريفية'), Container(
                   margin: EdgeInsets.only(bottom: 14.h),
                   child:  CustomTextFormField(
                       isObscure: false,
@@ -124,11 +107,9 @@ class registerViewerAccountPage extends StatelessWidget {
                       icon: MyIcons.file,
                       hint: 'ملفات الشركة الرسمية')),
 
-              Container(
-                  margin: EdgeInsets.only(bottom: 14.h),
-                  child: const CustomTextFormField(
-                      isObscure: true,
-                      icon: MyIcons.locker, hint: 'كلمة المرور')),
+              const CustomTextFormField(
+                  isObscure: true,
+                  icon: MyIcons.locker, hint: 'كلمة المرور'),
               const CustomTextFormField(
                   isObscure: true,
                   icon: MyIcons.locker, hint: 'اعادة كلمة المرور'),
