@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
-import 'package:toy_app/app/testPage.dart';
+
+import 'package:toy_app/app/screens/profile/profile_page.dart';
+
 
 void main() {
   runApp(const MyApp());
@@ -24,7 +26,7 @@ class MyApp extends StatelessWidget {
           home: child,
         );
       },
-      child: const TestPage(),
+      child: const ProfilePage(),
     );
   }
 }
