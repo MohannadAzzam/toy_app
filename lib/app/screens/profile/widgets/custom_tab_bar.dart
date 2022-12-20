@@ -22,6 +22,7 @@ class CustomTabBar extends StatelessWidget {
               child: Container(
                 alignment: Alignment.center,
                 width: Get.width,
+                height: Get.height,
                 child: TabBar(
                   labelStyle:
                       GoogleFonts.cairo(textStyle: TextStyle(fontSize: 18.sp)),
@@ -70,9 +71,10 @@ class CustomTabBar extends StatelessWidget {
               Column(
                 children: [
                   Container(
-                    margin: EdgeInsets.only(top: 20.h),
-                    height: 230.h,
+                    // margin: EdgeInsets.only(top: 20.h),
+                    height: 290.h,
                     child: ListView.builder(
+                      physics: BouncingScrollPhysics(),
                         itemCount: profileTicketList.length,
                         itemBuilder: (context, index) {
                           return CustomProfileTicket(
@@ -83,11 +85,11 @@ class CustomTabBar extends StatelessWidget {
                     onTap: (){
 
                     },
-                      top: 40,
-                      bottom: 20,
+                      top: 15,
+                      bottom: 0,
                       left: 0,
                       right: 0,
-                      height: 60,
+                      height: 50,
                       width: 200,
                       icon: MyIcons.ticket,
                       text: 'حجز تذكرة')

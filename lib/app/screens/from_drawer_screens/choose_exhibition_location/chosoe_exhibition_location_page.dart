@@ -47,18 +47,18 @@ class ChooseExhibitionLocationPage extends StatelessWidget {
                   margin: EdgeInsets.only(left: 3.w, right: 3.w, bottom: 8.h),
                   child:  InkWell(
                       onTap: (){
-                          Get.to(()=>FullExhibitionMapPage());
+                          Get.to(()=>const FullExhibitionMapPage());
                       },
-                    child: Image(
+                    child: const Image(
                       image: AssetImage('assets/images/exhibition_map.png'),
                     ),
                   ),
                 ),
-                Container(
-                  padding: EdgeInsets.only(left: 20.h,right:  20.h),
+                SizedBox(
+                  // padding: EdgeInsets.only(left: 20.h,right:  20.h),
                   height: 500,
                   child: ListView.builder(
-                    physics: BouncingScrollPhysics(),
+                    physics: const FixedExtentScrollPhysics(),
                       itemCount: placeRadioList.length,
                       itemBuilder: (context,index){
                     return CustomRadioListTile(placeRadio: placeRadioList[index]);
@@ -66,10 +66,10 @@ class ChooseExhibitionLocationPage extends StatelessWidget {
                 ),
                 CustomButton(
                     onPressed: () {
-                      Get.to(()=> ChoosePackagePage());
+                      Get.to(()=> const ChoosePackagePage());
                     },
                     bottomMargin: 18,
-                    topMargin: 18,
+                    topMargin: 0,
                     height: 60,
                     width: 200,
                     text: 'تسجيل',
