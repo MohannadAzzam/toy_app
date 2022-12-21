@@ -22,7 +22,7 @@ class TravelAndHotelsPage extends StatelessWidget {
           backgroundColor: const Color(0xff6D2B70),
           leading: IconButton(
             onPressed: () {
-              Get.to(() => const ChooseExhibitionLocationPage());
+              Get.back();
             },
             icon: const Icon(MyIcons.ionic_ios_arrow_back),
           ),
@@ -41,18 +41,6 @@ class TravelAndHotelsPage extends StatelessWidget {
                     color: Colors.black,
                     fontSize: 14),
               ),
-              // Container(
-              //   margin: EdgeInsets.only(left: 3.w, right: 3.w/*, bottom: 8.h*/),
-              //   child: InkWell(
-              //     onTap: () {
-              //       // Get.to(()=>FullExhibitionMapPage());
-              //       print(Get.height);
-              //     },
-              //     child: const Image(
-              //       image: AssetImage('assets/images/exhibition_map.png'),
-              //     ),
-              //   ),
-              // ),
               Container(
                 height: 600.h,
                 // height:Get.height,

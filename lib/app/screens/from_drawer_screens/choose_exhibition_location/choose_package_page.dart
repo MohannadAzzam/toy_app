@@ -3,13 +3,14 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:toy_app/app/data/data_source/sponsor_packages_list.dart';
 import 'package:toy_app/app/screens/from_drawer_screens/choose_exhibition_location/chosoe_exhibition_location_page.dart';
+import 'package:toy_app/app/screens/from_drawer_screens/choose_exhibition_location/full_exhibition_map_page.dart';
 import 'package:toy_app/app/screens/from_drawer_screens/choose_exhibition_location/widgets/custom_choose_package_grid.dart';
 import 'package:toy_app/my_icons_icons.dart';
 
 import '../../auth/login/widgets/custom_text.dart';
 
 class ChoosePackagePage extends StatelessWidget {
-  const ChoosePackagePage({Key? key}) : super(key: key);
+   const ChoosePackagePage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +24,7 @@ class ChoosePackagePage extends StatelessWidget {
           backgroundColor: const Color(0xff6D2B70),
           leading: IconButton(
             onPressed: () {
-              Get.to(() => const ChooseExhibitionLocationPage());
+              Get.back();
             },
             icon: const Icon(MyIcons.ionic_ios_arrow_back),
           ),
@@ -46,15 +47,15 @@ class ChoosePackagePage extends StatelessWidget {
                 margin: EdgeInsets.only(left: 3.w, right: 3.w/*, bottom: 8.h*/),
                 child: InkWell(
                   onTap: () {
-                    // Get.to(()=>FullExhibitionMapPage());
-                    print(Get.height);
+                    Get.to(()=>FullExhibitionMapPage());
+                    // print(Get.height);
                   },
                   child: const Image(
                     image: AssetImage('assets/images/exhibition_map.png'),
                   ),
                 ),
               ),
-              Container(
+              SizedBox(
                 height: 410.h,
                 // height:Get.height,
                 // width: 170.w,

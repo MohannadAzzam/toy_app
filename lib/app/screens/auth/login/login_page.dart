@@ -25,7 +25,7 @@ class LoginPage extends GetView<LoginController> {
           backgroundColor: const Color(0xff6D2B70),
           leading: IconButton(
             onPressed: () {
-              Get.to(() => const HomePage());
+              Get.back();
             },
             icon: const Icon(MyIcons.ionic_ios_arrow_back),
           ),

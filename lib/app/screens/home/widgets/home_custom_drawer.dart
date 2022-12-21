@@ -3,9 +3,19 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:toy_app/app/screens/auth/login/login_page.dart';
+import 'package:toy_app/app/screens/from_drawer_screens/blog_page/blog_page.dart';
+import 'package:toy_app/app/screens/from_drawer_screens/call_us_page/call_us_page.dart';
+import 'package:toy_app/app/screens/from_drawer_screens/choose_exhibition_location/choose_package_page.dart';
 import 'package:toy_app/app/screens/from_drawer_screens/choose_exhibition_location/chosoe_exhibition_location_page.dart';
+import 'package:toy_app/app/screens/from_drawer_screens/choose_exhibition_location/travel_and_hotels_page.dart';
+import 'package:toy_app/app/screens/from_drawer_screens/common_question_page/common_question_page.dart';
+import 'package:toy_app/app/screens/home/home_page.dart';
 import 'package:toy_app/app/screens/home/widgets/custom_drawer_unit.dart';
+import 'package:toy_app/app/screens/home/widgets/social_media_circle_icon.dart';
+import 'package:toy_app/app/screens/profile/profile_page.dart';
 import 'package:toy_app/my_icons_icons.dart';
+
+import '../../from_drawer_screens/sponsors_page/sponsors_page.dart';
 
 class HomeCustomDrawer extends StatelessWidget {
   const HomeCustomDrawer({Key? key}) : super(key: key);
@@ -25,6 +35,7 @@ class HomeCustomDrawer extends StatelessWidget {
               color: const Color(0xff622665),
               child: InkWell(
                 onTap: () {
+                  Scaffold.of(context).closeEndDrawer();
                   Get.to(() => const LoginPage());
                 },
                 child: Row(
@@ -52,88 +63,82 @@ class HomeCustomDrawer extends StatelessWidget {
                 const SizedBox(
                   height: 13,
                 ),
-                const CustomDrawerUnit(
-                    unitName: 'الرئيسية', unitIcon: MyIcons.home),
-                 CustomDrawerUnit(
-                  onTap: (){
-                    Get.to(ChooseExhibitionLocationPage());
-                  },
-                    // nextPage: ChooseExhibitionLocationPage(),
+                CustomDrawerUnit(
+                    onTap: () {
+                      Scaffold.of(context).closeEndDrawer();
 
+                      Get.to(() => const HomePage());
+                    },
+                    unitName: 'الرئيسية',
+                    unitIcon: MyIcons.home),
+                CustomDrawerUnit(
+                    onTap: () {
+                      Scaffold.of(context).closeEndDrawer();
+
+                      Get.to(() => const SponsorsPage());
+                    },
                     unitName: 'العارضين',
                     unitIcon: MyIcons.store),
-                const CustomDrawerUnit(
-                    unitName: 'الرعاة', unitIcon: MyIcons.sponsors),
+                CustomDrawerUnit(
+                    onTap: () {
+                      Scaffold.of(context).closeEndDrawer();
+                      Get.to(() => const ChoosePackagePage());
+                    },
+                    unitName: 'الرعاة',
+                    unitIcon: MyIcons.sponsors),
                 const CustomDrawerUnit(
                     unitName: 'التذاكر', unitIcon: MyIcons.ticket),
-                const CustomDrawerUnit(
+                CustomDrawerUnit(
+                    onTap: () {
+                      Scaffold.of(context).closeEndDrawer();
+
+                      Get.to(() => const TravelAndHotelsPage());
+                    },
                     unitName: 'السفر والفنادق',
                     unitIcon: MyIcons.travelandhote),
-                const CustomDrawerUnit(
-                    unitName: 'المدونة', unitIcon: MyIcons.blog),
+                CustomDrawerUnit(
+                    onTap: () {
+                      Scaffold.of(context).closeEndDrawer();
+                      Get.to(() => const BlogPage());
+                    },
+                    unitName: 'المدونة',
+                    unitIcon: MyIcons.blog),
                 const CustomDrawerUnit(
                     unitName: 'من نحن', unitIcon: MyIcons.info),
-                const CustomDrawerUnit(
+                CustomDrawerUnit(
+                    onTap: () {
+                      Scaffold.of(context).closeEndDrawer();
+
+                      Get.to(() => const CommonQuestionPage());
+                    },
                     unitName: 'الأسئلة الشائعة',
                     unitIcon: MyIcons.question_circle),
                 const CustomDrawerUnit(
                     unitName: 'English', unitIcon: MyIcons.english),
-                const CustomDrawerUnit(
-                    unitName: 'اتصل بنا', unitIcon: MyIcons.message),
+                CustomDrawerUnit(
+                    onTap: () {
+                      Scaffold.of(context).closeEndDrawer();
+                      Get.to(() => const CallUsPage());
+                    },
+                    unitName: 'اتصل بنا',
+                    unitIcon: MyIcons.message),
+                CustomDrawerUnit(
+                    onTap: () {
+                      Scaffold.of(context).closeEndDrawer();
+                      Get.to(() => const ProfilePage());
+                    },
+                    unitName: 'الملف الشخصي(مؤقتة)',
+                    unitIcon: MyIcons.message),
                 Container(
                   width: 240.w,
                   padding: EdgeInsets.only(top: 44.h, bottom: 28.h),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      CircleAvatar(
-                        radius: 24.r,
-                        backgroundColor: Colors.white,
-                        child: CircleAvatar(
-                          radius: 23.r,
-                          backgroundColor: const Color(0xff6D2B70),
-                          child: const Icon(
-                            MyIcons.facebook,
-                            color: Colors.white,
-                          ),
-                        ),
-                      ),
-                      CircleAvatar(
-                        radius: 24.r,
-                        backgroundColor: Colors.white,
-                        child: CircleAvatar(
-                          radius: 23.r,
-                          backgroundColor: const Color(0xff6D2B70),
-                          child: const Icon(
-                            MyIcons.instagram,
-                            color: Colors.white,
-                          ),
-                        ),
-                      ),
-                      CircleAvatar(
-                        radius: 24.r,
-                        backgroundColor: Colors.white,
-                        child: CircleAvatar(
-                          radius: 23.r,
-                          backgroundColor: const Color(0xff6D2B70),
-                          child: const Icon(
-                            MyIcons.twitter,
-                            color: Colors.white,
-                          ),
-                        ),
-                      ),
-                      CircleAvatar(
-                        radius: 24.r,
-                        backgroundColor: Colors.white,
-                        child: CircleAvatar(
-                          radius: 23.r,
-                          backgroundColor: const Color(0xff6D2B70),
-                          child: const Icon(
-                            MyIcons.linkedin,
-                            color: Colors.white,
-                          ),
-                        ),
-                      ),
+                    children: const [
+                      SocialMediaCircleIcons(icon: MyIcons.facebook),
+                      SocialMediaCircleIcons(icon: MyIcons.instagram),
+                      SocialMediaCircleIcons(icon: MyIcons.twitter),
+                      SocialMediaCircleIcons(icon: MyIcons.linkedin),
                     ],
                   ),
                 ),

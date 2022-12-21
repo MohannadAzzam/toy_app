@@ -1,22 +1,22 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:toy_app/app/data/data_source/blog_data_list.dart';
 import 'package:toy_app/app/screens/auth/login/widgets/custom_text.dart';
-import 'package:toy_app/app/screens/from_drawer_screens/blog_page/widgets/custom_blog_card.dart';
 import 'package:toy_app/my_icons_icons.dart';
 
-class BlogPage extends StatelessWidget {
-  const BlogPage({Key? key}) : super(key: key);
+class SponsorsPage extends StatelessWidget {
+  const SponsorsPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+
     return Directionality(
       textDirection: TextDirection.rtl,
       child: Scaffold(
         appBar: AppBar(
           title: const CustomText(
-              textText: 'المدونة', color: Colors.white, fontSize: 20),
-          elevation: 0,
+              textText: 'العارضين', color: Colors.white, fontSize: 18),
+          elevation: 0.r,
           backgroundColor: const Color(0xff6D2B70),
           leading: IconButton(
             onPressed: () {
@@ -25,14 +25,6 @@ class BlogPage extends StatelessWidget {
             icon: const Icon(MyIcons.ionic_ios_arrow_back),
           ),
         ),
-        body: ListView.builder(
-          physics: const BouncingScrollPhysics(),
-            itemCount: blogDataList.length,
-            itemBuilder: (context, index) {
-              return CustomBlogCard(
-                blogData: blogDataList[index],
-              );
-            }),
       ),
     );
   }

@@ -7,7 +7,9 @@ class CustomText extends StatelessWidget {
   final Color color;
   final double fontSize;
   final TextAlign? textAlign;
-  const CustomText({Key? key, required this.textText, required this.color, required this.fontSize,this.textAlign}) : super(key: key);
+  final FontWeight? fontWeight;
+
+  const CustomText({Key? key, required this.textText, required this.color, required this.fontSize,this.textAlign, this.fontWeight}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +18,7 @@ class CustomText extends StatelessWidget {
       // TextAlign: Alignment.center,
     textText,
       style: GoogleFonts.cairo(
-          textStyle: TextStyle(color: color, fontSize: fontSize.sp)),
+          textStyle: TextStyle(color: color, fontSize: fontSize.sp,fontWeight: fontWeight)),
     );
   }
 }
