@@ -31,6 +31,21 @@ class BlogPage extends StatelessWidget {
             itemBuilder: (context, index) {
               return CustomBlogCard(
                 blogData: blogDataList[index],
+
+                // onTap: ()=>        Get.to(() => BlogDetailsPage(blogData: blogData));
+                // onTap: () {
+                //   print("======================${blogDataList.first}");
+                //   var index1 = blogDataList.forEach((element) {
+                //     Get.to(() => BlogDetailsPage(
+                //           blogData: BlogData(element.id,
+                //               blogImage: element.blogImage,
+                //               blogName: element.blogName,
+                //               blogDate: element.blogDate),
+                //         ));
+                //     return print(element.id);
+                //   });
+                //   // print("$index1");
+                // },
               );
             }),
       ),
