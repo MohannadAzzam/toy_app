@@ -7,7 +7,7 @@ class Organizer {
   final String phone;
   final String email;
   final String description;
-  // final List<Services> servicesList;
+  final List<Services> servicesList;
 
   Organizer({
     required this.avatar,
@@ -16,6 +16,6 @@ class Organizer {
     required this.phone,
     required this.email,
     required this.description,
-    // required this.servicesList,
+    required this.servicesList,
   });
 }

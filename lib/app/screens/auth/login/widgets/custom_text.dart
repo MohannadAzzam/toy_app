@@ -14,11 +14,15 @@ class CustomText extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Text(
+      // maxLines: 50,
+
       textAlign: textAlign,
       // TextAlign: Alignment.center,
     textText,
       style: GoogleFonts.cairo(
-          textStyle: TextStyle(color: color, fontSize: fontSize.sp,fontWeight: fontWeight)),
+          textStyle: TextStyle(
+
+              color: color, fontSize: fontSize.sp,fontWeight: fontWeight)),
     );
   }
 }
