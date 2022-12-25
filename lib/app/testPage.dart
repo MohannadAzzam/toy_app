@@ -14,7 +14,7 @@ class TestPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Directionality(
+    return Directionality(  
         textDirection: TextDirection.rtl,
         child: Scaffold(
             body: Row(

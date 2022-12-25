@@ -26,12 +26,12 @@ class CustomTicketPageCard extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Container(
-              margin: EdgeInsets.only(left: 5.w, right: 5.w),
-              child: CustomText(
-                  textText: ticket.day,
-                  color: Color(0xff911D74),
-                  fontSize: 20)),
+          // Container(
+          //     margin: EdgeInsets.only(left: 5.w, right: 5.w),
+          //     child: CustomText(
+          //         textText: ticket.day,
+          //         color: Color(0xff911D74),
+          //         fontSize: 20)),
           SizedBox(
             height: 25,
           ),
@@ -70,6 +70,7 @@ class CustomTicketPageCard extends StatelessWidget {
                       // color: Colors.red,
                       height: 370,
                       child: ListView.builder(
+                        physics: FixedExtentScrollPhysics(),
                         itemCount: eventList.length,
                         itemBuilder: (context, index) =>
                             CustomCardContent(
@@ -78,69 +79,6 @@ class CustomTicketPageCard extends StatelessWidget {
                       ),
                     )
 
-                    // ListView.builder(
-                    //   itemCount: eventNumList.length,
-                    //   itemBuilder: (context, index) =>
-                    //       CustomCardContent(eventNum: eventNumList[index]),
-                    // ),
-                    // Row(
-                    //   crossAxisAlignment: CrossAxisAlignment.start,
-                    //   children: [
-                    //      CustomText(
-                    //         textText: "2-",
-                    //         color: Colors.black,
-                    //         fontSize: 16),
-                    //      Expanded(
-                    //         child: CustomText(
-                    //             textText: "انظلاق أغمال المركز الإعلامي",
-                    //             color: Colors.black,
-                    //             fontSize: 16)),
-                    //   ],
-                    // ),
-                    // Row(
-                    //   crossAxisAlignment: CrossAxisAlignment.start,
-                    //   children: [
-                    //      CustomText(
-                    //         textText: "3-",
-                    //         color: Colors.black,
-                    //         fontSize: 16),
-                    //      Expanded(
-                    //         child: CustomText(
-                    //             textText:
-                    //             "جولة التعارف والاطلاع على أجنحة المعرض وتحية ميديانية للمشاركين",
-                    //             color: Colors.black,
-                    //             fontSize: 16)),
-                    //   ],
-                    // ),
-                    // Row(
-                    //   crossAxisAlignment: CrossAxisAlignment.start,
-                    //   children: [
-                    //      CustomText(
-                    //         textText: "4-",
-                    //         color: Colors.black,
-                    //         fontSize: 16),
-                    //      Expanded(
-                    //         child: CustomText(
-                    //             textText:
-                    //             "انطلاق بطولة الروبوت الصنف الأول",
-                    //             color: Colors.black,
-                    //             fontSize: 16)),
-                    //   ],
-                    // ),
-                    // Row(
-                    //   crossAxisAlignment: CrossAxisAlignment.start,
-                    //   children: [
-                    //      CustomText(
-                    //         textText: "5-",
-                    //         color: Colors.black,
-                    //         fontSize: 16),
-                    //      Expanded(
-                    //         child: CustomText(
-                    //             textText: "انطلاق جلسات شراكه و حوارات",
-                    //             color: Colors.black,
-                    //             fontSize: 16)),
-                    //   ],
-                    // ),
                   ],
                 ),
               ),

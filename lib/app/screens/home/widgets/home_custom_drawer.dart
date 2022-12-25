@@ -6,9 +6,10 @@ import 'package:toy_app/app/screens/auth/login/login_page.dart';
 import 'package:toy_app/app/screens/from_drawer_screens/blog_page/blog_page.dart';
 import 'package:toy_app/app/screens/from_drawer_screens/call_us_page/call_us_page.dart';
 import 'package:toy_app/app/screens/from_drawer_screens/choose_exhibition_location/choose_package_page.dart';
-import 'package:toy_app/app/screens/from_drawer_screens/choose_exhibition_location/chosoe_exhibition_location_page.dart';
 import 'package:toy_app/app/screens/from_drawer_screens/choose_exhibition_location/travel_and_hotels_page.dart';
 import 'package:toy_app/app/screens/from_drawer_screens/common_question_page/common_question_page.dart';
+import 'package:toy_app/app/screens/from_drawer_screens/ticket_page/ticket_page.dart';
+import 'package:toy_app/app/screens/from_drawer_screens/who_us/who_us_page.dart';
 import 'package:toy_app/app/screens/home/home_page.dart';
 import 'package:toy_app/app/screens/home/widgets/custom_drawer_unit.dart';
 import 'package:toy_app/app/screens/home/widgets/social_media_circle_icon.dart';
@@ -86,7 +87,12 @@ class HomeCustomDrawer extends StatelessWidget {
                     },
                     unitName: 'الرعاة',
                     unitIcon: MyIcons.sponsors),
-                const CustomDrawerUnit(
+                 CustomDrawerUnit(
+                     onTap: () {
+                       Scaffold.of(context).closeEndDrawer();
+
+                       Get.to(() => const TicketPage());
+                     },
                     unitName: 'التذاكر', unitIcon: MyIcons.ticket),
                 CustomDrawerUnit(
                     onTap: () {
@@ -103,7 +109,12 @@ class HomeCustomDrawer extends StatelessWidget {
                     },
                     unitName: 'المدونة',
                     unitIcon: MyIcons.blog),
-                const CustomDrawerUnit(
+                CustomDrawerUnit(
+                    onTap: () {
+                      Scaffold.of(context).closeEndDrawer();
+
+                      Get.to(() => const WhoUsPage());
+                    },
                     unitName: 'من نحن', unitIcon: MyIcons.info),
                 CustomDrawerUnit(
                     onTap: () {
