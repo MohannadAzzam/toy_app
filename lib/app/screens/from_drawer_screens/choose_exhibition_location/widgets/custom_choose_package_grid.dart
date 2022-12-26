@@ -18,6 +18,9 @@ class CustomChoosePackageGrid extends StatelessWidget {
       onTap: () {
         // print(sponsorPackages.sponsorId);
         Get.bottomSheet(CustomImageBottomSheet(
+          onPressed: (){
+
+          },
           image: Image(image: AssetImage('${sponsorPackages.sponsorImage}')),
           firstText: '${sponsorPackages.sponsorName}',
           secondText: ' لقد اخترت ان تكون ${sponsorPackages.sponsorName}',

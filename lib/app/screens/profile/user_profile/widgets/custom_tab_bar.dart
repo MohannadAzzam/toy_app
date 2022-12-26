@@ -3,9 +3,9 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:toy_app/app/data/data_source/profile_ticket_list.dart';
-import 'package:toy_app/app/screens/profile/widgets/custom_button_with_icon.dart';
-import 'package:toy_app/app/screens/profile/widgets/custom_profile_data_unit.dart';
-import 'package:toy_app/app/screens/profile/widgets/custom_tickets_profile.dart';
+import 'package:toy_app/app/screens/profile/user_profile/widgets/custom_button_with_icon.dart';
+import 'package:toy_app/app/screens/profile/user_profile/widgets/custom_profile_data_unit.dart';
+import 'package:toy_app/app/screens/profile/user_profile/widgets/custom_tickets_profile.dart';
 import 'package:toy_app/my_icons_icons.dart';
 
 class CustomTabBar extends StatelessWidget {

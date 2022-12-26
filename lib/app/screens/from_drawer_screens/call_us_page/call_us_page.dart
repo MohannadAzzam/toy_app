@@ -8,7 +8,6 @@ import 'package:toy_app/app/screens/auth/login/widgets/custom_text_form_field.da
 import 'package:toy_app/app/screens/auth/registers/register_visitor_account/widgets/drop_down_button_form_field.dart';
 import 'package:toy_app/app/screens/from_drawer_screens/call_us_page/widgets/call_us_icon_with_text.dart';
 import 'package:toy_app/app/screens/from_drawer_screens/call_us_page/widgets/custom_circle_avatar.dart';
-import 'package:toy_app/app/screens/profile/widgets/custom_profile_data_unit.dart';
 import 'package:toy_app/my_icons_icons.dart';
 
 class CallUsPage extends StatelessWidget {

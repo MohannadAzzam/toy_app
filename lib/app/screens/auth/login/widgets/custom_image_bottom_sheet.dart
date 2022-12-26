@@ -11,6 +11,7 @@ class CustomImageBottomSheet extends StatelessWidget {
   final String secondText;
   final String buttonText;
   final Widget? optionalWidget;
+  final void Function()? onPressed;
 
   const CustomImageBottomSheet(
       {Key? key,
@@ -18,7 +19,7 @@ class CustomImageBottomSheet extends StatelessWidget {
       required this.image,
       required this.firstText,
       required this.secondText,
-      required this.buttonText})
+      required this.buttonText, this.onPressed})
       : super(key: key);
 
   @override
@@ -60,7 +61,7 @@ class CustomImageBottomSheet extends StatelessWidget {
                               color: Colors.black,
                               fontSize: 16),
                           CustomButton(
-                              onPressed: () {},
+                              onPressed: onPressed!,
                               bottomMargin: 30,
                               topMargin: 15,
                               height: 60,

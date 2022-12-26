@@ -4,14 +4,14 @@ import 'package:get/get.dart';
 import 'package:toy_app/app/screens/auth/login/widgets/custom_text.dart';
 
 import 'package:toy_app/app/screens/home/home_page.dart';
-import 'package:toy_app/app/screens/profile/change_password_page.dart';
-import 'package:toy_app/app/screens/profile/edit_personal_details.dart';
-import 'package:toy_app/app/screens/profile/widgets/custom_button_with_icon.dart';
-import 'package:toy_app/app/screens/profile/widgets/custom_tab_bar.dart';
+import 'package:toy_app/app/screens/profile/user_profile/change_password_page.dart';
+import 'package:toy_app/app/screens/profile/user_profile/edit_personal_details.dart';
+import 'package:toy_app/app/screens/profile/user_profile/widgets/custom_button_with_icon.dart';
+import 'package:toy_app/app/screens/profile/user_profile/widgets/custom_tab_bar.dart';
 import 'package:toy_app/my_icons_icons.dart';
 
-class ProfilePage extends StatelessWidget {
-  const ProfilePage({Key? key}) : super(key: key);
+class UserProfilePage extends StatelessWidget {
+  const UserProfilePage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

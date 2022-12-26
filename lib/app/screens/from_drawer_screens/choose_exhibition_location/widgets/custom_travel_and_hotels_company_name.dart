@@ -17,6 +17,9 @@ class CustomCompanyName extends StatelessWidget {
     return InkWell(
         onTap: () {
           Get.bottomSheet(CustomImageBottomSheet(
+              onPressed: (){
+
+              },
             image: CircleAvatar(
                 radius: 51.r,
                 backgroundColor: const Color(0xffF5F5F5),

@@ -22,7 +22,7 @@ final bool isObscure;
             // contentPadding: EdgeInsets.only(top: 22.h,bottom: 22.h,right: 20.w),
             prefixIcon:  Icon(
                icon,
-              size: 16,
+              size: 20,
               color: const Color(0xff911D74),
             ),
             hintText: hint ,

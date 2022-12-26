@@ -13,7 +13,8 @@ import 'package:toy_app/app/screens/from_drawer_screens/who_us/who_us_page.dart'
 import 'package:toy_app/app/screens/home/home_page.dart';
 import 'package:toy_app/app/screens/home/widgets/custom_drawer_unit.dart';
 import 'package:toy_app/app/screens/home/widgets/social_media_circle_icon.dart';
-import 'package:toy_app/app/screens/profile/profile_page.dart';
+import 'package:toy_app/app/screens/profile/company_profile/company_profile_page.dart';
+import 'package:toy_app/app/screens/profile/user_profile/user_profile_page.dart';
 import 'package:toy_app/my_icons_icons.dart';
 
 import '../../from_drawer_screens/sponsors_page/sponsors_page.dart';
@@ -136,9 +137,17 @@ class HomeCustomDrawer extends StatelessWidget {
                 CustomDrawerUnit(
                     onTap: () {
                       Scaffold.of(context).closeEndDrawer();
-                      Get.to(() => const ProfilePage());
+                      Get.to(() => const UserProfilePage());
                     },
-                    unitName: 'الملف الشخصي(مؤقتة)',
+                    unitName: 'USER PROFILE',
+                    unitIcon: MyIcons.message),
+
+                CustomDrawerUnit(
+                    onTap: () {
+                      Scaffold.of(context).closeEndDrawer();
+                      Get.to(() => const CompanyProfilePage());
+                    },
+                    unitName: 'CO PROFILE',
                     unitIcon: MyIcons.message),
                 Container(
                   width: 240.w,

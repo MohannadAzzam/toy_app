@@ -8,7 +8,6 @@ import 'package:toy_app/app/screens/auth/login/widgets/custom_button.dart';
 import 'package:toy_app/app/screens/auth/login/widgets/custom_image_bottom_sheet.dart';
 import 'package:toy_app/app/screens/auth/login/widgets/custom_text.dart';
 import 'package:toy_app/app/screens/auth/login/widgets/custom_text_form_field.dart';
-import 'package:toy_app/app/screens/home/home_page.dart';
 import 'package:toy_app/my_icons_icons.dart';
 
 class LoginPage extends GetView<LoginController> {
@@ -16,7 +15,7 @@ class LoginPage extends GetView<LoginController> {
 
   @override
   Widget build(BuildContext context) {
- Get.lazyPut(() => LoginController());
+    Get.lazyPut(() => LoginController());
     return Directionality(
       textDirection: TextDirection.rtl,
       child: Scaffold(
@@ -68,24 +67,20 @@ class LoginPage extends GetView<LoginController> {
                       margin: EdgeInsets.only(right: 9.w, left: 9.w, top: 5.h),
                       decoration: BoxDecoration(
                         // color : Colors.grey,
-                        border: Border.all(color: const Color(0xffF0F0F0) ),
+                        border: Border.all(color: const Color(0xffF0F0F0)),
                         shape: BoxShape.rectangle,
                       ),
-                      child:
-                          GetBuilder
-                            <LoginController>
-                            (
-                              builder: (con) => Checkbox(
-                                    checkColor: const Color(0xff1BBAA2),
-                                    fillColor: MaterialStateColor.resolveWith(
-                                        (states) => Colors.transparent),
-                                    value: con.isChecked,
-                                    onChanged: (var value ) {
-                                      con.isClicked(value);
-                                    },
-                                  )),
-
-                      ),
+                      child: GetBuilder<LoginController>(
+                          builder: (con) => Checkbox(
+                                checkColor: const Color(0xff1BBAA2),
+                                fillColor: MaterialStateColor.resolveWith(
+                                    (states) => Colors.transparent),
+                                value: con.isChecked,
+                                onChanged: (var value) {
+                                  con.isClicked(value);
+                                },
+                              )),
+                    ),
                     const CustomText(
                         textText: 'تذكرني', color: Colors.black, fontSize: 12),
                   ],
@@ -108,8 +103,12 @@ class LoginPage extends GetView<LoginController> {
                         onPressed: () {
                           Get.bottomSheet(CustomBottomSheet(
                             bottomSheetOnPressed: () {
-                              Get.bottomSheet(const CustomImageBottomSheet(
-                                  image: Image(image: AssetImage('assets/images/login_bottom_sheet.png')),
+                              Get.bottomSheet(
+                                  CustomImageBottomSheet(
+                                    onPressed: (){},
+                                  image: Image(
+                                      image: AssetImage(
+                                          'assets/images/login_bottom_sheet.png')),
                                   firstText: 'نسيت كلمة المرورو ؟',
                                   secondText:
                                       'ستصل رسالة على البريد الإلكتروني لتفعيل الحساب',

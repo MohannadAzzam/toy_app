@@ -3,7 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:toy_app/app/screens/auth/login/widgets/custom_text.dart';
 import 'package:toy_app/app/screens/from_drawer_screens/ticket_page/widgets/custom_day_scroll.dart';
-import 'package:toy_app/app/screens/profile/widgets/custom_button_with_icon.dart';
+import 'package:toy_app/app/screens/profile/user_profile/widgets/custom_button_with_icon.dart';
 import 'package:toy_app/my_icons_icons.dart';
 
 class TicketPage extends StatelessWidget {

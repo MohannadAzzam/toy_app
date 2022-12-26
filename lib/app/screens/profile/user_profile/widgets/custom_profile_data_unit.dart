@@ -23,13 +23,13 @@ class CustomProfileDataUnit extends StatelessWidget {
           ),
           Icon(
             icon,
-            size: 16.r,
+            size: 14.r,
             color: Color(0xff911D74),
           ),
           SizedBox(
             width: 4.w,
           ),
-          CustomText(textText: text, color: Colors.black, fontSize: 18.sp)
+          CustomText(textText: text, color: Colors.black, fontSize: 16.sp)
         ],
       ),
     );

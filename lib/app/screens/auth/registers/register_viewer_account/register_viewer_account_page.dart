@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:toy_app/app/screens/auth/account_type/account_type_page.dart';
 import 'package:toy_app/app/screens/auth/login/widgets/custom_button.dart';
 import 'package:toy_app/app/screens/auth/login/widgets/custom_text.dart';
 import 'package:toy_app/app/screens/auth/login/widgets/custom_text_form_field.dart';
@@ -24,7 +23,7 @@ class registerViewerAccountPage extends StatelessWidget {
           backgroundColor: const Color(0xff6D2B70),
           leading: IconButton(
             onPressed: () {
-              Get.to(() => const AccountTypePage());
+              Get.back();
             },
             icon: const Icon(MyIcons.ionic_ios_arrow_back),
           ),
@@ -99,7 +98,7 @@ class registerViewerAccountPage extends StatelessWidget {
 
                   icon: MyIcons.file,
                   hint: 'ملفات الشركة التعريفية'), Container(
-                  margin: EdgeInsets.only(bottom: 14.h),
+                  // margin: EdgeInsets.only(bottom: 14.h),
                   child:  CustomTextFormField(
                       isObscure: false,
                       suffixWidget:  TextFormFieldSuffex(onPressed: (){}) ,

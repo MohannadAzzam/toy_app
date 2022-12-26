@@ -9,7 +9,7 @@ class CustomDropDownButtonFormField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.only(left: 20.w, right: 20.w,bottom: 10.h),
+      margin: EdgeInsets.only(left: 20.w, right: 20.w, bottom: 10.h),
       height: 60.h,
       width: 320.w,
       child: DropdownButtonFormField(
@@ -22,7 +22,7 @@ class CustomDropDownButtonFormField extends StatelessWidget {
             prefixIcon: Icon(
               MyIcons.location,
               color: Color(0xff6D2B70),
-              size: 16,
+              size: 20,
             ),
             border: OutlineInputBorder(
               borderRadius: BorderRadius.all(
@@ -35,7 +35,8 @@ class CustomDropDownButtonFormField extends StatelessWidget {
                     value: e,
                     child: Text(
                       e,
-                      style: GoogleFonts.cairo(fontSize: 18, color: Colors.black),
+                      style:
+                          GoogleFonts.cairo(fontSize: 18, color: Colors.black),
                     ),
                   ))
               .toList(),
