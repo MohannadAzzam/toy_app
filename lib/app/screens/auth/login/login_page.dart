@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:toy_app/app/controllers/home_controller.dart';
+import 'package:toy_app/app/controllers/login_controller.dart';
 import 'package:toy_app/app/screens/auth/account_type/account_type_page.dart';
 import 'package:toy_app/app/screens/auth/login/widgets/custom_bottom_sheet.dart';
 import 'package:toy_app/app/screens/auth/login/widgets/custom_button.dart';

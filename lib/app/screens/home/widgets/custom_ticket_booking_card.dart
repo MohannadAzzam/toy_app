@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:toy_app/app/data/models/home_ticket_booking_card.dart';
+import 'package:toy_app/app/data/models/categories/home_ticket_booking_card.dart';
 
 // ignore: camel_case_types
 class customTicketBookingCard extends StatelessWidget {
