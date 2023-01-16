@@ -61,8 +61,10 @@ class EditPersonalDetails extends StatelessWidget {
                                   child: Container(
                                     width: Get.width,
                                     child: Column(
-                                      crossAxisAlignment: CrossAxisAlignment.center,
-                                      mainAxisAlignment: MainAxisAlignment.center,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.center,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
                                       children: [
                                         CustomButtonWithIcon(
                                             height: 60,
@@ -135,16 +137,23 @@ class EditPersonalDetails extends StatelessWidget {
                     SizedBox(
                       height: 30.h,
                     ),
-                    CustomTextFormField(
-                        icon: MyIcons.person, hint: 'الاسم', isObscure: false),
-                    CustomTextFormField(
-                        icon: MyIcons.message,
-                        hint: 'البريد الإلكتروني',
-                        isObscure: false),
-                    CustomTextFormField(
-                        icon: MyIcons.message,
-                        hint: 'رقم الجوال',
-                        isObscure: false),
+                    Form(
+                        child: Column(
+                      children: [
+                        CustomTextFormField(
+                            icon: MyIcons.person,
+                            hint: 'الاسم',
+                            isObscure: false),
+                        CustomTextFormField(
+                            icon: MyIcons.message,
+                            hint: 'البريد الإلكتروني',
+                            isObscure: false),
+                        CustomTextFormField(
+                            icon: MyIcons.message,
+                            hint: 'رقم الجوال',
+                            isObscure: false),
+                      ],
+                    )),
                     CustomDropDownButtonFormField()
                   ],
                 ),

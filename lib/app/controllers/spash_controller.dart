@@ -8,7 +8,7 @@ class SplashController extends GetxController {
   void onInit() {
     Timer(
       const Duration(milliseconds: 2000),
-      () => Get.offAll(() => const HomePage(), transition: Transition.fade),
+      () => Get.offAll(() =>  HomePage(), transition: Transition.fade),
     );
     super.onInit();
   }

@@ -103,9 +103,8 @@ class LoginPage extends GetView<LoginController> {
                         onPressed: () {
                           Get.bottomSheet(CustomBottomSheet(
                             bottomSheetOnPressed: () {
-                              Get.bottomSheet(
-                                  CustomImageBottomSheet(
-                                    onPressed: (){},
+                              Get.bottomSheet(CustomImageBottomSheet(
+                                  onPressed: () {},
                                   image: Image(
                                       image: AssetImage(
                                           'assets/images/login_bottom_sheet.png')),

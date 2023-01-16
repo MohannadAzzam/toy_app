@@ -70,22 +70,30 @@ class RegisterVisitorAccountPage extends StatelessWidget {
               SizedBox(
                 height: 50.h,
               ),
-              const CustomTextFormField(
-                  isObscure: false,
-                  icon: MyIcons.person, hint: 'الاسم'),
-               const CustomTextFormField(
-                      isObscure: false,
-                      icon: MyIcons.message, hint: 'البريد الإلكتروني'),
-              const CustomTextFormField(
-                  isObscure: false,
-                  icon: MyIcons.phone, hint: 'رقم الجوال'),
-              const CustomDropDownButtonFormField(),
-              const CustomTextFormField(
-                  isObscure: true,
-                  icon: MyIcons.locker, hint: 'كلمة المرور'),
-              const CustomTextFormField(
-                  isObscure: true,
-                  icon: MyIcons.locker, hint: 'اعادة كلمة المرور'),
+
+              Form(
+                child: Column(
+                  children: [
+                    const CustomTextFormField(
+                        isObscure: false,
+                        icon: MyIcons.person, hint: 'الاسم'),
+                    const CustomTextFormField(
+                        isObscure: false,
+                        icon: MyIcons.message, hint: 'البريد الإلكتروني'),
+                    const CustomTextFormField(
+                        isObscure: false,
+                        icon: MyIcons.phone, hint: 'رقم الجوال'),
+                    const CustomDropDownButtonFormField(),
+                    const CustomTextFormField(
+                        isObscure: true,
+                        icon: MyIcons.locker, hint: 'كلمة المرور'),
+                    const CustomTextFormField(
+                        isObscure: true,
+                        icon: MyIcons.locker, hint: 'اعادة كلمة المرور'),
+                  ],
+                ),
+              ),
+
               CustomButton(
                   onPressed: (){},
 

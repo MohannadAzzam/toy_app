@@ -2,19 +2,21 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:toy_app/app/data/models/categories/categories.dart';
 import 'package:toy_app/app/data/models/categories/home_ticket_booking_card.dart';
 
 // ignore: camel_case_types
 class customTicketBookingCard extends StatelessWidget {
-  final HomeTicketBookingCard homeTicketBookingCardItems;
+  final Categories categories;
 
   const customTicketBookingCard(
-      {Key? key, required this.homeTicketBookingCardItems})
+      {Key? key, /*required this.homeTicketBookingCardItems,*/ required this.categories})
       : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Container(
+      color: Colors.red,
       margin: const EdgeInsets.all(5),
       height: 400.h,
       // color: Colors.blue,
@@ -24,8 +26,8 @@ class customTicketBookingCard extends StatelessWidget {
           ClipRRect(
             borderRadius: BorderRadius.circular(20),
             child: Image(
-              image: AssetImage(homeTicketBookingCardItems.image),
-              fit: BoxFit.fill,
+              image: AssetImage("assets/images/Ticket_booking.png"),
+              fit: BoxFit.cover,
               height: 400.h,
               width: 317.7.w,
             ),
@@ -39,7 +41,7 @@ class customTicketBookingCard extends StatelessWidget {
                 Container(
                   margin: EdgeInsets.only(top: 160.h, left: 176.w, right: 27.w),
                   child: Text(
-                    homeTicketBookingCardItems.firstTitle,
+                    categories.name!,
                     style: GoogleFonts.cairo(
                         textStyle:
                             TextStyle(color: Colors.white, fontSize: 20.sp)),
@@ -48,7 +50,7 @@ class customTicketBookingCard extends StatelessWidget {
                 Container(
                   margin: EdgeInsets.only(top: 5.h, left: 120.w, right: 27.w),
                   child: Text(
-                    homeTicketBookingCardItems.secondTitle,
+                    categories.shortDetails!,
                     style: GoogleFonts.cairo(
                         textStyle:
                             TextStyle(color: Colors.white, fontSize: 18.sp)),
@@ -57,7 +59,7 @@ class customTicketBookingCard extends StatelessWidget {
                 Container(
                   margin: EdgeInsets.only(left: 17.w, right: 27.w),
                   child: Text(
-                    homeTicketBookingCardItems.subTitle,
+                    categories.details!,
                     style: GoogleFonts.cairo(
                         textStyle: TextStyle(
                       color: const Color(0xffC1C1C1),

@@ -91,16 +91,23 @@ class CallUsPage extends StatelessWidget {
                       textText: "راسلنا",
                       color: Color(0xff911D74),
                       fontSize: 18),
-                  CustomTextFormField(
-                      icon: MyIcons.person, hint: 'الاسم', isObscure: false),
-                  CustomTextFormField(
-                      icon: MyIcons.message,
-                      hint: 'البريد الإلكتروني',
-                      isObscure: false),
-                  CustomTextFormField(
-                      icon: MyIcons.phone,
-                      hint: 'رقم الجوال',
-                      isObscure: false),
+                  Form(
+                    child: Column(
+                      children: [
+                        CustomTextFormField(
+                            icon: MyIcons.person, hint: 'الاسم', isObscure: false),
+                        CustomTextFormField(
+                            icon: MyIcons.message,
+                            hint: 'البريد الإلكتروني',
+                            isObscure: false),
+                        CustomTextFormField(
+                            icon: MyIcons.phone,
+                            hint: 'رقم الجوال',
+                            isObscure: false),
+                      ],
+                    ),
+                  ),
+
                   CustomDropDownButtonFormField(),
                   Container(
                     margin:

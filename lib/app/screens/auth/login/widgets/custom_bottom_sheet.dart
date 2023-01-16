@@ -58,9 +58,11 @@ class CustomBottomSheet extends StatelessWidget {
                           SizedBox(
                             height: 41.h,
                           ),
-                          const CustomTextFormField(
-                            isObscure: false,
-                              icon: MyIcons.message, hint: 'البريد الإلكتروني'),
+                          Form(
+                            child: const CustomTextFormField(
+                              isObscure: false,
+                                icon: MyIcons.message, hint: 'البريد الإلكتروني'),
+                          ),
                           CustomButton(
                               onPressed: bottomSheetOnPressed,
                               bottomMargin: 37,

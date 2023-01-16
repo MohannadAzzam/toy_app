@@ -31,8 +31,8 @@ class SponsorsPage extends StatelessWidget {
             itemCount: sponsorList.length,
             gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
               crossAxisCount: 2,
-              mainAxisSpacing: 5,
-              crossAxisSpacing: 5,
+              mainAxisSpacing: 3,
+              crossAxisSpacing: 3,
               childAspectRatio: 0.75,
             ),
             itemBuilder: (context, index) {

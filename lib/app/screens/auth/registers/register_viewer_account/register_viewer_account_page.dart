@@ -73,45 +73,48 @@ class registerViewerAccountPage extends StatelessWidget {
               SizedBox(
                 height: 50.h,
               ),
-              const CustomTextFormField(
-                  isObscure: false,
-                  icon: MyIcons.person, hint: 'الاسم'),
-              const CustomTextFormField(
-                  isObscure: false,
-                  icon: MyIcons.message, hint: 'البريد الإلكتروني'),
-              const CustomTextFormField(
-                  isObscure: false,
-                  icon: MyIcons.phone, hint: 'رقم الجوال'),
-              const CustomTextFormField(
-                  isObscure: false,
-                  icon: MyIcons.company, hint: 'اسم الشركة'),
-              const CustomDropDownButtonFormField(),
-              CustomTextFormField(
-                  isObscure: false,
-                  suffixWidget:  TextFormFieldSuffex(onPressed: (){}) ,
+              Form(
+                child: Column(
+                  children: [
+                    const CustomTextFormField(
+                        isObscure: false,
+                        icon: MyIcons.person, hint: 'الاسم'),
+                    const CustomTextFormField(
+                        isObscure: false,
+                        icon: MyIcons.message, hint: 'البريد الإلكتروني'),
+                    const CustomTextFormField(
+                        isObscure: false,
+                        icon: MyIcons.phone, hint: 'رقم الجوال'),
+                    const CustomTextFormField(
+                        isObscure: false,
+                        icon: MyIcons.company, hint: 'اسم الشركة'),
+                    const CustomDropDownButtonFormField(),
+                    CustomTextFormField(
+                        isObscure: false,
+                        suffixWidget:  TextFormFieldSuffex(onPressed: (){}) ,
 
-                  icon: MyIcons.file,
-                  hint: 'شعار الشركة'),
-              CustomTextFormField(
-                  isObscure: false,
-                  suffixWidget:  TextFormFieldSuffex(onPressed: (){}) ,
+                        icon: MyIcons.file,
+                        hint: 'شعار الشركة'),
+                    CustomTextFormField(
+                        isObscure: false,
+                        suffixWidget:  TextFormFieldSuffex(onPressed: (){}) ,
+                        icon: MyIcons.file,
+                        hint: 'ملفات الشركة التعريفية'),
+                    CustomTextFormField(
+                        isObscure: false,
+                        suffixWidget:  TextFormFieldSuffex(onPressed: (){}) ,
 
-                  icon: MyIcons.file,
-                  hint: 'ملفات الشركة التعريفية'), Container(
-                  // margin: EdgeInsets.only(bottom: 14.h),
-                  child:  CustomTextFormField(
-                      isObscure: false,
-                      suffixWidget:  TextFormFieldSuffex(onPressed: (){}) ,
-
-                      icon: MyIcons.file,
-                      hint: 'ملفات الشركة الرسمية')),
-
-              const CustomTextFormField(
-                  isObscure: true,
-                  icon: MyIcons.locker, hint: 'كلمة المرور'),
-              const CustomTextFormField(
-                  isObscure: true,
-                  icon: MyIcons.locker, hint: 'اعادة كلمة المرور'),
+                        icon: MyIcons.file,
+                        hint: 'ملفات الشركة الرسمية'),
+                    const CustomTextFormField(
+                        isObscure: true,
+                        icon: MyIcons.locker, hint: 'كلمة المرور'),
+                    const CustomTextFormField(
+                        isObscure: true,
+                        icon: MyIcons.locker, hint: 'اعادة كلمة المرور'),
+                  ],
+                ),
+              ),
               CustomButton(
                   onPressed: () {
                     Get.to(()=> ChooseExhibitionLocationPage() );

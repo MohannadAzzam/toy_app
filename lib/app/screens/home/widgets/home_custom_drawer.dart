@@ -69,7 +69,7 @@ class HomeCustomDrawer extends StatelessWidget {
                     onTap: () {
                       Scaffold.of(context).closeEndDrawer();
 
-                      Get.to(() => const HomePage());
+                      Get.to(() =>  HomePage());
                     },
                     unitName: 'الرئيسية',
                     unitIcon: MyIcons.home),

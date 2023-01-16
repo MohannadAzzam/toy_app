@@ -133,16 +133,23 @@ class ChangePasswordPage extends StatelessWidget {
                     SizedBox(
                       height: 30.h,
                     ),
-                    const CustomTextFormField(
-                        icon: MyIcons.locker, hint: 'كلمة المرور القديمة', isObscure: true),
-                    const CustomTextFormField(
-                        icon: MyIcons.locker,
-                        hint: 'كلمة المرور الجديدة',
-                        isObscure: true),
-                    const CustomTextFormField(
-                        icon: MyIcons.locker,
-                        hint: 'اعادة كلمة المرور الجديدة',
-                        isObscure: true),
+                    Form(
+                      child: Column(
+                        children: [
+                          const CustomTextFormField(
+                              icon: MyIcons.locker, hint: 'كلمة المرور القديمة', isObscure: true),
+                          const CustomTextFormField(
+                              icon: MyIcons.locker,
+                              hint: 'كلمة المرور الجديدة',
+                              isObscure: true),
+                          const CustomTextFormField(
+                              icon: MyIcons.locker,
+                              hint: 'اعادة كلمة المرور الجديدة',
+                              isObscure: true),
+                        ],
+                      ),
+                    ),
+
                   ],
                 ),
               ),

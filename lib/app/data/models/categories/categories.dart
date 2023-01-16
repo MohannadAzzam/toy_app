@@ -1,37 +1,37 @@
 // To parse this JSON data, do
 //
-//     final categores = categoresFromJson(jsonString);
+//     final categories = categoriesFromJson(jsonString);
 
 import 'dart:convert';
 
-List<Categores> categoresFromJson(String str) => List<Categores>.from(json.decode(str).map((x) => Categores.fromJson(x)));
+List<Categories> categoriesFromJson(String str) => List<Categories>.from(json.decode(str).map((x) => Categories.fromJson(x)));
 
-String categoresToJson(List<Categores> data) => json.encode(List<dynamic>.from(data.map((x) => x.toJson())));
+String categoriesToJson(List<Categories> data) => json.encode(List<dynamic>.from(data.map((x) => x.toJson())));
 
-class Categores {
-  Categores({
-    required this.id,
-    required this.parentId,
-    required this.status,
-    required this.image,
-    required this.name,
-    required this.shortDetails,
-    required this.details,
+class Categories {
+  Categories({
+    this.id,
+    this.parentId,
+    this.status,
+    this.image,
+    this.name,
+    this.shortDetails,
+    this.details,
     this.pageName,
     this.pageDetails,
   });
 
-  int id;
-  int parentId;
-  String status;
-  String image;
-  String name;
-  String shortDetails;
-  String details;
+  int? id;
+  int? parentId;
+  String? status;
+  String? image;
+  String? name;
+  String? shortDetails;
+  String? details;
   dynamic pageName;
   dynamic pageDetails;
 
-  factory Categores.fromJson(Map<String, dynamic> json) => Categores(
+  factory Categories.fromJson(Map<String, dynamic> json) => Categories(
     id: json["id"],
     parentId: json["parent_id"],
     status: json["status"],

@@ -10,9 +10,11 @@ class CustomCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return     Card(
+      // clipBehavior: Clip.antiAliasWithSaveLayer,
       elevation: 5,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
       child: Column(
+        // mainAxisSize: MainAxisSize.min,
         children: [
           Container(
             margin: EdgeInsets.only(top: 20.h, left: 39.w, right: 39.w),
