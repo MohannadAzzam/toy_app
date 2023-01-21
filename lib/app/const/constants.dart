@@ -1,0 +1,1 @@
+const String baseApiLink = "https://etr.hexacit.com/api/";

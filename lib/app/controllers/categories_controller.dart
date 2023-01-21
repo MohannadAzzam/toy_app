@@ -1,11 +1,17 @@
+import 'dart:convert';
+
 import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
 import 'package:get/state_manager.dart';
-import 'package:toy_app/app/data/models/categories/categories.dart';
+import 'package:toy_app/app/const/constants.dart';
+
+import '../data/models/home_response.dart';
 
 class CategoryController extends GetxController {
-  var categoryList = <Categories>[].obs;
-  var isLoading = true.obs;
+  // var categoryList = <Categore>[].obs;
+  List<Categore?>? categoryList = [];
+
+  // var isLoading = true.obs;
 
   @override
   void onInit() {
@@ -13,31 +19,66 @@ class CategoryController extends GetxController {
     fetchCategory();
   }
 
-  void fetchCategory() async {
-    var category = await RemoteServices.getCategories();
+   Future<List<Categore?>?> fetchCategory() async {
+    var category = await RemoteServices.getHomeResponse();
+    // var a = category['items']
+    // print("===THIS IS THE CATEGORY==== ${category.items!.categores}");
     try {
-      isLoading(true);
-      if (category.isNotEmpty) {
-        categoryList.addAll(category);
+      // isLoading(true);
+      // if (category.items!.categores!.isNotEmpty) {
+      //   categoryList!.addAll(cate.items!.categores);
         // print("---------myLog------------${categoryList}");
-      }
+      // }
+      return category.items!.categores;
     } finally {
-      isLoading(false);
+      // isLoading(false);
     }
   }
 }
 
 class RemoteServices {
-  static Future<List<Categories>> getCategories() async {
-    var response =
-        await http.get(Uri.parse("https://etr.hexacit.com/api/home"));
+  static Future<HomeResponse> getHomeResponse() async {
+    var response = await http.get(
+      Uri.parse("${baseApiLink}home"),
+    );
     if (response.statusCode == 200) {
-      var jsonData = response.body;
-      // print("JSON DATA ${jsonData}");
-      return categoriesFromJson(jsonData);
+      var jsonData = await jsonDecode(response.body);
+      // print("==========s=s=s=s=s=======${jsonData['items']}");
+      HomeResponse responseBody = HomeResponse.fromJson(jsonData);
+      // m.forEach((key, value) {
+      //   print("$key : $value");
+      // });
+      // var i = m.entries.forEach((element) {
+      //   print("=============${m}");
+      // });
+      // print(i);
+
+      // var items = m.keys.toList().indexOf('items') ;
+      //
+      // var categories = m.values.toList()[items]['categores'];
+      //
+      // Map s = categories[4];
+
+      // s.forEach((key, value) {
+      //   print('$key : $value');
+      // });
+
+      // print(m);
+
+      // print(categories[0]);
+
+      // print("================JSON DATA===============${categories}");
+      // print(m.entries.map((e) => print(e)));
+
+      // return s;
+      // print("THIS IS RESPONSEb ${jsonData}");
+      // print(response.body);
+      // return responseB;
+
+      return responseBody;
     } else {
       return throw Exception(
-          "=============Faild to load categories==============");
+          "=============Failed to load categories==============");
     }
   }
 //

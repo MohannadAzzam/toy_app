@@ -5,10 +5,12 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:toy_app/app/controllers/categories_controller.dart';
 import 'package:toy_app/app/data/data_source/helper_list.dart';
 import 'package:toy_app/app/data/data_source/home_new_blog_list.dart';
+import 'package:toy_app/app/data/models/home_response.dart';
+import 'package:toy_app/app/screens/auth/login/widgets/custom_button.dart';
+import 'package:toy_app/app/screens/auth/login/widgets/custom_text.dart';
 import 'package:toy_app/app/screens/home/widgets/custom_card.dart';
 import 'package:toy_app/app/screens/home/widgets/custom_helper.dart';
 import 'package:toy_app/app/screens/home/widgets/custom_new_blog_card.dart';
-import 'package:toy_app/app/screens/home/widgets/custom_ticket_booking_card.dart';
 import 'package:toy_app/app/screens/home/widgets/home_custom_drawer.dart';
 import 'package:toy_app/my_icons_icons.dart';
 
@@ -72,21 +74,84 @@ class HomePage extends StatelessWidget {
                   ),
                 ],
               ),
-              Obx(
-
-                      () => SizedBox(
-                    width: Get.width,
-                    height: 400.h,
-                    child: ListView.builder(
-                        scrollDirection: Axis.horizontal,
-                        itemBuilder: (context, index) {
-                          return customTicketBookingCard(
-                              categories:
-                                  categoryController.categoryList[index]);
-                        },
-                        // separatorBuilder: (context, i) => const SizedBox(),
-                        itemCount: categoryController.categoryList.length),
-                  )),
+              SizedBox(
+                width: Get.width,
+                height: 400.h,
+                child: FutureBuilder<List<Categore?>?>(
+                    future: categoryController.fetchCategory(),
+                    builder:
+                        (context, AsyncSnapshot<List<Categore?>?> snapshot) {
+                      if (snapshot.hasData) {
+                        return ListView.builder(
+                            scrollDirection: Axis.horizontal,
+                            itemBuilder: (context, index) {
+                              return
+                                Container(
+                                margin: const EdgeInsets.all(5),
+                                width: 317.7.w,
+                                decoration: BoxDecoration(
+                                    borderRadius:
+                                        BorderRadius.all(Radius.circular(15)),
+                                    image: DecorationImage(
+                                      image: NetworkImage(
+                                          "${snapshot.data![index]!.image}"),
+                                      fit: BoxFit.cover,
+                                    )),
+                                child: Column(
+                                  children: [
+                                    Container(
+                                      margin: EdgeInsets.only(
+                                          top: 175.h, right: 20.w),
+                                      alignment: Alignment.topRight,
+                                      child: CustomText(
+                                          textText:
+                                              "${snapshot.data![index]!.name}",
+                                          color: Colors.white,
+                                          fontSize: 20),
+                                    ),
+                                    Container(
+                                        margin: EdgeInsets.only(right: 20.w,top: 5.h,bottom: 5.h),
+                                        alignment: Alignment.topRight,
+                                        child: CustomText(
+                                            textText:
+                                            "${snapshot.data![index]!.shortDetails}",
+                                            color: Colors.white,
+                                            fontSize: 18)
+                                        ),
+                                    Expanded(
+                                      child: ListView(
+                                        children: [
+                                          Container(
+                                            margin: EdgeInsets.only(right: 20.w),
+                                              alignment: Alignment.topRight,
+                                              child: CustomText(
+                                                  textText:
+                                                      "${snapshot.data![index]!.details}",
+                                                  color: Color(0xffC1C1C1),
+                                                  fontSize: 14.sp))
+                                        ],
+                                      ),
+                                    ),
+                                    CustomButton(
+                                        onPressed: () {},
+                                        bottomMargin: 20,
+                                        topMargin: 20,
+                                        height: 60,
+                                        width: 220,
+                                        text: "احجز تذاكر",
+                                        rightMargin: 60,
+                                        leftMargin: 60)
+                                  ],
+                                ),
+                              );
+                            },
+                            itemCount: snapshot.data!.length);
+                      }
+                      return const Center(
+                        child: CircularProgressIndicator(),
+                      );
+                    }),
+              ),
               Container(
                   margin: EdgeInsets.only(top: 15.h, right: 12.w, left: 12.w),
                   alignment: Alignment.bottomRight,
