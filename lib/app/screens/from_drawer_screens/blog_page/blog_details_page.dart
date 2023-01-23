@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:toy_app/app/data/models/bolg_data.dart';
+import 'package:toy_app/app/data/models/home/bolg_data.dart';
 import 'package:toy_app/app/screens/auth/login/widgets/custom_text.dart';
 import 'package:toy_app/my_icons_icons.dart';
 

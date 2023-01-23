@@ -1,81 +1,93 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
 import 'package:toy_app/app/screens/auth/login/widgets/custom_button.dart';
 import 'package:toy_app/app/screens/auth/login/widgets/custom_text.dart';
 
-import '../../../data/models/home_response.dart';
+import '../../../controllers/home_controller.dart';
 
 // ignore: camel_case_types
 class customTicketBookingCard extends StatelessWidget {
-  final Categore categories;
+  // final Categore categories;
   // final List<Categore?>? categories;
   // final HomeTicketBookingCard homeTicketBookingCardItems;
 
-  const customTicketBookingCard(
-      {Key? key, /*required this.homeTicketBookingCardItems,*/ required this.categories})
-      : super(key: key);
+  customTicketBookingCard({
+    Key? key}) : super(key: key);
+
+  final HomeController _homeController = Get.put(HomeController());
 
   @override
   Widget build(BuildContext context) {
-    return
-      Container(
-        margin: const EdgeInsets.all(5),
-        width: 317.7.w,
-        decoration: BoxDecoration(
-            borderRadius:
-            BorderRadius.all(Radius.circular(15)),
-            image: DecorationImage(
-              image: NetworkImage(
-                  "${categories.image}"),
-              fit: BoxFit.cover,
-            )),
-        child: Column(
-          children: [
-            Container(
-              margin: EdgeInsets.only(
-                  top: 175.h, right: 20.w),
-              alignment: Alignment.topRight,
-              child: CustomText(
-                  textText:
-                  "${categories.name}",
-                  color: Colors.white,
-                  fontSize: 20),
-            ),
-            Container(
-                margin: EdgeInsets.only(right: 20.w,top: 5.h,bottom: 5.h),
-                alignment: Alignment.topRight,
-                child: CustomText(
-                    textText:
-                    "${categories.shortDetails}",
-                    color: Colors.white,
-                    fontSize: 18)
-            ),
-            Expanded(
-              child: ListView(
-                children: [
-                  Container(
-                      margin: EdgeInsets.only(right: 20.w),
-                      alignment: Alignment.topRight,
-                      child: CustomText(
-                          textText:
-                          "${categories.details}",
-                          color: Color(0xffC1C1C1),
-                          fontSize: 14.sp))
-                ],
-              ),
-            ),
-            CustomButton(
-                onPressed: () {},
-                bottomMargin: 20,
-                topMargin: 20,
-                height: 60,
-                width: 220,
-                text: "احجز تذاكر",
-                rightMargin: 60,
-                leftMargin: 60)
-          ],
-        ),
-      );
+    return FutureBuilder(
+        future: _homeController.fetchCategory(),
+        builder: (context, snapshot) {
+          if (snapshot.hasData) {
+            return ListView.builder(
+                scrollDirection: Axis.horizontal,
+                itemBuilder: (context, index) {
+                  return Container(
+                    margin: const EdgeInsets.all(5),
+                    width: 317.7.w,
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.all(Radius.circular(15)),
+                        image: DecorationImage(
+                          image:
+                              NetworkImage("${snapshot.data![index]!.image}"),
+                          fit: BoxFit.cover,
+                        )),
+                    child: Column(
+                      children: [
+                        Container(
+                          margin: EdgeInsets.only(top: 175.h, right: 20.w),
+                          alignment: Alignment.topRight,
+                          child: CustomText(
+                              textText: "${snapshot.data![index]!.name}",
+                              color: Colors.white,
+                              fontSize: 20),
+                        ),
+                        Container(
+                            margin: EdgeInsets.only(
+                                right: 20.w, top: 5.h, bottom: 5.h),
+                            alignment: Alignment.topRight,
+                            child: CustomText(
+                                textText:
+                                    "${snapshot.data![index]!.shortDetails}",
+                                color: Colors.white,
+                                fontSize: 18)),
+                        Expanded(
+                          child: ListView(
+                            children: [
+                              Container(
+                                  margin: EdgeInsets.only(right: 20.w),
+                                  alignment: Alignment.topRight,
+                                  child: CustomText(
+                                      textText:
+                                          "${snapshot.data![index]!.details}",
+                                      color: Color(0xffC1C1C1),
+                                      fontSize: 14.sp))
+                            ],
+                          ),
+                        ),
+                        CustomButton(
+                            onPressed: () {},
+                            bottomMargin: 20,
+                            topMargin: 20,
+                            height: 60,
+                            width: 220,
+                            text: "احجز تذاكر",
+                            rightMargin: 60,
+                            leftMargin: 60)
+                      ],
+                    ),
+                  );
+                },
+                itemCount: snapshot.data!.length);
+          }
+          return const Center(
+            child: CircularProgressIndicator(),
+          );
+        });
     //   Container(
     //   color: Colors.red,
     //   margin: const EdgeInsets.all(5),

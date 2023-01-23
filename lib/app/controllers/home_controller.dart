@@ -5,33 +5,40 @@ import 'package:http/http.dart' as http;
 import 'package:get/state_manager.dart';
 import 'package:toy_app/app/const/constants.dart';
 
-import '../data/models/home_response.dart';
+import '../data/models/home/home_response.dart';
 
-class CategoryController extends GetxController {
+class HomeController extends GetxController {
   // var categoryList = <Categore>[].obs;
-  List<Categore?>? categoryList = [];
-
+  // List<Categore?>? categoryList = [];
   // var isLoading = true.obs;
 
   @override
   void onInit() {
     super.onInit();
     fetchCategory();
+    fetchSupportTeams();
   }
 
    Future<List<Categore?>?> fetchCategory() async {
     var category = await RemoteServices.getHomeResponse();
-    // var a = category['items']
-    // print("===THIS IS THE CATEGORY==== ${category.items!.categores}");
     try {
-      // isLoading(true);
-      // if (category.items!.categores!.isNotEmpty) {
-      //   categoryList!.addAll(cate.items!.categores);
-        // print("---------myLog------------${categoryList}");
-      // }
       return category.items!.categores;
     } finally {
-      // isLoading(false);
+    }
+  }
+  Future<List<SupportTeam?>?> fetchSupportTeams() async {
+    var supportTeams = await RemoteServices.getHomeResponse();
+    try {
+      return supportTeams.items!.supportTeams;
+    } finally {
+    }
+  }
+  Future<List<Blog?>?> fetchBolg() async {
+    var blog = await RemoteServices.getHomeResponse();
+    try {
+      print(blog);
+      return blog.items!.blogs;
+    } finally {
     }
   }
 }
@@ -43,38 +50,7 @@ class RemoteServices {
     );
     if (response.statusCode == 200) {
       var jsonData = await jsonDecode(response.body);
-      // print("==========s=s=s=s=s=======${jsonData['items']}");
       HomeResponse responseBody = HomeResponse.fromJson(jsonData);
-      // m.forEach((key, value) {
-      //   print("$key : $value");
-      // });
-      // var i = m.entries.forEach((element) {
-      //   print("=============${m}");
-      // });
-      // print(i);
-
-      // var items = m.keys.toList().indexOf('items') ;
-      //
-      // var categories = m.values.toList()[items]['categores'];
-      //
-      // Map s = categories[4];
-
-      // s.forEach((key, value) {
-      //   print('$key : $value');
-      // });
-
-      // print(m);
-
-      // print(categories[0]);
-
-      // print("================JSON DATA===============${categories}");
-      // print(m.entries.map((e) => print(e)));
-
-      // return s;
-      // print("THIS IS RESPONSEb ${jsonData}");
-      // print(response.body);
-      // return responseB;
-
       return responseBody;
     } else {
       return throw Exception(

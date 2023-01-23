@@ -50,7 +50,6 @@ class TicketPage extends StatelessWidget {
                       right: 0,
                       onTap: () {}),
                   const CustomDayScroll(dayText: "اليوم الأول"),
-                  const CustomDayScroll(dayText: "اليوم الثاني"),
                 ],
               ),
             ],

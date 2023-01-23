@@ -1,4 +1,4 @@
-import 'package:toy_app/app/data/models/categories/home_ticket_booking_card.dart';
+import '../models/home/home_ticket_booking_card.dart';
 
 List<HomeTicketBookingCard> homeTicketBookingCardList = [
   HomeTicketBookingCard(

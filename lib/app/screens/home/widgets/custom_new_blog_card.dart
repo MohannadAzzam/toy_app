@@ -1,58 +1,76 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:toy_app/app/data/models/home_new_blog.dart';
+import 'package:get/get.dart';
+
+import 'package:toy_app/app/screens/auth/login/widgets/custom_text.dart';
+
+import '../../../controllers/home_controller.dart';
 
 class CustomNewBlogCard extends StatelessWidget {
-  final HomeNewBlog homeNewBlog;
-  const CustomNewBlogCard({Key? key, required this.homeNewBlog}) : super(key: key);
+  // final HomeNewBlog homeNewBlog;
+
+  CustomNewBlogCard({
+    Key? key,
+    // required this.homeNewBlog
+  }) : super(key: key);
+  final HomeController _homeController = Get.put(HomeController());
 
   @override
   Widget build(BuildContext context) {
     return Directionality(
       textDirection: TextDirection.rtl,
-      child: SizedBox(
-        height: 257.h,
-        // color: Colors.blue,
-        width: 349.w,
-        child: Stack(
-          children: [
-            ClipRRect(
-              borderRadius: BorderRadius.circular(20),
-              child: Image(
-                image: AssetImage(homeNewBlog.image),
-                fit: BoxFit.fill,
-                height: 257.h,
-                width: 349.w,
-              ),
-            ),
-            Column(
-              children: [
-                Container(
-                  margin: EdgeInsets.only(top: 150.h, left: 80.w, right: 20.w),
-                  // color: Colors.red,
-                  child: Text(
-                    homeNewBlog.title,
-                    style: GoogleFonts.cairo(
-                        textStyle:
-                        TextStyle(color: Colors.white, fontSize: 20.sp)),
-                  ),
-                ),
-                Container(
-                  // color: Colors.red,
-                  margin: EdgeInsets.only(top: 3.h, left: 235.w, right: 20.w,bottom: 11),
-                  child: Text(
-                    homeNewBlog.date,
-                    style: GoogleFonts.cairo(
-                        textStyle:
-                        TextStyle(color: const Color(0xffC1C1C1), fontSize: 16.sp)),
-                  ),
-                ),
-              ],
-            ),
-          ],
-        ),
-      ),
+      child: FutureBuilder(
+          future: _homeController.fetchBolg(),
+          builder: (context, snapshot) {
+            if (snapshot.hasData) {
+              return ListView.builder(
+                  scrollDirection: Axis.horizontal,
+                  itemBuilder: (context, index) {
+                    return Container(
+                      margin:
+                          EdgeInsets.symmetric(horizontal: 5.w, vertical: 5.h),
+                      width: 349.w,
+                      decoration: BoxDecoration(
+                          border: Border.all(color: Colors.transparent),
+                          borderRadius: const BorderRadius.all(Radius.circular(20)),
+                          image: DecorationImage(
+                            image:
+                                NetworkImage("${snapshot.data![index]!.image}"),
+                            fit: BoxFit.cover,
+                          )),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        children: [
+                          Container(
+                              margin: EdgeInsets.symmetric(horizontal: 25.w),
+                              child: CustomText(
+                                  textText: "${snapshot.data![index]!.name}",
+                                  color: Colors.white,
+                                  fontSize: 20)),
+                          Container(
+                              margin: EdgeInsets.symmetric(
+                                  horizontal: 25.w, vertical: 5.h),
+                              // EdgeInsets.only(top: 5.h, left: 235.w, right: 25.w, bottom: 11),
+                              child: CustomText(
+                                  textText:
+                                      "${snapshot.data![index]!.createdAt}"
+                                          .substring(0, 10),
+                                  color: const Color(0xffC1C1C1),
+                                  fontSize: 16)),
+                          SizedBox(
+                            height: 10.h,
+                          )
+                        ],
+                      ),
+                    );
+                  },
+                  itemCount: snapshot.data!.length);
+            }
+            return const Center(
+              child: CircularProgressIndicator(),
+            );
+          }),
     );
   }
 }

@@ -20,7 +20,9 @@ class CustomDayScroll extends StatelessWidget {
                 textText: dayText,
                 color: const Color(0xff911D74),
                 fontSize: 20)),
-        SizedBox(
+        Container(
+          // color: Colors.red,
+          padding: EdgeInsets.only(top: 10),
           height: 500,
           child: ListView.builder(
             physics: const BouncingScrollPhysics(),

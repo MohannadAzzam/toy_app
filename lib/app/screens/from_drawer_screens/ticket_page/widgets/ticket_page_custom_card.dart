@@ -17,7 +17,6 @@ class CustomTicketPageCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      // height: 400.h,
       width: (Get.width) * (7 / 10),
       margin: EdgeInsets.only(
         left: 10.w,
@@ -26,26 +25,25 @@ class CustomTicketPageCard extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          // Container(
-          //     margin: EdgeInsets.only(left: 5.w, right: 5.w),
-          //     child: CustomText(
-          //         textText: ticket.day,
-          //         color: Color(0xff911D74),
-          //         fontSize: 20)),
           SizedBox(
             height: 25,
           ),
           Badge(
             badgeColor: Color(0xff911D74),
-            padding: EdgeInsets.all(15),
+            padding: EdgeInsets.all(20),
             badgeContent: Column(
               children: [
-                CustomText(textText: ticket.timeNumber, color: Colors.white, fontSize: 16),
                 CustomText(
-                    textText: ticket.timeText, color: Colors.white, fontSize: 14),
+                    textText: ticket.timeNumber,
+                    color: Colors.white,
+                    fontSize: 16),
+                CustomText(
+                    textText: ticket.timeText,
+                    color: Colors.white,
+                    fontSize: 14),
               ],
             ),
-            position: BadgePosition.topEnd(top: -35, end: 10),
+            position: BadgePosition.topEnd(top: -25.h, end: 10.w),
             child: Card(
               elevation: 3.r,
               // clipBehavior: Clip.antiAlias,
@@ -57,9 +55,6 @@ class CustomTicketPageCard extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    SizedBox(
-                      height: 5.h,
-                    ),
                     CustomText(
                       textText: ticket.eventName,
                       color: Colors.black,
@@ -67,18 +62,19 @@ class CustomTicketPageCard extends StatelessWidget {
                       fontWeight: FontWeight.w600,
                     ),
                     SizedBox(
+                      height: 5,
+                    ),
+                    SizedBox(
                       // color: Colors.red,
                       height: 370,
                       child: ListView.builder(
                         physics: FixedExtentScrollPhysics(),
                         itemCount: eventList.length,
-                        itemBuilder: (context, index) =>
-                            CustomCardContent(
-                                eventNum: eventNumList[index],
-                                event: eventList[index]),
+                        itemBuilder: (context, index) => CustomCardContent(
+                            eventNum: eventNumList[index],
+                            event: eventList[index]),
                       ),
                     )
-
                   ],
                 ),
               ),

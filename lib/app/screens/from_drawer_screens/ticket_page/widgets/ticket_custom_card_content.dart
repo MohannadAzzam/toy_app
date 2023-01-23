@@ -19,10 +19,10 @@ class CustomCardContent extends StatelessWidget {
         CustomText(
             textText: "${eventNum.eventNum}",
             color: Colors.black,
-            fontSize: 16),
+            fontSize: 18),
         Expanded(
             child: CustomText(
-                textText: "${event.event}", color: Colors.black, fontSize: 16)),
+                textText: "${event.event}", color: Colors.black, fontSize: 18)),
       ],
     );
   }
