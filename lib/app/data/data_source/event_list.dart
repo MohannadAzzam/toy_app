@@ -1,6 +1,6 @@
 
 
-import 'package:toy_app/app/data/models/event.dart';
+import 'package:toy_app/app/data/models/tickets/event.dart';
 
 List<Event> eventList = [
   Event(event: "افتتاح الاجنحة وفتح الابواب امام الزوار"),

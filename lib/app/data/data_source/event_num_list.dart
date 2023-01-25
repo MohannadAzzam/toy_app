@@ -1,5 +1,6 @@
 
-import 'package:toy_app/app/data/models/evetn_num.dart';
+
+import '../models/tickets/evetn_num.dart';
 
 List<EventNum> eventNumList = [
   EventNum(eventNum: "1-",),

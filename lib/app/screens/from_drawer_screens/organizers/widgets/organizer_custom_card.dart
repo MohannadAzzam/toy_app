@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:toy_app/app/data/models/organizer.dart';
+import 'package:toy_app/app/data/models/organizers/organizer.dart';
 import 'package:toy_app/app/screens/auth/login/widgets/custom_text.dart';
 import 'package:toy_app/app/screens/from_drawer_screens/organizers/widgets/custom_services_list.dart';
 import 'package:toy_app/app/screens/from_drawer_screens/organizers/widgets/organizers_custom_icon_with_text.dart';
@@ -19,10 +19,8 @@ class CustomOrganizerCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-        // height: 310.h,
-        // width: Get.width - 10,
-        // constraints:BoxConstraints.expand() ,
+    return
+      Container(
         margin: EdgeInsets.only(left: 5.w, right: 5.w, top: 5.h),
         child: Card(
           elevation: 3.r,
@@ -34,31 +32,7 @@ class CustomOrganizerCard extends StatelessWidget {
             // height: 500,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
-              // mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
-
-                ///////////////////////////////////////////////
-                // ما يوجد بين التعليقات يحتاج لاضافته في الكلاسيز والليست لاحقاً
-            /*    SizedBox(
-                  height: 10.h,
-                ),
-                Container(
-                  alignment: Alignment.center,
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: const [
-                      Image(
-                          image: AssetImage("assets/images/diamond_sponsor.png")),
-                      CustomText(
-                          textText: "الراعي الماسي",
-                          color: Colors.black,
-                          fontSize: 16),
-                    ],
-                  ),
-                ),*/
-                ///////////////////////////////////////////////
-
-                // :
                 Row(
                   children: [
                     Image(image: AssetImage(organizer.avatar)),
@@ -95,7 +69,7 @@ class CustomOrganizerCard extends StatelessWidget {
                 CustomText(
                   textText: organizer.description,
                   color: Colors.black,
-                  fontSize: 12,
+                  fontSize: 16,
                   // fontWeight: FontWeight.w400,
                 ),
                 const CustomText(

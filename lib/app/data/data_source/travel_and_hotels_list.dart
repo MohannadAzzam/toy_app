@@ -1,4 +1,4 @@
-import 'package:toy_app/app/data/models/travel_and_hotels.dart';
+import 'package:toy_app/app/data/models/travels/travel_and_hotels.dart';
 
 List<TravelAndHotels> travelAndHotelsList = [
   TravelAndHotels(1, companyAvatar: 'assets/images/company_avatar.png', companyName: 'اسم الشركة'),

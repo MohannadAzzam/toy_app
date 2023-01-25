@@ -1,6 +1,6 @@
 
-import 'package:toy_app/app/data/models/event.dart';
-import 'package:toy_app/app/data/models/evetn_num.dart';
+import 'package:toy_app/app/data/models/tickets/event.dart';
+import 'package:toy_app/app/data/models/tickets/evetn_num.dart';
 
 class Ticket {
   String day;

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:toy_app/app/data/models/sponsors_data.dart';
+import 'package:toy_app/app/data/models/sponsors/sponsors_data.dart';
 import 'package:toy_app/app/screens/auth/login/widgets/custom_text.dart';
 import 'package:toy_app/app/screens/from_drawer_screens/sponsors_page/widgets/sponsors_custom_icon_with_text.dart';
 import 'package:toy_app/my_icons_icons.dart';
@@ -12,7 +12,9 @@ class SponsorsCustomCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return
+
+      Container(
         // margin: const EdgeInsets.only(left: 1, right: 1, top: 10),
         child: Card(
       elevation: 3.r,
@@ -85,7 +87,7 @@ class SponsorsCustomCard extends StatelessWidget {
                 margin: EdgeInsets.only(left: 5.w, right: 5.w),
                 child: CustomText(
                   textText: sponsor.description, color: Colors.black,
-                  fontSize: 10,
+                  fontSize: 14,
                   fontWeight: FontWeight.w400,
                 ),
               ),

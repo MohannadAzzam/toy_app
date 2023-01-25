@@ -8,7 +8,7 @@ import 'package:toy_app/app/screens/auth/login/widgets/custom_text.dart';
 class CustomImageBottomSheet extends StatelessWidget {
   final Widget image;
   final String firstText;
-  final String secondText;
+  final String? secondText;
   final String buttonText;
   final Widget? optionalWidget;
   final void Function()? onPressed;
@@ -18,7 +18,7 @@ class CustomImageBottomSheet extends StatelessWidget {
       this.optionalWidget,
       required this.image,
       required this.firstText,
-      required this.secondText,
+       this.secondText,
       required this.buttonText, this.onPressed})
       : super(key: key);
 
@@ -57,7 +57,7 @@ class CustomImageBottomSheet extends StatelessWidget {
                               color: Colors.black,
                               fontSize: 18),
                           CustomText(
-                              textText: secondText,
+                              textText: secondText!,
                               color: Colors.black,
                               fontSize: 16),
                           CustomButton(

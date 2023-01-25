@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:toy_app/app/data/models/event.dart';
-import 'package:toy_app/app/data/models/evetn_num.dart';
+import 'package:toy_app/app/data/models/tickets/event.dart';
 import 'package:toy_app/app/screens/auth/login/widgets/custom_text.dart';
+
+import '../../../../data/models/tickets/evetn_num.dart';
 
 class CustomCardContent extends StatelessWidget {
   final EventNum eventNum;

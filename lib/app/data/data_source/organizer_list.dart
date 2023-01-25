@@ -1,5 +1,6 @@
 import 'package:toy_app/app/data/data_source/services_list.dart';
-import 'package:toy_app/app/data/models/organizer.dart';
+
+import '../models/organizers/organizer.dart';
 
 List<Organizer> organizersList = [
   Organizer(

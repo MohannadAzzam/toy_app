@@ -77,7 +77,7 @@ class HomeCustomDrawer extends StatelessWidget {
                     onTap: () {
                       Scaffold.of(context).closeEndDrawer();
 
-                      Get.to(() => const SponsorsPage());
+                      Get.to(() => SponsorsPage());
                     },
                     unitName: 'العارضين',
                     unitIcon: MyIcons.store),
@@ -92,14 +92,14 @@ class HomeCustomDrawer extends StatelessWidget {
                      onTap: () {
                        Scaffold.of(context).closeEndDrawer();
 
-                       Get.to(() => const TicketPage());
+                       Get.to(() =>  TicketPage());
                      },
                     unitName: 'التذاكر', unitIcon: MyIcons.ticket),
                 CustomDrawerUnit(
                     onTap: () {
                       Scaffold.of(context).closeEndDrawer();
 
-                      Get.to(() => const TravelAndHotelsPage());
+                      Get.to(() =>  TravelAndHotelsPage());
                     },
                     unitName: 'السفر والفنادق',
                     unitIcon: MyIcons.travelandhote),

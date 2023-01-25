@@ -17,36 +17,46 @@ class HomeController extends GetxController {
     super.onInit();
     fetchCategory();
     fetchSupportTeams();
+    fetchBolg();
   }
 
    Future<List<Categore?>?> fetchCategory() async {
-    var category = await RemoteServices.getHomeResponse();
+    var category = await HomeRemoteService.getHomeResponse();
     try {
       return category.items!.categores;
     } finally {
+      print("fetchCategory method error");
+
     }
   }
   Future<List<SupportTeam?>?> fetchSupportTeams() async {
-    var supportTeams = await RemoteServices.getHomeResponse();
+    var supportTeams = await HomeRemoteService.getHomeResponse();
     try {
       return supportTeams.items!.supportTeams;
     } finally {
+      print("fetchSupportTeams method error");
+
     }
   }
   Future<List<Blog?>?> fetchBolg() async {
-    var blog = await RemoteServices.getHomeResponse();
+    var blog = await HomeRemoteService.getHomeResponse();
     try {
       print(blog);
       return blog.items!.blogs;
     } finally {
+      print("fetchBolg method error");
+
     }
   }
 }
 
-class RemoteServices {
+class HomeRemoteService {
   static Future<HomeResponse> getHomeResponse() async {
+
+    Map<String, String> headers = {"Accept-Language": "ar", "Accept": "application/json"};
+
     var response = await http.get(
-      Uri.parse("${baseApiLink}home"),
+      Uri.parse("${baseApiLink}home"),headers: headers
     );
     if (response.statusCode == 200) {
       var jsonData = await jsonDecode(response.body);
@@ -54,7 +64,7 @@ class RemoteServices {
       return responseBody;
     } else {
       return throw Exception(
-          "=============Failed to load categories==============");
+          "=============Failed to load Home response ==============");
     }
   }
 //

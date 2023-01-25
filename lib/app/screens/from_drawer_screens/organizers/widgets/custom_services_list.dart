@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:toy_app/app/data/models/services.dart';
+import 'package:toy_app/app/data/models/organizers/services.dart';
 import 'package:toy_app/app/screens/auth/login/widgets/custom_text.dart';
 
 class CustomServicesList extends StatelessWidget {

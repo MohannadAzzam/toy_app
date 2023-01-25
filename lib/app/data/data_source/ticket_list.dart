@@ -1,7 +1,8 @@
 
-import 'package:toy_app/app/data/data_source/event_list.dart';
-import 'package:toy_app/app/data/data_source/event_num_list.dart';
-import 'package:toy_app/app/data/models/ticket.dart';
+
+import '../models/tickets/ticket.dart';
+import 'event_list.dart';
+import 'event_num_list.dart';
 
 List<Ticket> ticketList = [
   Ticket(

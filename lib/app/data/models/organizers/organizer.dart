@@ -1,4 +1,4 @@
-import 'package:toy_app/app/data/models/services.dart';
+import 'package:toy_app/app/data/models/organizers/services.dart';
 
 class Organizer {
   final String avatar;

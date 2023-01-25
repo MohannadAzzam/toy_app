@@ -1,4 +1,4 @@
- import 'package:toy_app/app/data/models/sponsors_data.dart';
+ import 'package:toy_app/app/data/models/sponsors/sponsors_data.dart';
 
 List<Sponsor> sponsorList = [
   Sponsor(
