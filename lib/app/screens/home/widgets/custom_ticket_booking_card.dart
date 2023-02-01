@@ -19,7 +19,8 @@ class customTicketBookingCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return FutureBuilder(
+    return
+      FutureBuilder(
         future: _homeController.fetchCategory(),
         builder: (context, snapshot) {
           if (snapshot.hasData) {
@@ -65,7 +66,7 @@ class customTicketBookingCard extends StatelessWidget {
                                       textText:
                                           "${snapshot.data![index]!.details}",
                                       color: Color(0xffC1C1C1),
-                                      fontSize: 14.sp))
+                                      fontSize: 14))
                             ],
                           ),
                         ),
@@ -75,7 +76,7 @@ class customTicketBookingCard extends StatelessWidget {
                             topMargin: 20,
                             height: 60,
                             width: 220,
-                            text: "احجز تذاكر",
+                            text: "BookTickets",
                             rightMargin: 60,
                             leftMargin: 60)
                       ],

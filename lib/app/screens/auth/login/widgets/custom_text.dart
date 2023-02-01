@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
 
 class CustomText extends StatelessWidget {
   final String textText;
@@ -25,7 +26,7 @@ class CustomText extends StatelessWidget {
 
       textAlign: textAlign,
       // TextAlign: Alignment.center,
-      textText,
+      textText.tr,
       style: TextStyle(
           fontFamily: 'din-next-lt-w23',
           color: color,

@@ -17,60 +17,57 @@ class CustomNewBlogCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Directionality(
-      textDirection: TextDirection.rtl,
-      child: FutureBuilder(
-          future: _homeController.fetchBolg(),
-          builder: (context, snapshot) {
-            if (snapshot.hasData) {
-              return ListView.builder(
-                  scrollDirection: Axis.horizontal,
-                  itemBuilder: (context, index) {
-                    return Container(
-                      margin:
-                          EdgeInsets.symmetric(horizontal: 5.w, vertical: 5.h),
-                      width: 349.w,
-                      decoration: BoxDecoration(
-                          border: Border.all(color: Colors.transparent),
-                          borderRadius: const BorderRadius.all(Radius.circular(20)),
-                          image: DecorationImage(
-                            image:
-                                NetworkImage("${snapshot.data![index]!.image}"),
-                            fit: BoxFit.cover,
-                          )),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        mainAxisAlignment: MainAxisAlignment.end,
-                        children: [
-                          Container(
-                              margin: EdgeInsets.symmetric(horizontal: 25.w),
-                              child: CustomText(
-                                  textText: "${snapshot.data![index]!.name}",
-                                  color: Colors.white,
-                                  fontSize: 20)),
-                          Container(
-                              margin: EdgeInsets.symmetric(
-                                  horizontal: 25.w, vertical: 5.h),
-                              // EdgeInsets.only(top: 5.h, left: 235.w, right: 25.w, bottom: 11),
-                              child: CustomText(
-                                  textText:
-                                      "${snapshot.data![index]!.createdAt}"
-                                          .substring(0, 10),
-                                  color: const Color(0xffC1C1C1),
-                                  fontSize: 16)),
-                          SizedBox(
-                            height: 10.h,
-                          )
-                        ],
-                      ),
-                    );
-                  },
-                  itemCount: snapshot.data!.length);
-            }
-            return const Center(
-              child: CircularProgressIndicator(),
-            );
-          }),
-    );
+    return FutureBuilder(
+        future: _homeController.fetchBolg(),
+        builder: (context, snapshot) {
+          if (snapshot.hasData) {
+            return ListView.builder(
+                scrollDirection: Axis.horizontal,
+                itemBuilder: (context, index) {
+                  return Container(
+                    margin:
+                        EdgeInsets.symmetric(horizontal: 5.w, vertical: 5.h),
+                    width: 349.w,
+                    decoration: BoxDecoration(
+                        border: Border.all(color: Colors.transparent),
+                        borderRadius: const BorderRadius.all(Radius.circular(20)),
+                        image: DecorationImage(
+                          image:
+                              NetworkImage("${snapshot.data![index]!.image}"),
+                          fit: BoxFit.cover,
+                        )),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: [
+                        Container(
+                            margin: EdgeInsets.symmetric(horizontal: 25.w),
+                            child: CustomText(
+                                textText: "${snapshot.data![index]!.name}",
+                                color: Colors.white,
+                                fontSize: 20)),
+                        Container(
+                            margin: EdgeInsets.symmetric(
+                                horizontal: 25.w, vertical: 5.h),
+                            // EdgeInsets.only(top: 5.h, left: 235.w, right: 25.w, bottom: 11),
+                            child: CustomText(
+                                textText:
+                                    "${snapshot.data![index]!.createdAt}"
+                                        .substring(0, 10),
+                                color: const Color(0xffC1C1C1),
+                                fontSize: 16)),
+                        SizedBox(
+                          height: 10.h,
+                        )
+                      ],
+                    ),
+                  );
+                },
+                itemCount: snapshot.data!.length);
+          }
+          return const Center(
+            child: CircularProgressIndicator(),
+          );
+        });
   }
 }

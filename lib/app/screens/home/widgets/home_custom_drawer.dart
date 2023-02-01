@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:toy_app/app/controllers/english_controller.dart';
+
+import 'package:toy_app/app/controllers/locale/local_controller.dart';
 import 'package:toy_app/app/screens/auth/login/login_page.dart';
 import 'package:toy_app/app/screens/auth/login/widgets/custom_text.dart';
 import 'package:toy_app/app/screens/from_drawer_screens/blog_page/blog_page.dart';
@@ -17,15 +17,16 @@ import 'package:toy_app/app/screens/home/widgets/custom_drawer_unit.dart';
 import 'package:toy_app/app/screens/home/widgets/social_media_circle_icon.dart';
 import 'package:toy_app/app/screens/profile/company_profile/company_profile_page.dart';
 import 'package:toy_app/app/screens/profile/user_profile/user_profile_page.dart';
+import 'package:toy_app/main.dart';
 import 'package:toy_app/my_icons_icons.dart';
 
 import '../../from_drawer_screens/sponsors_page/sponsors_page.dart';
 
 class HomeCustomDrawer extends StatelessWidget {
-
   HomeCustomDrawer({Key? key}) : super(key: key);
 
-  final EnglishController _englishController = Get.put(EnglishController());
+  final MyLocalController _myLocalController = Get.put(MyLocalController());
+
   @override
   Widget build(BuildContext context) {
     return Drawer(
@@ -35,21 +36,34 @@ class HomeCustomDrawer extends StatelessWidget {
         child: Column(
           children: [
             Container(
-              width: Get.width,
-              height: 230.h,
-              color: Colors.white,
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children:const [
-                  SizedBox(height: 50,),
-                  Image(image: AssetImage("assets/images/appLogo.png"),height: 75),
-                  CustomText(textText: "معرض الرياض", color: Color(0xff911D74), fontSize: 20,fontWeight: FontWeight.bold,),
-                  CustomText(textText: "لألعــــــــاب الأطفــــــــــــال", color: Color(0xff949494), fontSize: 16,fontWeight: FontWeight.w300,)
-                ],
-              )
-            ),
-             // Image(
-             //    image: AssetImage('assets/images/home_drawer_uper.png')),
+                width: Get.width,
+                height: 230.h,
+                color: Colors.white,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: const [
+                    SizedBox(
+                      height: 50,
+                    ),
+                    Image(
+                        image: AssetImage("assets/images/appLogo.png"),
+                        height: 75),
+                    CustomText(
+                      textText: "RiyadhExhibition",
+                      color: Color(0xff911D74),
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                    ),
+                    CustomText(
+                      textText: "foChildrenGames",
+                      color: Color(0xff949494),
+                      fontSize: 16,
+                      fontWeight: FontWeight.w300,
+                    )
+                  ],
+                )),
+            // Image(
+            //    image: AssetImage('assets/images/home_drawer_uper.png')),
             Container(
               padding: EdgeInsets.only(top: 20.h, bottom: 16.h),
               color: const Color(0xff622665),
@@ -61,11 +75,8 @@ class HomeCustomDrawer extends StatelessWidget {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Text(
-                      'تسجيل الدخول',
-                      style: GoogleFonts.cairo(
-                          fontSize: 18.sp, color: Colors.white),
-                    ),
+                    CustomText(
+                        textText: "login", color: Colors.white, fontSize: 18),
                     SizedBox(
                       width: 6.w,
                     ),
@@ -87,9 +98,9 @@ class HomeCustomDrawer extends StatelessWidget {
                     onTap: () {
                       Scaffold.of(context).closeEndDrawer();
 
-                      Get.to(() =>  HomePage());
+                      Get.to(() => HomePage());
                     },
-                    unitName: 'الرئيسية',
+                    unitName: "home",
                     unitIcon: MyIcons.home),
                 CustomDrawerUnit(
                     onTap: () {
@@ -97,36 +108,37 @@ class HomeCustomDrawer extends StatelessWidget {
 
                       Get.to(() => SponsorsPage());
                     },
-                    unitName: 'العارضين',
+                    unitName: "exhibitors",
                     unitIcon: MyIcons.store),
                 CustomDrawerUnit(
                     onTap: () {
                       Scaffold.of(context).closeEndDrawer();
                       Get.to(() => const ChoosePackagePage());
                     },
-                    unitName: 'الرعاة',
+                    unitName: "sponsor",
                     unitIcon: MyIcons.sponsors),
-                 CustomDrawerUnit(
-                     onTap: () {
-                       Scaffold.of(context).closeEndDrawer();
-
-                       Get.to(() =>  TicketPage());
-                     },
-                    unitName: 'التذاكر', unitIcon: MyIcons.ticket),
                 CustomDrawerUnit(
                     onTap: () {
                       Scaffold.of(context).closeEndDrawer();
 
-                      Get.to(() =>  TravelAndHotelsPage());
+                      Get.to(() => TicketPage());
                     },
-                    unitName: 'السفر والفنادق',
+                    unitName: "ticket",
+                    unitIcon: MyIcons.ticket),
+                CustomDrawerUnit(
+                    onTap: () {
+                      Scaffold.of(context).closeEndDrawer();
+
+                      Get.to(() => TravelAndHotelsPage());
+                    },
+                    unitName: "travelAndHotel",
                     unitIcon: MyIcons.travelandhote),
                 CustomDrawerUnit(
                     onTap: () {
                       Scaffold.of(context).closeEndDrawer();
-                      Get.to(() =>  BlogPage());
+                      Get.to(() => BlogPage());
                     },
-                    unitName: 'المدونة',
+                    unitName: "blog",
                     unitIcon: MyIcons.blog),
                 CustomDrawerUnit(
                     onTap: () {
@@ -134,26 +146,34 @@ class HomeCustomDrawer extends StatelessWidget {
 
                       Get.to(() => const WhoUsPage());
                     },
-                    unitName: 'من نحن', unitIcon: MyIcons.info),
+                    unitName: "whoUs",
+                    unitIcon: MyIcons.info),
                 CustomDrawerUnit(
                     onTap: () {
                       Scaffold.of(context).closeEndDrawer();
 
-                      Get.to(() =>  CommonQuestionPage());
+                      Get.to(() => CommonQuestionPage());
                     },
-                    unitName: 'الأسئلة الشائعة',
+                    unitName: "commonQuestions",
                     unitIcon: MyIcons.question_circle),
-                 CustomDrawerUnit(
-                   onTap: (){
-                     _englishController.changeLanguage();
-                   },
-                    unitName: 'English', unitIcon: MyIcons.english),
+                CustomDrawerUnit(
+                    onTap: () {
+                      print("_myLocalController.initLang.toString() ${_myLocalController.initLang.toString()}");
+                      // _englishController.changeLanguage();
+                      sharedPreferences!.getString("lang")== "ar"
+                          ? _myLocalController.changeLang("en")
+                          : _myLocalController.changeLang("ar");
+                      Get.offAll(() =>   HomePage());
+
+                    },
+                    unitName: "English",
+                    unitIcon: MyIcons.english),
                 CustomDrawerUnit(
                     onTap: () {
                       Scaffold.of(context).closeEndDrawer();
                       Get.to(() => const CallUsPage());
                     },
-                    unitName: 'اتصل بنا',
+                    unitName: "callUs",
                     unitIcon: MyIcons.message),
                 CustomDrawerUnit(
                     onTap: () {
@@ -162,7 +182,6 @@ class HomeCustomDrawer extends StatelessWidget {
                     },
                     unitName: 'USER PROFILE',
                     unitIcon: MyIcons.message),
-
                 CustomDrawerUnit(
                     onTap: () {
                       Scaffold.of(context).closeEndDrawer();

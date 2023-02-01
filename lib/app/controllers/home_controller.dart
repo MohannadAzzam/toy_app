@@ -6,6 +6,7 @@ import 'package:get/state_manager.dart';
 import 'package:toy_app/app/const/constants.dart';
 
 import '../data/models/home/home_response.dart';
+import 'locale/local_controller.dart';
 
 class HomeController extends GetxController {
   // var categoryList = <Categore>[].obs;
@@ -52,8 +53,10 @@ class HomeController extends GetxController {
 
 class HomeRemoteService {
   static Future<HomeResponse> getHomeResponse() async {
+    MyLocalController myLocalController = Get.put(MyLocalController());
 
-    Map<String, String> headers = {"Accept-Language": "ar", "Accept": "application/json"};
+
+    Map<String, String> headers = {"Accept-Language": "${myLocalController.initLang}", "Accept": "application/json"};
 
     var response = await http.get(
       Uri.parse("${baseApiLink}home"),headers: headers
@@ -67,18 +70,4 @@ class HomeRemoteService {
             "=============Failed to load Home response ==============");
       }
   }
-//
-// static var client = http.Client();
-//
-// static Future<List<Categores>?> fetchCategory() async {
-//   var response =
-//       await client.get(Uri.parse('https://etr.hexacit.com/api/home'));
-//
-//   if (response.statusCode == 200) {
-//     var jsonString = response.body;
-//     return categoresFromJson(jsonString);
-//   } else {
-//     return null;
-//   }
-// }
 }

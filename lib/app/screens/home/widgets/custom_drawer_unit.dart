@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:google_fonts/google_fonts.dart';
+import 'package:toy_app/app/screens/auth/login/widgets/custom_text.dart';
 
 class CustomDrawerUnit extends StatelessWidget {
   // final Widget? nextPage;
@@ -27,23 +27,20 @@ class CustomDrawerUnit extends StatelessWidget {
       // }
       ,
       child: Container(
-        padding: EdgeInsets.only(top: 12.h, right: 42.w),
+        padding: EdgeInsets.only(top: 12.h, right: 42.w, left: 42.w),
         child: Row(
-          mainAxisAlignment: MainAxisAlignment.end,
-          crossAxisAlignment: CrossAxisAlignment.center,
+          // mainAxisAlignment: MainAxisAlignment.end,
+          // crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Text(
-              unitName,
-              style: GoogleFonts.cairo(fontSize: 16.sp, color: Colors.white),
-            ),
-            SizedBox(
-              width: 10.w,
-            ),
             Icon(
               unitIcon,
               color: Colors.white,
               size: 14,
             ),
+            SizedBox(
+              width: 10.w,
+            ),
+            CustomText(textText: unitName, color: Colors.white, fontSize: 16),
           ],
         ),
       ),
