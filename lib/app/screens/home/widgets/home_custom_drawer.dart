@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:toy_app/app/controllers/english_controller.dart';
 import 'package:toy_app/app/screens/auth/login/login_page.dart';
+import 'package:toy_app/app/screens/auth/login/widgets/custom_text.dart';
 import 'package:toy_app/app/screens/from_drawer_screens/blog_page/blog_page.dart';
 import 'package:toy_app/app/screens/from_drawer_screens/call_us_page/call_us_page.dart';
 import 'package:toy_app/app/screens/from_drawer_screens/choose_exhibition_location/choose_package_page.dart';
@@ -20,8 +22,10 @@ import 'package:toy_app/my_icons_icons.dart';
 import '../../from_drawer_screens/sponsors_page/sponsors_page.dart';
 
 class HomeCustomDrawer extends StatelessWidget {
-  const HomeCustomDrawer({Key? key}) : super(key: key);
 
+  HomeCustomDrawer({Key? key}) : super(key: key);
+
+  final EnglishController _englishController = Get.put(EnglishController());
   @override
   Widget build(BuildContext context) {
     return Drawer(
@@ -30,8 +34,22 @@ class HomeCustomDrawer extends StatelessWidget {
         scrollDirection: Axis.vertical,
         child: Column(
           children: [
-            const Image(
-                image: AssetImage('assets/images/home_drawer_uper.png')),
+            Container(
+              width: Get.width,
+              height: 230.h,
+              color: Colors.white,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children:const [
+                  SizedBox(height: 50,),
+                  Image(image: AssetImage("assets/images/appLogo.png"),height: 75),
+                  CustomText(textText: "معرض الرياض", color: Color(0xff911D74), fontSize: 20,fontWeight: FontWeight.bold,),
+                  CustomText(textText: "لألعــــــــاب الأطفــــــــــــال", color: Color(0xff949494), fontSize: 16,fontWeight: FontWeight.w300,)
+                ],
+              )
+            ),
+             // Image(
+             //    image: AssetImage('assets/images/home_drawer_uper.png')),
             Container(
               padding: EdgeInsets.only(top: 20.h, bottom: 16.h),
               color: const Color(0xff622665),
@@ -106,7 +124,7 @@ class HomeCustomDrawer extends StatelessWidget {
                 CustomDrawerUnit(
                     onTap: () {
                       Scaffold.of(context).closeEndDrawer();
-                      Get.to(() => const BlogPage());
+                      Get.to(() =>  BlogPage());
                     },
                     unitName: 'المدونة',
                     unitIcon: MyIcons.blog),
@@ -121,11 +139,14 @@ class HomeCustomDrawer extends StatelessWidget {
                     onTap: () {
                       Scaffold.of(context).closeEndDrawer();
 
-                      Get.to(() => const CommonQuestionPage());
+                      Get.to(() =>  CommonQuestionPage());
                     },
                     unitName: 'الأسئلة الشائعة',
                     unitIcon: MyIcons.question_circle),
-                const CustomDrawerUnit(
+                 CustomDrawerUnit(
+                   onTap: (){
+                     _englishController.changeLanguage();
+                   },
                     unitName: 'English', unitIcon: MyIcons.english),
                 CustomDrawerUnit(
                     onTap: () {

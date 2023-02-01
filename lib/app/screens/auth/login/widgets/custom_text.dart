@@ -7,6 +7,7 @@ class CustomText extends StatelessWidget {
   final double fontSize;
   final TextAlign? textAlign;
   final FontWeight? fontWeight;
+  final double? height;
 
   const CustomText(
       {Key? key,
@@ -14,7 +15,7 @@ class CustomText extends StatelessWidget {
       required this.color,
       required this.fontSize,
       this.textAlign,
-      this.fontWeight})
+      this.fontWeight, this.height})
       : super(key: key);
 
   @override
@@ -25,8 +26,12 @@ class CustomText extends StatelessWidget {
       textAlign: textAlign,
       // TextAlign: Alignment.center,
       textText,
-      style:       TextStyle(fontFamily: 'din-next-lt-w23',color: color,fontSize: fontSize.sp,fontWeight: fontWeight)
-,
+      style: TextStyle(
+          fontFamily: 'din-next-lt-w23',
+          color: color,
+height: height,
+          fontSize: fontSize.sp,
+          fontWeight: fontWeight),
       //   GoogleFonts.cairo(
       //     textStyle: TextStyle(
       //         color: color,

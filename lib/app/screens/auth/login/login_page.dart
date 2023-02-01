@@ -33,7 +33,34 @@ class LoginPage extends GetView<LoginController> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const Image(image: AssetImage('assets/images/login_uper.png')),
+              Container(
+                width: Get.width,
+                color: Color(0xff6D2B70),
+                height: 300,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: const [
+                    Image(
+                      image: AssetImage("assets/images/appLogo.png"),
+                      height: 100,
+                    ),
+                    CustomText(
+                      textText: "معرض الرياض",
+                      color: Colors.white,
+                      fontSize: 25,
+                      fontWeight: FontWeight.bold,
+                    ),
+                    CustomText(
+                      textText: "لألعــــــــاب الأطفــــــــــــال",
+                      color: Color(0xffD4D4D4),
+                      fontSize: 16,
+                      fontWeight: FontWeight.w300,
+                    ),
+                    SizedBox(height: 30,)
+                  ],
+                ),
+              ),
+              // Image(image: AssetImage('assets/images/login_uper.png')),
               Container(
                   margin: EdgeInsets.only(top: 30.h, right: 20.w, bottom: 18.h),
                   child: const CustomText(

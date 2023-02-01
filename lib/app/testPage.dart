@@ -1,11 +1,7 @@
-import 'package:badges/badges.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:get/get.dart';
-import 'package:toy_app/app/data/data_source/event_list.dart';
-import 'package:toy_app/app/data/data_source/event_num_list.dart';
 import 'package:toy_app/app/screens/auth/login/widgets/custom_text.dart';
-import 'package:toy_app/app/screens/from_drawer_screens/ticket_page/widgets/ticket_custom_card_content.dart';
+import 'package:toy_app/my_icons_icons.dart';
 
 class TestPage extends StatelessWidget {
   const TestPage({
@@ -14,88 +10,120 @@ class TestPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Directionality(  
-        textDirection: TextDirection.rtl,
-        child: Scaffold(
-            body: Row(
+    return Scaffold(
+      backgroundColor: Colors.amber,
+      body: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          InkWell(
+            onTap: (){
+
+            },
+            child: Container(
+              // margin: EdgeInsets.only(top: 25,left: 20),
+              height: 180.h,
+              width: 248.w,
+              decoration: BoxDecoration(
+                  border: Border.all(color: Colors.transparent),
+                  borderRadius: BorderRadius.circular(20),
+                  image: DecorationImage(
+                    fit: BoxFit.cover,
+                      image: AssetImage("assets/images/visitor_acc.png"))),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Container(
+                    height: 80.h,
+                    width: 80.w,
+                    margin: const EdgeInsets.all(10),
+                    decoration: BoxDecoration(
+                      shape: BoxShape.circle,
+                      color: Colors.transparent,
+                      border: Border.all(color: Colors.white, width: 1.5),
+                    ),
+                    child: Icon(
+                      MyIcons.person,
+                      size: 30.r,
+                      color: Colors.white,
+                    ),
+                  ),
+                  const CustomText(
+                      textText: "حساب زائر", color: Colors.white, fontSize: 20)
+                ],
+              ),
+            ),
+          ),
+          Container(
+            // margin: EdgeInsets.only(top: 25,left: 20),
+            height: 180.h,
+            width: 248.w,
+            decoration: BoxDecoration(
+                border: Border.all(color: Colors.transparent),
+                borderRadius: BorderRadius.circular(20),
+                image: DecorationImage(
+                  fit: BoxFit.cover,
+                    image: AssetImage("assets/images/exhibtor_acc.png"))),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Container(
-                  height: 500.h,
-                  width: (Get.width) * (7 / 10),
-                  // constraints:BoxConstraints.expand() ,
-                  margin: EdgeInsets.only(
-                    left: 10.w,
-                    right: 10.w, /*top: 50*/
+                  height: 80.h,
+                  width: 80.w,
+                  margin: const EdgeInsets.all(10),
+                  decoration: BoxDecoration(
+                    shape: BoxShape.circle,
+                    color: Colors.transparent,
+                    border: Border.all(color: Colors.white, width: 1.5),
                   ),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Container(
-                          margin: EdgeInsets.only(left: 5.w, right: 5.w),
-                          child: CustomText(
-                              textText: "اليوم الأول",
-                              color: Color(0xff911D74),
-                              fontSize: 20)),
-                      SizedBox(
-                        height: 25,
-                      ),
-                      Badge(
-                        badgeColor: Color(0xff911D74),
-                        padding: EdgeInsets.all(15),
-                        badgeContent: Column(
-                          children: [
-                            CustomText(
-                                textText: "10",
-                                color: Colors.white,
-                                fontSize: 16),
-                            CustomText(
-                                textText: "صباحاً",
-                                color: Colors.white,
-                                fontSize: 14),
-                          ],
-                        ),
-                        position: BadgePosition.topEnd(top: -35, end: 10),
-                        child: Card(
-                          elevation: 3.r,
-                          // clipBehavior: Clip.antiAlias,
-                          shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(15)),
-                          child: Container(
-                            margin:
-                            EdgeInsets.only(top: 15.h, left: 20.w, right: 15.w),
-                            // height: 500,
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                SizedBox(
-                                  height: 5.h,
-                                ),
-                                const CustomText(
-                                  textText: "انظلاق الفعاليات",
-                                  color: Colors.black,
-                                  fontSize: 18,
-                                  fontWeight: FontWeight.w600,
-                                ),
-                                SizedBox(
-                                  // color: Colors.red,
-                                  height: 400,
-                                  child: ListView.builder(
-                                    itemCount: eventList.length,
-                                    itemBuilder: (context, index) =>
-                                        CustomCardContent(
-                                          eventNum: eventNumList[index],
-                                          event: eventList[index]),
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ),
-                      ),
-                    ],
+                  child: Icon(
+                    MyIcons.person,
+                    size: 30.r,
+                    color: Colors.white,
                   ),
                 ),
+                const CustomText(
+                    textText: "حساب عارض", color: Colors.white, fontSize: 20)
               ],
-            )));
+            ),
+          ),
+          Container(
+            // margin: EdgeInsets.only(top: 25,left: 20),
+            height: 180.h,
+            width: 248.w,
+            decoration: BoxDecoration(
+                border: Border.all(color: Colors.transparent),
+                borderRadius: BorderRadius.circular(20),
+                image: DecorationImage(
+                  fit: BoxFit.cover,
+                    image: AssetImage("assets/images/sponsor_acc.png"))),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Container(
+                  height: 80.h,
+                  width: 80.w,
+                  margin: const EdgeInsets.all(10),
+                  decoration: BoxDecoration(
+                    shape: BoxShape.circle,
+                    color: Colors.transparent,
+                    border: Border.all(color: Colors.white, width: 1.5),
+                  ),
+                  child: Icon(
+                    MyIcons.person,
+                    size: 30.r,
+                    color: Colors.white,
+                  ),
+                ),
+                const CustomText(
+                    textText: "حساب راعي", color: Colors.white, fontSize: 20)
+              ],
+            ),
+          ),
+        ],
+      ),
+    );
   }
 }

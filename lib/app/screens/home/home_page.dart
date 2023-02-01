@@ -10,6 +10,7 @@ import 'package:toy_app/app/screens/home/widgets/home_custom_drawer.dart';
 import 'package:toy_app/my_icons_icons.dart';
 import '../../controllers/home_controller.dart';
 import '../../data/data_source/Home_top_card_list.dart';
+import 'dart:math' as math; // import this
 
 class HomePage extends StatelessWidget {
   HomePage({Key? key}) : super(key: key);
@@ -19,7 +20,7 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      endDrawer: const HomeCustomDrawer(),
+      endDrawer: HomeCustomDrawer(),
       appBar: AppBar(
         elevation: 0,
         backgroundColor: const Color(0xff6D2B70),
@@ -28,14 +29,17 @@ class HomePage extends StatelessWidget {
         actions: [
           Builder(builder: (context) {
             return IconButton(
-              onPressed: () {
-                Scaffold.of(context).openEndDrawer();
-              },
-              icon: const Icon(
-                MyIcons.menu,
-                size: 32,
-              ),
-            );
+                onPressed: () {
+                  Scaffold.of(context).openEndDrawer();
+                },
+                icon: Transform(
+                  alignment: Alignment.center,
+                  transform: Matrix4.rotationX(math.pi),
+                  child: const Icon(
+                    MyIcons.menu,
+                    size: 32,
+                  ),
+                ));
           })
         ],
       ),
@@ -47,8 +51,36 @@ class HomePage extends StatelessWidget {
             children: [
               Stack(
                 children: [
-                  const Image(
-                      image: AssetImage('assets/images/home_page_up.png')),
+                  Stack(
+                    children: [
+                      const Image(
+                          image: AssetImage('assets/images/home_page_up2.png')),
+                      Container(
+                        margin:
+                            EdgeInsets.only(top: 45.h, left: 10.w, right: 10.w),
+                        width: Get.width,
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: const [
+                            Image(
+                              image: AssetImage("assets/images/appLogo.png"),
+                              height: 60,
+                            ),
+                            CustomText(
+                                textText: "معرض الرياض",
+                                color: Colors.white,
+                                fontSize: 18),
+                            CustomText(
+                              textText: "لألعــــــــاب الأطفــــــــــــال",
+                              color: Colors.white,
+                              fontSize: 16,
+                              fontWeight: FontWeight.w300,
+                            )
+                          ],
+                        ),
+                      )
+                    ],
+                  ),
                   Container(
                     margin: EdgeInsets.only(top: 150.h),
                     height: 110.h,

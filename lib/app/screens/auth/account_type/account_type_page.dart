@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:toy_app/app/screens/auth/login/login_page.dart';
+import 'package:toy_app/app/screens/auth/account_type/custom_acc_type.dart';
 import 'package:toy_app/app/screens/auth/login/widgets/custom_text.dart';
 import 'package:toy_app/app/screens/auth/registers/register_viewer_account/register_viewer_account_page.dart';
 import 'package:toy_app/app/screens/auth/registers/register_visitor_account/register_visitor_account_page.dart';
@@ -44,33 +44,33 @@ class AccountTypePage extends StatelessWidget {
                       color: Colors.white,
                       fontSize: 20),
                   SizedBox(
-                    height: 40.h,
+                    height: 25.h,
                   ),
-                  GestureDetector(
-                      onTap: () {
-                        Get.to(() => const RegisterVisitorAccountPage());
-                      },
-                      child: Image(
-                        image: const AssetImage('assets/images/visitor_account.png'),
-                        height: 165.h,
-                        width: 215.w,
-                      )),
-                  GestureDetector(
-                    onTap: (){
-                      Get.to(() => const registerViewerAccountPage());
-
+                  InkWell(
+                    onTap: () {
+                      Get.to(() => const RegisterVisitorAccountPage());
                     },
-                      child: Image(
-                    image: const AssetImage('assets/images/viewer_account.png'),
-                    height: 150.h,
-                    width: 200.w,
-                  )),
-                  GestureDetector(
-                      child: Image(
-                    image: const AssetImage('assets/images/sponsor_account.png'),
-                    height: 150.h,
-                    width: 200.w,
-                  )),
+                    child: const CustomAccType(
+                        image: "assets/images/visitor_acc.png",
+                        name: "حساب زائر",
+                        icon: MyIcons.person),
+                  ),
+                  const SizedBox(height: 20,), InkWell(
+                    onTap: () {
+                      Get.to(() => const registerViewerAccountPage());
+                    },
+                    child: const CustomAccType(
+                        image: "assets/images/exhibtor_acc.png",
+                        name: "حساب عارض",
+                        icon: MyIcons.store),
+                  ),
+                  const SizedBox(height: 20,),
+                  const InkWell(
+                    child: CustomAccType(
+                        image: "assets/images/sponsor_acc.png",
+                        name: "حساب راعي",
+                        icon: MyIcons.sponsors),
+                  ),
                   const SizedBox(
                     height: 150,
                   )

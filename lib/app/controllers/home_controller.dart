@@ -63,9 +63,9 @@ class HomeRemoteService {
       HomeResponse responseBody = HomeResponse.fromJson(jsonData);
       return responseBody;
     } else {
-      return throw Exception(
-          "=============Failed to load Home response ==============");
-    }
+        return throw Exception(
+            "=============Failed to load Home response ==============");
+      }
   }
 //
 // static var client = http.Client();

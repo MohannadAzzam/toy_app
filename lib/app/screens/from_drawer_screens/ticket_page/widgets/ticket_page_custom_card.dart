@@ -64,6 +64,12 @@ class CustomTicketPageCard extends StatelessWidget {
                                                 .substring(0, 5),
                                             color: Colors.white,
                                             fontSize: 16),
+                                        // CustomText(
+                                        //     textText: snapshot
+                                        //         .data![index].events[index].time
+                                        //         .substring(0, 5) >= 12  ? "صباحاً" : "مساءً" ,
+                                        //     color: Colors.white,
+                                        //     fontSize: 16),
                                       ],
                                     ),
                                     position: BadgePosition.topEnd(

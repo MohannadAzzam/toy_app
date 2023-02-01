@@ -1,4 +1,4 @@
-import 'package:toy_app/app/data/models/common_question.dart';
+import 'package:toy_app/app/data/models/commonQuestion/common_question.dart';
 
 List<CommonQuestion> commonQuestionList = [
   CommonQuestion(
