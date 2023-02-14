@@ -4,7 +4,11 @@ import 'package:get/get.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:toy_app/app/controllers/locale/local.dart';
 import 'package:toy_app/app/controllers/locale/local_controller.dart';
+import 'package:toy_app/app/screens/auth/login/login_page.dart';
 import 'package:toy_app/app/screens/home/home_page.dart';
+
+import 'app/controllers/aboutUs_controller.dart';
+import 'app/screens/from_drawer_screens/who_us/who_us_page.dart';
 
 
 SharedPreferences? sharedPreferences;
@@ -22,7 +26,9 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
    MyLocalController myLocalController = Get.put(MyLocalController());
-    return ScreenUtilInit(
+  Get.put(AboutUsController());
+
+   return ScreenUtilInit(
       designSize: const Size(360, 690),
       builder: (context, child) {
         return GetMaterialApp(

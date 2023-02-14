@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:toy_app/app/screens/auth/login/widgets/custom_text.dart';
 import 'package:toy_app/my_icons_icons.dart';
 
 class CustomDropDownButtonFormField extends StatelessWidget {
@@ -13,10 +14,12 @@ class CustomDropDownButtonFormField extends StatelessWidget {
       height: 60.h,
       width: 320.w,
       child: DropdownButtonFormField(
-          hint: Text(
-            'الدولة',
-            style: GoogleFonts.cairo(fontSize: 18, color: Colors.black),
-          ),
+          hint:
+  CustomText(textText: "الدولة", color: Colors.black, fontSize: 18),
+          // Text(
+          //   'الدولة',
+          //   style: GoogleFonts.cairo(fontSize: 18, color: Colors.black),
+          // ),
           borderRadius: BorderRadius.circular(10),
           decoration: const InputDecoration(
             prefixIcon: Icon(
@@ -30,7 +33,7 @@ class CustomDropDownButtonFormField extends StatelessWidget {
               ),
             ),
           ),
-          items: ['السعودية', 'الإمارات', 'البحرين', 'قطر', 'الكويت']
+          items: ['السعودية', 'الإمارات', 'مصر' ]
               .map((e) => DropdownMenuItem(
                     value: e,
                     child: Text(

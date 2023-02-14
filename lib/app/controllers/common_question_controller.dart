@@ -30,7 +30,7 @@ class CommonQuestionRemoteService {
   static Future<CommonQuestionResponse> getCommonQuestionResponse() async {
     MyLocalController mylocalController = Get.put(MyLocalController());
     Map<String, String> headers = {
-      "Accept-Language": "${mylocalController.initLang}",
+      "Accept-Language": "${MyLocalController.locale}",
       "Accept": "application/json"
     };
 

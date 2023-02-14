@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
 import 'package:toy_app/app/const/constants.dart';
 import '../data/models/tickets/ticket_response.dart';
+import 'locale/local_controller.dart';
 
 class TicketController extends GetxController {
   @override
@@ -21,30 +22,12 @@ class TicketController extends GetxController {
       print("fetchItemEvent method error");
     }
   }
-
-  // Future<List<EventEvent>> fetchItemEvents() async {
-  //   var itemEvents = await fetchItemEvent();
-  //   try {
-  //     itemEvents[0].events.forEach((element) {
-  //       print("elementsssss: $element");
-  //       print("elementsssss: ${itemEvents[0].events}");
-  //     });
-  //     for (int i = 0; i < itemEvents[0].events.length; i++) {
-  //       // print("itemEvents[i].events[i].details ${itemEvents[0].events[i].time}");
-  //       // print("i $i");
-  //       // print("itemEvents[0].events.length ${itemEvents[0].events.length}");
-  //     }
-  //     return itemEvents[0].events;
-  //   } finally {
-  //     print("fetchItemEvent method error");
-  //   }
-  // }
 }
 
 class TicketRemoteService {
   static Future<TicketResponse> getTicketResponse() async {
 
-    Map<String, String> headers = {"Accept-Language": "ar", "Accept": "application/json"};
+    Map<String, String> headers = {"Accept-Language": "${MyLocalController.locale}", "Accept": "application/json"};
 
     var response = await http.get(Uri.parse("${baseApiLink}tickets"),headers: headers);
     if (response.statusCode == 200) {

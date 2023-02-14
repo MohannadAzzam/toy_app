@@ -6,21 +6,15 @@ import 'package:toy_app/app/screens/auth/login/widgets/custom_text.dart';
 
 import '../../../controllers/home_controller.dart';
 
-// ignore: camel_case_types
-class customTicketBookingCard extends StatelessWidget {
-  // final Categore categories;
-  // final List<Categore?>? categories;
-  // final HomeTicketBookingCard homeTicketBookingCardItems;
+class CustomTicketBookingCard extends StatelessWidget {
 
-  customTicketBookingCard({
-    Key? key}) : super(key: key);
+  CustomTicketBookingCard({Key? key}) : super(key: key);
 
   final HomeController _homeController = Get.put(HomeController());
 
   @override
   Widget build(BuildContext context) {
-    return
-      FutureBuilder(
+    return FutureBuilder(
         future: _homeController.fetchCategory(),
         builder: (context, snapshot) {
           if (snapshot.hasData) {
@@ -28,10 +22,10 @@ class customTicketBookingCard extends StatelessWidget {
                 scrollDirection: Axis.horizontal,
                 itemBuilder: (context, index) {
                   return Container(
-                    margin: const EdgeInsets.all(5),
+                    margin: EdgeInsets.only(left: 5,right: 5),
                     width: 317.7.w,
                     decoration: BoxDecoration(
-                        borderRadius: BorderRadius.all(Radius.circular(15)),
+                        borderRadius: const BorderRadius.all(Radius.circular(15)),
                         image: DecorationImage(
                           image:
                               NetworkImage("${snapshot.data![index]!.image}"),
@@ -40,17 +34,19 @@ class customTicketBookingCard extends StatelessWidget {
                     child: Column(
                       children: [
                         Container(
-                          margin: EdgeInsets.only(top: 175.h, right: 20.w),
-                          alignment: Alignment.topRight,
+                          width: Get.width,
+                          margin: EdgeInsets.only(
+                              top: 175.h, right: 20.w, left: 20.w),
+
                           child: CustomText(
                               textText: "${snapshot.data![index]!.name}",
                               color: Colors.white,
                               fontSize: 20),
                         ),
                         Container(
+                            width: Get.width,
                             margin: EdgeInsets.only(
-                                right: 20.w, top: 5.h, bottom: 5.h),
-                            alignment: Alignment.topRight,
+                                right: 20.w, top: 5.h, bottom: 5.h, left: 20.w),
                             child: CustomText(
                                 textText:
                                     "${snapshot.data![index]!.shortDetails}",
@@ -60,12 +56,13 @@ class customTicketBookingCard extends StatelessWidget {
                           child: ListView(
                             children: [
                               Container(
-                                  margin: EdgeInsets.only(right: 20.w),
-                                  alignment: Alignment.topRight,
+                                  width: Get.width,
+                                  margin:
+                                      EdgeInsets.only(right: 20.w, left: 20.w),
                                   child: CustomText(
                                       textText:
                                           "${snapshot.data![index]!.details}",
-                                      color: Color(0xffC1C1C1),
+                                      color: const Color(0xffC1C1C1),
                                       fontSize: 14))
                             ],
                           ),
@@ -89,82 +86,5 @@ class customTicketBookingCard extends StatelessWidget {
             child: CircularProgressIndicator(),
           );
         });
-    //   Container(
-    //   color: Colors.red,
-    //   margin: const EdgeInsets.all(5),
-    //   height: 400.h,
-    //   // color: Colors.blue,
-    //   width: 317.7.w,
-    //   child: Stack(
-    //     children: [
-    //       ClipRRect(
-    //         borderRadius: BorderRadius.circular(20),
-    //         child: Image(
-    //           image: AssetImage("assets/images/Ticket_booking.png"),
-    //           fit: BoxFit.cover,
-    //           height: 400.h,
-    //           width: 317.7.w,
-    //         ),
-    //       ),
-    //       SizedBox(
-    //         // alignment: Alignment.bottomRight,
-    //         // margin: EdgeInsets.only(top: 180.h,right: 28.w),
-    //         width: Get.width,
-    //         child: Column(
-    //           children: [
-    //             Container(
-    //               margin: EdgeInsets.only(top: 160.h, left: 176.w, right: 27.w),
-    //               child: Text(
-    //                 categories.name!,
-    //                 style: GoogleFonts.cairo(
-    //                     textStyle:
-    //                         TextStyle(color: Colors.white, fontSize: 20.sp)),
-    //               ),
-    //             ),
-    //             Container(
-    //               margin: EdgeInsets.only(top: 5.h, left: 120.w, right: 27.w),
-    //               child: Text(
-    //                 categories.shortDetails!,
-    //                 style: GoogleFonts.cairo(
-    //                     textStyle:
-    //                         TextStyle(color: Colors.white, fontSize: 18.sp)),
-    //               ),
-    //             ),
-    //             Container(
-    //               margin: EdgeInsets.only(left: 17.w, right: 27.w),
-    //               child: Text(
-    //                 categories.details!,
-    //                 style: GoogleFonts.cairo(
-    //                     textStyle: TextStyle(
-    //                   color: const Color(0xffC1C1C1),
-    //                   fontSize: 14.sp,
-    //                 )),
-    //               ),
-    //             ),
-    //             Container(
-    //               margin:
-    //                   EdgeInsets.only(left: 60.w, right: 60.w, bottom: 20.h),
-    //               decoration: BoxDecoration(
-    //                   color: const Color(0xffA92F86),
-    //                   border: Border.all(color: Colors.transparent),
-    //                   borderRadius: BorderRadius.circular(10)),
-    //               height: 60,
-    //               width: 220,
-    //               child: MaterialButton(
-    //                 onPressed: () {},
-    //                 child: Text(
-    //                   'احجز تذاكر',
-    //                   style: GoogleFonts.cairo(
-    //                       textStyle:
-    //                           TextStyle(color: Colors.white, fontSize: 20.sp)),
-    //                 ),
-    //               ),
-    //             )
-    //           ],
-    //         ),
-    //       )
-    //     ],
-    //   ),
-    // );
   }
 }

@@ -36,12 +36,15 @@ class ChooseExhibitionLocationPage extends StatelessWidget {
             scrollDirection: Axis.vertical,
             child: Column(
               children: [
-                const CustomText(
-                    textAlign: TextAlign.center,
-                    textText:
-                        'اختر من الخريطة موقع معرضك حسب الرقم ثم\nاختاره من القائمة في الاسفل',
-                    color: Colors.black,
-                    fontSize: 14),
+                 Container(
+                   margin: EdgeInsets.only(left: 15.w,right: 15.w),
+                   child: const CustomText(
+                      textAlign: TextAlign.center,
+                      textText:
+                          "اختر من الخريطة موقع معرضك حسب الرقم ثم اختاره من القائمة في الاسفل",
+                      color: Colors.black,
+                      fontSize: 16),
+                 ),
                 Container(
                   margin: EdgeInsets.only(left: 3.w, right: 3.w, bottom: 8.h),
                   child:  InkWell(

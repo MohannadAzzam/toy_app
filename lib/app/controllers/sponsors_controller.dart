@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
 import 'package:toy_app/app/const/constants.dart';
+import 'package:toy_app/app/controllers/locale/local_controller.dart';
 import 'package:toy_app/app/data/models/sponsors/sponsors_response.dart';
 
 class SponsorsController extends GetxController {
@@ -26,12 +27,7 @@ class SponsorsController extends GetxController {
 class SponsorsRemoteService {
   static Future<SponsorsResponse> getSponsorResponse() async {
 
-    // Map<String, String> headers = {"Accept-Language": "ar", "Accept": "application/json"};
-
-    Map<String, String> headers = {
-      "Accept-Language": "ar",
-      "Accept": "application/json"
-    };
+    Map<String, String> headers = {"Accept-Language": "${MyLocalController.locale}", "Accept": "application/json"};
 
     var response =
         await http.get(Uri.parse("${baseApiLink}sponsors"), headers: headers);

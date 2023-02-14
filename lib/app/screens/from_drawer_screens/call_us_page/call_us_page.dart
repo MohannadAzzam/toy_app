@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:toy_app/app/controllers/login_controller.dart';
 import 'package:toy_app/app/screens/auth/login/widgets/custom_button.dart';
 import 'package:toy_app/app/screens/auth/login/widgets/custom_text.dart';
 import 'package:toy_app/app/screens/auth/login/widgets/custom_text_form_field.dart';
@@ -15,6 +16,7 @@ class CallUsPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // LoginController loginController = Get.put(LoginController());
     String string =
         "نعمل على راحتكم على مدار الساعه مع فريق دعم فني مميز لتسهيل جميع طلباتكم ومتابعه مراسلاتكم والرد باسرع وقت ممكن ويمكنك ايضا التواصل مع مدراء المبيعات لطلب التسيجل او الاستفسار وتسهيل التعاون معكم وتوفير جميع الخدمات باسلوب مميز وراقي. ";
     return Directionality(

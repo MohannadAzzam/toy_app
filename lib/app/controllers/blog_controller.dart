@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:get/get.dart';
 import 'package:toy_app/app/const/constants.dart';
+import 'package:toy_app/app/controllers/locale/local_controller.dart';
 
 import '../data/models/blog/blog_response.dart';
 import 'package:http/http.dart' as http;
@@ -26,10 +27,8 @@ class BlogController extends GetxController {
 
 class BlogRemoteService {
   static Future<BlogResponse> getBlogResponse() async {
-    Map<String, String> headers = {
-      "Accept-Language": "ar",
-      "Accept": "application/json"
-    };
+    Map<String, String> headers = {"Accept-Language": "${MyLocalController.locale}", "Accept": "application/json"};
+
     var response =
         await http.get(Uri.parse("${baseApiLink}blogs"), headers: headers);
 

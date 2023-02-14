@@ -21,28 +21,26 @@ class CustomChoosePackageGrid extends StatelessWidget {
           onPressed: (){
 
           },
-          image: Image(image: AssetImage('${sponsorPackages.sponsorImage}')),
-          firstText: '${sponsorPackages.sponsorName}',
+          image: Image(image: AssetImage(sponsorPackages.sponsorImage)),
+          firstText: sponsorPackages.sponsorName,
           secondText: ' لقد اخترت ان تكون ${sponsorPackages.sponsorName}',
           buttonText: 'حجز',
-          optionalWidget: Container(
-            child: IconButton(
-                onPressed: () {
-                  Get.back();
-                },
-                icon: Icon(
-                  MyIcons.exit,
-                  color: Color(0xffD4D4D4),
-                )),
-          ),
+          optionalWidget: IconButton(
+              onPressed: () {
+                Get.back();
+              },
+              icon: const Icon(
+                MyIcons.exit,
+                color: Color(0xffD4D4D4),
+              )),
         ));
         // );
       },
-      child: Container(
+      child: Expanded(
         // margin: EdgeInsets.only(bottom: 3.h,/* bottom: 12.h, left: 8.w, right: 8.w*/),
-        height: 190.h,
-        padding: EdgeInsets.only(left: 3.w, right: 3.w /*,bottom: 3.h*/),
-        width: 170.w,
+        // height: 190.h,
+        // padding: EdgeInsets.only(left: 3.w, right: 3.w /*,bottom: 3.h*/),
+        // width: 170.w,
         child: Card(
           elevation: 3,
           shape:

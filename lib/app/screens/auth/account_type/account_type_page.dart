@@ -65,8 +65,11 @@ class AccountTypePage extends StatelessWidget {
                         icon: MyIcons.store),
                   ),
                   const SizedBox(height: 20,),
-                  const InkWell(
-                    child: CustomAccType(
+                   InkWell(
+                    onTap: () {
+                      // Get.to(() =>  RegisterVisitorAccountPage());
+                    },
+                    child: const CustomAccType(
                         image: "assets/images/sponsor_acc.png",
                         name: "حساب راعي",
                         icon: MyIcons.sponsors),

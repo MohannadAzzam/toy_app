@@ -11,34 +11,37 @@ class CustomCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Card(
-      // clipBehavior: Clip.antiAliasWithSaveLayer,
-      elevation: 5,
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
-      child: Column(
-        // mainAxisSize: MainAxisSize.min,
-        children: [
-          Container(
-            margin: EdgeInsets.only(top: 10.h, left: 35.w, right: 35.w),
-            child: CircleAvatar(
-              radius: 24.r,
-              backgroundColor: const Color(0xff911D74),
-              child: Icon(
-                homeTopCardItems.image,
-                color: Colors.white,
-                size: 24.r,
+    return Container(
+      margin: EdgeInsets.only(bottom: 10),
+      child: Card(
+        // color: Colors.red,
+        elevation: 5,
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Container(
+              margin: EdgeInsets.only(top: 10.h, left: 35.w, right: 35.w),
+              child: CircleAvatar(
+                radius: 24.r,
+                backgroundColor: const Color(0xff911D74),
+                child: Icon(
+                  homeTopCardItems.image,
+                  color: Colors.white,
+                  size: 24.r,
+                ),
               ),
             ),
-          ),
-          Container(
-              margin: EdgeInsets.symmetric(horizontal: 7.w,vertical: 10.h),
-              child: CustomText(
-                  textText: homeTopCardItems.title,
-                  color:const Color(0xff911D74),
-                  fontSize: 20)
+            Container(
+                margin: EdgeInsets.symmetric(horizontal: 7.w,vertical: 10.h),
+                child: CustomText(
+                    textText: homeTopCardItems.title,
+                    color:const Color(0xff911D74),
+                    fontSize: 20)
 
-              ),
-        ],
+                ),
+          ],
+        ),
       ),
     );
   }

@@ -56,7 +56,7 @@ class HomeRemoteService {
     MyLocalController myLocalController = Get.put(MyLocalController());
 
 
-    Map<String, String> headers = {"Accept-Language": "${myLocalController.initLang}", "Accept": "application/json"};
+    Map<String, String> headers = {"Accept-Language": "${MyLocalController.locale}", "Accept": "application/json"};
 
     var response = await http.get(
       Uri.parse("${baseApiLink}home"),headers: headers

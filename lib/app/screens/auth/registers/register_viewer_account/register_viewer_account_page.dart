@@ -76,7 +76,16 @@ class registerViewerAccountPage extends StatelessWidget {
               Form(
                 child: Column(
                   children: [
-                    const CustomTextFormField(
+                     CustomTextFormField(
+                        // valid: (value) {
+                        //   if(value!.isEmpty){
+                        //     return "pleaseEnterYourName".tr;
+                        //   }
+                        //   if (value.length < 8) {
+                        //     return "theNameShouldBeMoreThan8Char".tr;
+                        //   }
+                        //   return null;
+                        // },
                         isObscure: false,
                         icon: MyIcons.person, hint: 'الاسم'),
                     const CustomTextFormField(

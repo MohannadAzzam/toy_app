@@ -158,11 +158,19 @@ class HomeCustomDrawer extends StatelessWidget {
                     unitIcon: MyIcons.question_circle),
                 CustomDrawerUnit(
                     onTap: () {
-                      print("_myLocalController.initLang.toString() ${_myLocalController.initLang.toString()}");
+                      // var ar = "ar";
+                      // MyLocalController.getLanguageResponse(ar);
+                      // print("getLanguageResponse(ar) ${MyLocalController.getLanguageResponse(ar)}");
                       // _englishController.changeLanguage();
-                      sharedPreferences!.getString("lang")== "ar"
-                          ? _myLocalController.changeLang("en")
-                          : _myLocalController.changeLang("ar");
+                      if(sharedPreferences!.getString("lang")== "ar"){
+                        _myLocalController.changeLang("en");
+                      } else /*(sharedPreferences!.getString("lang")== "en")*/{
+                        _myLocalController.changeLang("ar");
+                      }
+                      // sharedPreferences!.getString("lang")== "ar"
+                      //     ? _myLocalController.changeLang("en") ;
+                      // sharedPreferences!.getString("lang")== "en"
+                      //     ? _myLocalController.changeLang("ar");
                       Get.offAll(() =>   HomePage());
 
                     },

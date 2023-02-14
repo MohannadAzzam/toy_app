@@ -45,32 +45,32 @@ class CustomImageBottomSheet extends StatelessWidget {
                     margin: EdgeInsets.only(top: 10.h, left: 15.w, right: 15.w),
                     child: optionalWidget,
                   ),
-                  Directionality(
-                    textDirection: TextDirection.rtl,
-                    child: SizedBox(
-                      width: Get.width,
-                      child: Column(
-                        children: [
-                          image,
-                          CustomText(
-                              textText: firstText,
-                              color: Colors.black,
-                              fontSize: 18),
-                          CustomText(
-                              textText: secondText!,
-                              color: Colors.black,
-                              fontSize: 16),
-                          CustomButton(
-                              onPressed: onPressed!,
-                              bottomMargin: 30,
-                              topMargin: 15,
-                              height: 60,
-                              width: 200,
-                              text: buttonText,
-                              rightMargin: 0,
-                              leftMargin: 0)
-                        ],
-                      ),
+                  SizedBox(
+                    width: Get.width,
+                    child: Column(
+                      // mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      children: [
+                        image,
+                        SizedBox(height: 10.h,),
+                        CustomText(
+                            textText: firstText,
+                            color: Colors.black,
+                            fontSize: 18),
+                        SizedBox(height: 5.h,),
+                        CustomText(
+                            textText: secondText!,
+                            color: Colors.black,
+                            fontSize: 16),
+                        CustomButton(
+                            onPressed: onPressed!,
+                            bottomMargin: 30,
+                            topMargin: 15,
+                            height: 60,
+                            width: 200,
+                            text: buttonText,
+                            rightMargin: 0,
+                            leftMargin: 0)
+                      ],
                     ),
                   )
                 ],

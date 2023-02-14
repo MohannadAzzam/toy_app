@@ -6,36 +6,36 @@ import 'package:get/state_manager.dart';
 import 'package:toy_app/app/const/constants.dart';
 
 import '../data/models/travels/travel_response.dart';
-
+import 'locale/local_controller.dart';
 
 class TravelsController extends GetxController {
-
   @override
-  void onInit(){
+  void onInit() {
     super.onInit();
     fetchTravels();
   }
 
-  Future<List<Travel>> fetchTravels () async {
+  Future<List<Travel>> fetchTravels() async {
     var travels = await TravelRemoteService.getTravelResponse();
     print(travels);
-    try{
+    try {
       print("====================${travels.items.travels}===================");
-    return travels.items.travels;
-    } finally{
-        print("fetchTravels method error");
+      return travels.items.travels;
+    } finally {
+      print("fetchTravels method error");
     }
   }
-
 }
 
 class TravelRemoteService {
   static Future<TravelResponse> getTravelResponse() async {
+    Map<String, String> headers = {
+      "Accept-Language": "${MyLocalController.locale}",
+      "Accept": "application/json"
+    };
 
-    Map<String, String> headers = {"Accept-Language": "ar", "Accept": "application/json"};
-
-
-    var response = await http.get(Uri.parse("${baseApiLink}travels"),headers: headers);
+    var response =
+        await http.get(Uri.parse("${baseApiLink}travels"), headers: headers);
 
     if (response.statusCode == 200) {
       var jsonData = await json.decode(response.body);

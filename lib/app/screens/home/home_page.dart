@@ -10,63 +10,56 @@ import 'package:toy_app/app/screens/home/widgets/custom_ticket_booking_card.dart
 import 'package:toy_app/app/screens/home/widgets/home_custom_drawer.dart';
 import 'package:toy_app/my_icons_icons.dart';
 import '../../data/data_source/Home_top_card_list.dart';
-import 'dart:math' as math; // import this
+import 'dart:math' as math;
 
-class HomePage extends StatefulWidget {
+class HomePage extends StatelessWidget {
   HomePage({Key? key}) : super(key: key);
 
-  @override
-  State<HomePage> createState() => _HomePageState();
-}
-
-class _HomePageState extends State<HomePage> {
   // final HomeController _categoryController = Get.put(HomeController());
   MyLocalController myLocalController = Get.put(MyLocalController());
 
   @override
-  void initState() {
-    // TODO: implement initState
-    super.initState();
-
-  }
-  @override
   Widget build(BuildContext context) {
-    var lang = Get.deviceLocale.toString();
     return Scaffold(
       drawer: HomeCustomDrawer(),
       appBar: AppBar(
         elevation: 0,
         backgroundColor: const Color(0xff6D2B70),
         leading: Builder(builder: (context) {
-          // if (myLocalController.locale == "ar") {
+          print("MyLocalController.l ${MyLocalController.locale}");
+          if (MyLocalController.locale == "ar") {
             return IconButton(
-                onPressed: () {
-                  // print(Get.deviceLocale);
-                  Scaffold.of(context).openDrawer();
-                },
-                icon: Transform(
-                  alignment: Alignment.center,
-                  transform: Matrix4.rotationX(math.pi),
-                  child: const Icon(
-                    MyIcons.menu,
-                    size: 32,
-                  ),
-                ));
-          // } else {
-          //   return IconButton(
-          //       onPressed: () {
-          //         print(Get.deviceLocale);
-          //         Scaffold.of(context).openDrawer();
-          //       },
-          //       icon: Transform(
-          //         alignment: Alignment.center,
-          //         transform: Matrix4.rotationY(math.pi),
-          //         child: const Icon(
-          //           MyIcons.menu,
-          //           size: 32,
-          //         ),
-          //       ));
-          // }
+              onPressed: () {
+                // print(Get.deviceLocale);
+                Scaffold.of(context).openDrawer();
+              },
+              icon: Transform(
+                // angle: math.pi,
+                alignment: Alignment.center,
+                transform: Matrix4.rotationY(math.pi),
+                child: const Icon(
+                  MyIcons.menu,
+                  size: 32,
+                ),
+              ),
+            );
+          } else {
+            return IconButton(
+              onPressed: () {
+                print(Get.deviceLocale);
+                Scaffold.of(context).openDrawer();
+              },
+              icon: Transform(
+                // angle: math.pi,
+                alignment: Alignment.center,
+                transform: Matrix4.rotationX(math.pi),
+                child: const Icon(
+                  MyIcons.menu,
+                  size: 32,
+                ),
+              ),
+            );
+          }
         }),
         actions: const [
           Image(image: AssetImage('assets/images/notification_icon.png'))
@@ -114,27 +107,25 @@ class _HomePageState extends State<HomePage> {
                     )
                   ],
                 ),
-                GetBuilder<MyLocalController>(
-                    init: MyLocalController(),
-                    builder: (_) =>
-                        Container(
-                          margin: EdgeInsets.only(top: 150.h),
-                          height: 110.h,
-                          width: Get.width,
-                          child: ListView.builder(
-                              scrollDirection: Axis.horizontal,
-                              itemBuilder: (context, index) {
-                                return CustomCard(
-                                    homeTopCardItems: homeTopCardList[index]);
-                              },
-                              itemCount: homeTopCardList.length),
-                        )),
+                Container(
+                  // color: Colors.red,
+                  margin: EdgeInsets.only(top: 150.h),
+                  height: 130.h,
+                  width: Get.width,
+                  child: ListView.builder(
+                      scrollDirection: Axis.horizontal,
+                      itemBuilder: (context, index) {
+                        return CustomCard(
+                            homeTopCardItems: homeTopCardList[index]);
+                      },
+                      itemCount: homeTopCardList.length),
+                ),
               ],
             ),
             SizedBox(
               width: Get.width,
               height: 400.h,
-              child: customTicketBookingCard(),
+              child: CustomTicketBookingCard(),
             ),
             Container(
                 width: Get.width,

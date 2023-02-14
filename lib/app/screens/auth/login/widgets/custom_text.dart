@@ -27,12 +27,12 @@ class CustomText extends StatelessWidget {
       textAlign: textAlign,
       // TextAlign: Alignment.center,
       textText.tr,
-      style: TextStyle(
-          fontFamily: 'din-next-lt-w23',
-          color: color,
+    style: TextStyle(
+        fontFamily: 'din-next-lt-w23',
+        color: color,
 height: height,
-          fontSize: fontSize.sp,
-          fontWeight: fontWeight),
+        fontSize: fontSize.sp,
+        fontWeight: fontWeight),
       //   GoogleFonts.cairo(
       //     textStyle: TextStyle(
       //         color: color,

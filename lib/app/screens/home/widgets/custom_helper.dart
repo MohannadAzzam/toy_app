@@ -27,69 +27,72 @@ class HomeCustomHelper extends StatelessWidget {
                   itemCount: snapshot.data!.length,
                   scrollDirection: Axis.horizontal,
                   itemBuilder: (context, index) {
-                    return Card(
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(25)),
-                      elevation: 3,
-                      child: Column(
-                        children: [
-                          Container(
-                              margin: EdgeInsets.only(
-                                  top: 15.h,
-                                  left: 40.w,
-                                  right: 40.w),
-                              child: CircleAvatar(
-                                radius: 50.r,
-                                backgroundImage: AssetImage(
-                                    "${snapshot.data![index]!.image}"),
-                              )),
-                          Container(
-                              margin: EdgeInsets.only(
-                                  top: 2.h,
-                                  left: 40.w,
-                                  right: 40.w),
-                              child: CustomText(
-                                  textText:
-                                  "${snapshot.data![index]!.name}",
-                                  color: Colors.black,
-                                  fontSize: 18)),
-                          Container(
-                              margin: EdgeInsets.only(
-                                top:
-                                2.h, /*left: 40.w, right: 40.w*/
-                              ),
-                              child: CustomText(
-                                  textText:
-                                  "${snapshot.data![index]!.position}",
-                                  color: const Color(0xff949494),
-                                  fontSize: 16)),
-                          SizedBox(
-                            height: 10.h,
-                          ),
-                          Row(
-                            mainAxisAlignment:
-                            MainAxisAlignment.spaceEvenly,
-                            children: [
-                              const InkWell(
-                                child: Icon(
-                                  MyIcons.phone,
-                                  size: 16,
-                                  color: Color(0xff911D74),
+                    return Container(
+                      margin: EdgeInsets.only(bottom: 10),
+                      child: Card(
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(25)),
+                        elevation: 5,
+                        child: Column(
+                          children: [
+                            Container(
+                                margin: EdgeInsets.only(
+                                    top: 15.h,
+                                    left: 40.w,
+                                    right: 40.w),
+                                child: CircleAvatar(
+                                  radius: 50.r,
+                                  backgroundImage: AssetImage(
+                                      "${snapshot.data![index]!.image}"),
+                                )),
+                            Container(
+                                margin: EdgeInsets.only(
+                                    top: 2.h,
+                                    left: 40.w,
+                                    right: 40.w),
+                                child: CustomText(
+                                    textText:
+                                    "${snapshot.data![index]!.name}",
+                                    color: Colors.black,
+                                    fontSize: 18)),
+                            Container(
+                                margin: EdgeInsets.only(
+                                  top:
+                                  2.h, /*left: 40.w, right: 40.w*/
                                 ),
-                              ),
-                              SizedBox(
-                                width: 70.w,
-                              ),
-                              const InkWell(
-                                child: Icon(
-                                  MyIcons.message,
-                                  size: 16,
-                                  color: Color(0xff911D74),
+                                child: CustomText(
+                                    textText:
+                                    "${snapshot.data![index]!.position}",
+                                    color: const Color(0xff949494),
+                                    fontSize: 16)),
+                            SizedBox(
+                              height: 10.h,
+                            ),
+                            Row(
+                              mainAxisAlignment:
+                              MainAxisAlignment.spaceEvenly,
+                              children: [
+                                const InkWell(
+                                  child: Icon(
+                                    MyIcons.phone,
+                                    size: 16,
+                                    color: Color(0xff911D74),
+                                  ),
                                 ),
-                              ),
-                            ],
-                          )
-                        ],
+                                SizedBox(
+                                  width: 70.w,
+                                ),
+                                const InkWell(
+                                  child: Icon(
+                                    MyIcons.message,
+                                    size: 16,
+                                    color: Color(0xff911D74),
+                                  ),
+                                ),
+                              ],
+                            )
+                          ],
+                        ),
                       ),
                     );
                   }),
