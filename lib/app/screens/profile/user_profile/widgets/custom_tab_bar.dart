@@ -8,11 +8,15 @@ import 'package:toy_app/app/screens/profile/user_profile/widgets/custom_profile_
 import 'package:toy_app/app/screens/profile/user_profile/widgets/custom_tickets_profile.dart';
 import 'package:toy_app/my_icons_icons.dart';
 
+import '../../../../controllers/profile_data_controller.dart';
+
 class CustomTabBar extends StatelessWidget {
   const CustomTabBar({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    ProfileDataController profileDataController =
+        Get.put(ProfileDataController());
     return DefaultTabController(
         initialIndex: 0,
         length: 2,
@@ -74,7 +78,7 @@ class CustomTabBar extends StatelessWidget {
                     // margin: EdgeInsets.only(top: 20.h),
                     height: 290.h,
                     child: ListView.builder(
-                      physics: BouncingScrollPhysics(),
+                        physics: BouncingScrollPhysics(),
                         itemCount: profileTicketList.length,
                         itemBuilder: (context, index) {
                           return CustomProfileTicket(
@@ -82,9 +86,11 @@ class CustomTabBar extends StatelessWidget {
                         }),
                   ),
                   CustomButtonWithIcon(
-                    onTap: (){
-
-                    },
+                      onTap: () {
+                        profileDataController.getUserData();
+                        print(
+                            "profileDataController.getUserData()  ${profileDataController.getUserData()}");
+                      },
                       top: 15,
                       bottom: 0,
                       left: 0,
@@ -95,18 +101,31 @@ class CustomTabBar extends StatelessWidget {
                       text: 'حجز تذكرة')
                 ],
               ),
-              Column(
-                children: const [
-                  CustomProfileDataUnit(
-                      icon: MyIcons.person, text: 'محمد عبد الله احمد'),
-                  CustomProfileDataUnit(
-                      icon: MyIcons.phone, text: '966123456789+'),
-                  CustomProfileDataUnit(
-                      icon: MyIcons.message, text: 'Mail@Website.com'),
-                  CustomProfileDataUnit(
-                      icon: MyIcons.location, text: 'السعودية'),
-                ],
-              )
+              FutureBuilder(
+                  future: profileDataController.getUserData(),
+                  builder: (context, snapshot) {
+                    if (snapshot.hasData) {
+                      return Column(
+                        children: [
+                          CustomProfileDataUnit(
+                              icon: MyIcons.person,
+                              text: '${snapshot.data!.name}'),
+                          CustomProfileDataUnit(
+                              icon: MyIcons.phone,
+                              text: '${snapshot.data!.mobile}'),
+                          CustomProfileDataUnit(
+                              icon: MyIcons.message,
+                              text: '${snapshot.data!.email}'),
+                          CustomProfileDataUnit(
+                              icon: MyIcons.location,
+                              text: '${snapshot.data!.countryName}'),
+                        ],
+                      );
+                    }
+                    return Center(
+                      child: const CircularProgressIndicator(),
+                    );
+                  })
             ],
           ),
         ));

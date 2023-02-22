@@ -20,11 +20,14 @@ import 'package:toy_app/app/screens/profile/user_profile/user_profile_page.dart'
 import 'package:toy_app/main.dart';
 import 'package:toy_app/my_icons_icons.dart';
 
+import '../../../controllers/profile_data_controller.dart';
 import '../../from_drawer_screens/sponsors_page/sponsors_page.dart';
 
 class HomeCustomDrawer extends StatelessWidget {
   HomeCustomDrawer({Key? key}) : super(key: key);
 
+  final ProfileDataController profileDataController =
+      Get.put(ProfileDataController());
   final MyLocalController _myLocalController = Get.put(MyLocalController());
 
   @override
@@ -65,29 +68,88 @@ class HomeCustomDrawer extends StatelessWidget {
             // Image(
             //    image: AssetImage('assets/images/home_drawer_uper.png')),
             Container(
-              padding: EdgeInsets.only(top: 20.h, bottom: 16.h),
+              // padding: EdgeInsets.only(top: 20.h, bottom: 16.h),
               color: const Color(0xff622665),
-              child: InkWell(
-                onTap: () {
-                  Scaffold.of(context).closeEndDrawer();
-                  Get.to(() => const LoginPage());
-                },
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    CustomText(
-                        textText: "login", color: Colors.white, fontSize: 18),
-                    SizedBox(
-                      width: 6.w,
+              child: sharedPreferences!.getInt('log') == 1
+                  ? Container(
+                      padding: EdgeInsets.only(top: 20.h, bottom: 16.h),
+                      color: const Color(0xff622665),
+                      child:
+                          // sharedPreferences!.getInt('log') == 1 ?
+                          InkWell(
+                        onTap: () {
+                          Scaffold.of(context).closeEndDrawer();
+                          Get.to(() => const UserProfilePage());
+                        },
+                        child: Container(
+                          margin: EdgeInsets.only(left: 20.w, right: 20.w),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: [
+                               CircleAvatar(
+                                // foregroundImage: Image.network('https://etr.hexacit.com/uploads/images/users/defualtUser.jpg'),
+                                backgroundColor: Color(0xff6D2B70),
+                                backgroundImage: NetworkImage(
+                                    "${sharedPreferences!.getString('image')}"),
+                              ),
+                              SizedBox(
+                                width: 10.w,
+                              ),
+                              Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  CustomText(
+                                      textText:
+                                          "${sharedPreferences!.getString('username')}",
+                                      color: Colors.white,
+                                      fontSize: 16),
+                                  CustomText(
+                                      textText: 'الملف الشخصي',
+                                      color: Color(0xffC1C1C1),
+                                      fontSize: 14)
+                                ],
+                              ),
+
+                              //   (
+                              //   MyIcons.person,
+                              //   color: Colors.white,
+                              //   size: 16,
+                              // ),
+                            ],
+                          ),
+                        ),
+                      ),
+                      // :
+                    )
+                  : InkWell(
+                      onTap: () {
+                        Scaffold.of(context).closeEndDrawer();
+                        Get.to(() => const LoginPage());
+                      },
+                      child: Container(
+                        margin: EdgeInsets.symmetric(vertical: 20.h),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            const Icon(
+                              MyIcons.person,
+                              color: Colors.white,
+                              size: 16,
+                            ),
+                            SizedBox(
+                              width: 6.w,
+                            ),
+                            CustomText(
+                                textText: "login",
+                                color: Colors.white,
+                                fontSize: 18),
+
+
+                          ],
+                        ),
+                      ),
                     ),
-                    const Icon(
-                      MyIcons.person,
-                      color: Colors.white,
-                      size: 16,
-                    ),
-                  ],
-                ),
-              ),
+              // :
             ),
             Column(
               children: [
@@ -162,17 +224,16 @@ class HomeCustomDrawer extends StatelessWidget {
                       // MyLocalController.getLanguageResponse(ar);
                       // print("getLanguageResponse(ar) ${MyLocalController.getLanguageResponse(ar)}");
                       // _englishController.changeLanguage();
-                      if(sharedPreferences!.getString("lang")== "ar"){
+                      if (sharedPreferences!.getString("lang") == "ar") {
                         _myLocalController.changeLang("en");
-                      } else /*(sharedPreferences!.getString("lang")== "en")*/{
+                      } else /*(sharedPreferences!.getString("lang")== "en")*/ {
                         _myLocalController.changeLang("ar");
                       }
                       // sharedPreferences!.getString("lang")== "ar"
                       //     ? _myLocalController.changeLang("en") ;
                       // sharedPreferences!.getString("lang")== "en"
                       //     ? _myLocalController.changeLang("ar");
-                      Get.offAll(() =>   HomePage());
-
+                      Get.offAll(() => HomePage());
                     },
                     unitName: "English",
                     unitIcon: MyIcons.english),
@@ -185,10 +246,12 @@ class HomeCustomDrawer extends StatelessWidget {
                     unitIcon: MyIcons.message),
                 CustomDrawerUnit(
                     onTap: () {
+                      sharedPreferences!.remove('log');
                       Scaffold.of(context).closeEndDrawer();
-                      Get.to(() => const UserProfilePage());
+                      Get.to(() => HomePage());
+
                     },
-                    unitName: 'USER PROFILE',
+                    unitName: 'LogOut',
                     unitIcon: MyIcons.message),
                 CustomDrawerUnit(
                     onTap: () {

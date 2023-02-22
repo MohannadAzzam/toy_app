@@ -56,38 +56,35 @@ class EditPersonalDetails extends StatelessWidget {
                                           MyIcons.exit,
                                           color: Color(0xffD4D4D4),
                                         ))),
-                                Directionality(
-                                  textDirection: TextDirection.rtl,
-                                  child: Container(
-                                    width: Get.width,
-                                    child: Column(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.center,
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.center,
-                                      children: [
-                                        CustomButtonWithIcon(
-                                            height: 60,
-                                            width: 294,
-                                            icon: MyIcons.person,
-                                            text: "تعديل البيانات الشخصية",
-                                            top: 20,
-                                            bottom: 10,
-                                            left: 0,
-                                            right: 0,
-                                            onTap: () {}),
-                                        CustomButtonWithIcon(
-                                            height: 60,
-                                            width: 294,
-                                            icon: MyIcons.locker,
-                                            text: "تغيير كلمة المرور",
-                                            top: 0,
-                                            bottom: 10,
-                                            left: 0,
-                                            right: 0,
-                                            onTap: () {}),
-                                      ],
-                                    ),
+                                Container(
+                                  width: Get.width,
+                                  child: Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.center,
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.center,
+                                    children: [
+                                      CustomButtonWithIcon(
+                                          height: 60,
+                                          width: 294,
+                                          icon: MyIcons.person,
+                                          text: "تعديل البيانات الشخصية",
+                                          top: 20,
+                                          bottom: 10,
+                                          left: 0,
+                                          right: 0,
+                                          onTap: () {}),
+                                      CustomButtonWithIcon(
+                                          height: 60,
+                                          width: 294,
+                                          icon: MyIcons.locker,
+                                          text: "تغيير كلمة المرور",
+                                          top: 0,
+                                          bottom: 10,
+                                          left: 0,
+                                          right: 0,
+                                          onTap: () {}),
+                                    ],
                                   ),
                                 )
                               ],

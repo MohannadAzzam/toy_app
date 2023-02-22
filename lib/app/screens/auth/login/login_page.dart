@@ -1,53 +1,34 @@
-import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:toy_app/app/controllers/login_controller.dart';
-import 'package:toy_app/app/data/models/login/login_response.dart';
 import 'package:toy_app/app/screens/auth/account_type/account_type_page.dart';
 import 'package:toy_app/app/screens/auth/login/widgets/custom_bottom_sheet.dart';
 import 'package:toy_app/app/screens/auth/login/widgets/custom_button.dart';
 import 'package:toy_app/app/screens/auth/login/widgets/custom_image_bottom_sheet.dart';
 import 'package:toy_app/app/screens/auth/login/widgets/custom_text.dart';
 import 'package:toy_app/app/screens/auth/login/widgets/custom_text_form_field.dart';
+import 'package:toy_app/main.dart';
 import 'package:toy_app/my_icons_icons.dart';
 
-import '../../../const/constants.dart';
-import 'package:http/http.dart' as http;
+
 
 class LoginPage extends GetView<LoginController> {
   const LoginPage({Key? key}) : super(key: key);
 
   @override
+
   Widget build(BuildContext context) {
     final formState = GlobalKey<FormState>();
-    TextEditingController emailController = TextEditingController();
-    TextEditingController passwordController = TextEditingController();
+
 
     LoginController loginController = Get.put(LoginController());
 
+
     validator() async {
       if (formState.currentState!.validate()) {
-        // User data = controller.loginWithEmail();
-        // print("LoginPageData  ${loginController.loginWithEmail()}");
         await controller.loginWithEmail();
-        // loginWithEmail() async {
-        //   try {
-        //     Map body = {'email': emailController.text, 'password': passwordController.text};
-        //     var response = await http.post(Uri.parse("${baseApiLink}login"),
-        //         body: body);
-        //     if (response.statusCode == 200) {
-        //       var jsonData = jsonDecode(response.body);
-        //       // print("Login Done \n emailController.text : ${emailController.text} \n passwordController.text : ${passwordController.text}");
-        //       print("Login Done \n  $jsonData");
-        //       return jsonData;
-        //     }
-        //   } catch (e) {
-        //     // print("Login Failed \n emailController.text : ${emailController.text} \n passwordController.text : ${passwordController.text}");
-        //     print("Login Failed \n $e");
-        //   }
-        // }
       }
     }
 
@@ -163,6 +144,8 @@ class LoginPage extends GetView<LoginController> {
                               value: con.isChecked,
                               onChanged: (var value) {
                                 con.isClicked(value);
+                                // print(con.isChecked);
+                                // loginController.isLogedIn = con.isChecked;
                               },
                             )),
                   ),
@@ -179,9 +162,17 @@ class LoginPage extends GetView<LoginController> {
                 children: [
                   CustomButton(
                       onPressed: () async {
-                        var data = loginController.loginWithEmail();
-                        print("myDATA ${loginController.data['user']['name']}");
+                        // var data = loginController.loginWithEmail();
+                        // print("myDATA ${loginController.data['user']['name']}");
+                        // loginController.isLogedIn == true ?
+                        // loginController.isChecked == null ? loginController.isChecked = ture;
+                        print(loginController.isChecked);
+                        if(controller.isChecked==true){
+                              loginController.isLogedIn = sharedPreferences!.setInt("log", 1);
+                        }
+
                         validator();
+
                       },
                       leftMargin: 0,
                       rightMargin: 0,
