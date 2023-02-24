@@ -11,14 +11,16 @@ class ChangePasswordController extends GetxController {
   @override
   void onInit() {
     super.onInit();
-    changePassword();
+    // changePassword();
   }
 
   TextEditingController oldPasswordController = TextEditingController();
   TextEditingController newPasswordController = TextEditingController();
   TextEditingController confirmNewPasswordController = TextEditingController();
+  var isLoading = false;
 
   changePassword() async {
+    isLoading   = true;
     try {
       Map body = {
         'old_password': oldPasswordController.text,
@@ -35,13 +37,22 @@ class ChangePasswordController extends GetxController {
         var jsonData = await jsonDecode(response.body);
 
         if (jsonData['status'] == false){
-          // Get.defaultDialog(
-          //     title: "Error",
-          //     content: Text("${jsonData['message']}")
-          // );
+          Get.defaultDialog(
+              title: "Error",
+              content: Text("${jsonData['message']}")
+          );
         } else{
+          // Get.defaultDialog(
+          //     title: "",
+          //     content: Center(child: const CircularProgressIndicator(),)
+          // );
           // token = sharedPreferences?.setString("token", "$token") as String?;
+          isLoading = false;
           Get.snackbar("${jsonData['status']}", "${jsonData['message']}");
+          oldPasswordController.clear();
+          newPasswordController.clear();
+          confirmNewPasswordController.clear();
+          // Get.back();
 
         }
       }

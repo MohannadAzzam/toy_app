@@ -118,32 +118,35 @@ class UserProfilePage extends StatelessWidget {
               width: Get.width,
               child: Center(
                   child: FutureBuilder(
-                      future : profileDataController.getUserData(),
+                      future: profileDataController.getUserData(),
                       builder: (context, snapshot) {
-                if (snapshot.hasData) {
-                  return Column(
-                    children: [
-                      CircleAvatar(
-                        radius: 55.r,
-                        backgroundColor: Colors.white,
-                        child: CircleAvatar(
-                          radius: 54.r,
-                          backgroundColor: const Color(0xff6D2B70),
-                          backgroundImage: NetworkImage('${snapshot.data!.image}') ,
-                        ),
-                      ),
-                      SizedBox(
-                        height: 20.h,
-                      ),
-                      const CustomText(
-                          textText: 'الملف الشخصي',
-                          color: Colors.white,
-                          fontSize: 18),
-                    ],
-                  );
-                }
-                return Center(child: const CircularProgressIndicator(),);
-              })),
+                        if (snapshot.hasData) {
+                          return Column(
+                            children: [
+                              CircleAvatar(
+                                radius: 55.r,
+                                backgroundColor: Colors.white,
+                                child: CircleAvatar(
+                                  radius: 54.r,
+                                  backgroundColor: const Color(0xff6D2B70),
+                                  backgroundImage:
+                                      NetworkImage('${snapshot.data!.image}'),
+                                ),
+                              ),
+                              SizedBox(
+                                height: 20.h,
+                              ),
+                              const CustomText(
+                                  textText: 'الملف الشخصي',
+                                  color: Colors.white,
+                                  fontSize: 18),
+                            ],
+                          );
+                        }
+                        return Center(
+                          child: const CircularProgressIndicator(),
+                        );
+                      })),
             ),
             Container(
               height: 500,

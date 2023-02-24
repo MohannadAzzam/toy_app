@@ -79,14 +79,16 @@ class HomeCustomDrawer extends StatelessWidget {
                           InkWell(
                         onTap: () {
                           Scaffold.of(context).closeEndDrawer();
-                          Get.to(() => const UserProfilePage());
+                          sharedPreferences!.getString('userType') == "1"
+                              ? Get.to(() => const UserProfilePage())
+                              : Get.to(() => const CompanyProfilePage());
                         },
                         child: Container(
                           margin: EdgeInsets.only(left: 20.w, right: 20.w),
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.start,
                             children: [
-                               CircleAvatar(
+                              CircleAvatar(
                                 // foregroundImage: Image.network('https://etr.hexacit.com/uploads/images/users/defualtUser.jpg'),
                                 backgroundColor: Color(0xff6D2B70),
                                 backgroundImage: NetworkImage(
@@ -143,8 +145,6 @@ class HomeCustomDrawer extends StatelessWidget {
                                 textText: "login",
                                 color: Colors.white,
                                 fontSize: 18),
-
-
                           ],
                         ),
                       ),
@@ -246,10 +246,9 @@ class HomeCustomDrawer extends StatelessWidget {
                     unitIcon: MyIcons.message),
                 CustomDrawerUnit(
                     onTap: () {
-                      sharedPreferences!.remove('log');
-                      Scaffold.of(context).closeEndDrawer();
                       Get.to(() => HomePage());
-
+                      sharedPreferences!.remove('log');
+                      // Scaffold.of(context).closeEndDrawer();
                     },
                     unitName: 'LogOut',
                     unitIcon: MyIcons.message),

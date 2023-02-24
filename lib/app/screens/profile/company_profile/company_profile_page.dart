@@ -9,11 +9,16 @@ import 'package:toy_app/app/screens/profile/user_profile/widgets/custom_button_w
 import 'package:toy_app/app/screens/profile/user_profile/widgets/custom_profile_data_unit.dart';
 import 'package:toy_app/my_icons_icons.dart';
 
+import '../../../controllers/profile_data_controller.dart';
+
 class CompanyProfilePage extends StatelessWidget {
   const CompanyProfilePage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    ProfileDataController profileDataController =
+        Get.put(ProfileDataController());
+
     String text =
         "نرجو اختيار مساحة عمل خاصة بكم من خلال الضغط على رز حجز مساحة ثم اختيار رقم المساحة المرغوب بها";
     return Directionality(
@@ -24,15 +29,16 @@ class CompanyProfilePage extends StatelessWidget {
           backgroundColor: const Color(0xff6D2B70),
           leading: IconButton(
             onPressed: () {
-              Get.to(() =>  HomePage());
+              Get.to(() => HomePage());
             },
             icon: const Icon(MyIcons.ionic_ios_arrow_back),
           ),
           actions: [
-            IconButton(onPressed: () {
-              Get.to(()=> EditCompanyAccountPage());
-
-            }, icon: const Icon(Icons.more_vert))
+            IconButton(
+                onPressed: () {
+                  Get.to(() => EditCompanyAccountPage());
+                },
+                icon: const Icon(Icons.more_vert))
           ],
         ),
         body: SingleChildScrollView(
@@ -45,36 +51,91 @@ class CompanyProfilePage extends StatelessWidget {
                 // margin: EdgeInsets.only(top: 8.h),
                 width: Get.width,
                 child: Center(
-                    child: Column(
-                  children: [
-                    CircleAvatar(
-                        radius: 55.r,
-                        backgroundColor: const Color(0xffF5F5F5),
-                        child: CircleAvatar(
-                          backgroundImage: const AssetImage(
-                              "assets/images/company_avatar.png"),
-                          radius: 54.r,
-                          // backgroundColor: Colors.red,
-                        )),
-                    const CustomText(
-                        textText: 'اسم الشركة',
-                        color: Colors.white,
-                        fontSize: 18),
-                  ],
-                )),
+                    // FutureBuilder(
+                    //     future: profileDataController.getUserData(),
+                    //     builder: (context, snapshot) {
+                    //       if (snapshot.hasData) {
+                    //         return Column(
+                    //           children: [
+                    //             CircleAvatar(
+                    //               radius: 55.r,
+                    //               backgroundColor: Colors.white,
+                    //               child: CircleAvatar(
+                    //                 radius: 54.r,
+                    //                 backgroundColor: const Color(0xff6D2B70),
+                    //                 backgroundImage:
+                    //                 NetworkImage('${snapshot.data!.image}'),
+                    //               ),
+                    //             ),
+                    //             SizedBox(
+                    //               height: 20.h,
+                    //             ),
+                    //             const CustomText(
+                    //                 textText: 'الملف الشخصي',
+                    //                 color: Colors.white,
+                    //                 fontSize: 18),
+                    //           ],
+                    //         );
+                    //       }
+                    //       return Center(
+                    //         child: const CircularProgressIndicator(),
+                    //       );
+                    //     }).
+                    child: FutureBuilder(
+                        future: profileDataController.getUserData(),
+                        builder: (context, snapshot) {
+                          if (snapshot.hasData) {
+                            return Column(
+                              children: [
+                                CircleAvatar(
+                                    radius: 55.r,
+                                    backgroundColor: const Color(0xffF5F5F5),
+                                    child: CircleAvatar(
+                                      backgroundImage: NetworkImage(
+                                          '${snapshot.data!.image}'),
+                                      radius: 54.r,
+                                      // backgroundColor: Colors.red,
+                                    )),
+                                SizedBox(
+                                  height: 20.h,
+                                ),
+                                const CustomText(
+                                    textText: 'اسم الشركة',
+                                    color: Colors.white,
+                                    fontSize: 18),
+                              ],
+                            );
+                          }
+                          return Center(
+                            child: const CircularProgressIndicator(),
+                          );
+                        })),
               ),
-              Column(
-                children: const [
-                  CustomProfileDataUnit(
-                      icon: MyIcons.person, text: 'محمد عبد الله احمد'),
-                  CustomProfileDataUnit(
-                      icon: MyIcons.phone, text: '966123456789+'),
-                  CustomProfileDataUnit(
-                      icon: MyIcons.message, text: 'Mail@Website.com'),
-                  CustomProfileDataUnit(
-                      icon: MyIcons.location, text: 'السعودية'),
-                ],
-              ),
+              FutureBuilder(
+                  future: profileDataController.getUserData(),
+                  builder: (context, snapshot) {
+                    if (snapshot.hasData) {
+                      return Column(
+                        children: [
+                          CustomProfileDataUnit(
+                              icon: MyIcons.person,
+                              text: '${snapshot.data!.name}'),
+                          CustomProfileDataUnit(
+                              icon: MyIcons.phone,
+                              text: '${snapshot.data!.mobile}'),
+                          CustomProfileDataUnit(
+                              icon: MyIcons.message,
+                              text: '${snapshot.data!.email}'),
+                          CustomProfileDataUnit(
+                              icon: MyIcons.location,
+                              text: '${snapshot.data!.countryName}'),
+                        ],
+                      );
+                    }
+                    return Center(
+                      child: const CircularProgressIndicator(),
+                    );
+                  }),
 
               Container(
                 margin: EdgeInsets.symmetric(horizontal: 30.w, vertical: 10.h),
@@ -92,7 +153,6 @@ class CompanyProfilePage extends StatelessWidget {
                     color: Colors.black,
                     fontSize: 14),
               ),
-
               Container(
                 margin: EdgeInsets.only(
                     top: 15.h, bottom: 15.h, right: 15.w, left: 15.w),
@@ -123,7 +183,9 @@ class CompanyProfilePage extends StatelessWidget {
                             fontSize: 16),
                       ],
                     ),
-                    SizedBox(width: 20.w,),
+                    SizedBox(
+                      width: 20.w,
+                    ),
                     Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       crossAxisAlignment: CrossAxisAlignment.center,
@@ -137,8 +199,7 @@ class CompanyProfilePage extends StatelessWidget {
                               color: Colors.white,
                               borderRadius:
                                   BorderRadius.all(Radius.circular(10))),
-                          child:
-                          Row(
+                          child: Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               const CustomText(
@@ -150,7 +211,9 @@ class CompanyProfilePage extends StatelessWidget {
                             ],
                           ),
                         ),
-                        const SizedBox(height: 10,),
+                        const SizedBox(
+                          height: 10,
+                        ),
                         Container(
                           height: 50.h,
                           width: 80.w,
@@ -160,8 +223,7 @@ class CompanyProfilePage extends StatelessWidget {
                               color: Colors.white,
                               borderRadius:
                                   BorderRadius.all(Radius.circular(10))),
-                          child:
-                          Row(
+                          child: Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               const CustomText(
@@ -170,7 +232,9 @@ class CompanyProfilePage extends StatelessWidget {
                                 fontSize: 20,
                                 fontWeight: FontWeight.bold,
                               ),
-                              SizedBox(width: 5.w,),
+                              SizedBox(
+                                width: 5.w,
+                              ),
                               const CustomText(
                                 textText: "م",
                                 color: Color(0xff911D74),
@@ -194,18 +258,14 @@ class CompanyProfilePage extends StatelessWidget {
                   left: 0,
                   right: 0,
                   onTap: () {
-                    Get.bottomSheet(
-                        CustomImageBottomSheet(
-                            image: Image(image: AssetImage(
-                                "assets/images/work_space.png")),
-                            firstText: "تهانينا",
-                            secondText: "تم طلب مساحة العمل بنجاح",
-                            buttonText: "تم",
-                        onPressed: (){
-
-                        },
-                        )
-                    );
+                    Get.bottomSheet(CustomImageBottomSheet(
+                      image: Image(
+                          image: AssetImage("assets/images/work_space.png")),
+                      firstText: "تهانينا",
+                      secondText: "تم طلب مساحة العمل بنجاح",
+                      buttonText: "تم",
+                      onPressed: () {},
+                    ));
                   }),
             ],
           ),
