@@ -136,8 +136,8 @@ class UserProfilePage extends StatelessWidget {
                               SizedBox(
                                 height: 20.h,
                               ),
-                              const CustomText(
-                                  textText: 'الملف الشخصي',
+                               CustomText(
+                                  textText: "${snapshot.data!.name}",
                                   color: Colors.white,
                                   fontSize: 18),
                             ],

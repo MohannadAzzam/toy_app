@@ -16,6 +16,8 @@ class LoginController extends GetxController {
   var token;
   var isLogedIn ;
   var username;
+  var mobile;
+  var countryId;
   var image;
 
 
@@ -41,10 +43,15 @@ class LoginController extends GetxController {
         } else{
           token = sharedPreferences!.setString("token", "${jsonData['user']['access_token']}");
           username = sharedPreferences!.setString("username", "${jsonData['user']['name']}");
+          mobile = sharedPreferences!.setString("mobile", "${jsonData['user']['mobile']}");
+          countryId = sharedPreferences!.setString("country_id", "${jsonData['user']['country_id']}");
           image = sharedPreferences!.setString("image", "${jsonData['user']['image']}");
 
+          emailController.clear();
+          passwordController.clear();
           Get.snackbar("Login Successfully","Enjoy");
           Get.to(() => HomePage());
+
           // print("token $token");
 
 

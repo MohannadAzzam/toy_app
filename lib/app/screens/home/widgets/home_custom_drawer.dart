@@ -15,13 +15,14 @@ import 'package:toy_app/app/screens/from_drawer_screens/who_us/who_us_page.dart'
 import 'package:toy_app/app/screens/home/home_page.dart';
 import 'package:toy_app/app/screens/home/widgets/custom_drawer_unit.dart';
 import 'package:toy_app/app/screens/home/widgets/social_media_circle_icon.dart';
-import 'package:toy_app/app/screens/profile/company_profile/company_profile_page.dart';
 import 'package:toy_app/app/screens/profile/user_profile/user_profile_page.dart';
 import 'package:toy_app/main.dart';
 import 'package:toy_app/my_icons_icons.dart';
 
+import '../../../controllers/lougout_controller.dart';
 import '../../../controllers/profile_data_controller.dart';
 import '../../from_drawer_screens/sponsors_page/sponsors_page.dart';
+import '../../profile/sponsor_profile/sponsor_profile_page.dart';
 
 class HomeCustomDrawer extends StatelessWidget {
   HomeCustomDrawer({Key? key}) : super(key: key);
@@ -29,6 +30,9 @@ class HomeCustomDrawer extends StatelessWidget {
   final ProfileDataController profileDataController =
       Get.put(ProfileDataController());
   final MyLocalController _myLocalController = Get.put(MyLocalController());
+  final LogOutController _logOutController = Get.put(LogOutController());
+
+  // final profileDataController = Get.put(ProfileDataController());
 
   @override
   Widget build(BuildContext context) {
@@ -79,46 +83,59 @@ class HomeCustomDrawer extends StatelessWidget {
                           InkWell(
                         onTap: () {
                           Scaffold.of(context).closeEndDrawer();
-                          sharedPreferences!.getString('userType') == "1"
-                              ? Get.to(() => const UserProfilePage())
-                              : Get.to(() => const CompanyProfilePage());
+                          if (sharedPreferences!.getString('userType') == "1") {
+                            Get.to(() => const UserProfilePage());
+                          } else if (sharedPreferences!.getString('userType') ==
+                              "2") {
+                            Get.to(() => const UserProfilePage());
+                          } else if (sharedPreferences!.getString('userType') ==
+                              "3") {
+                            Get.to(() => const SponsorProfilePage());
+                          }
+
+                          // sharedPreferences!.getString('userType') == "1"
+                          //     ? Get.to(() => const UserProfilePage())
+                          //     : Get.to(() => const CompanyProfilePage());
+                          // : Get.to(() => const SponsorProfilePage());
                         },
                         child: Container(
                           margin: EdgeInsets.only(left: 20.w, right: 20.w),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            children: [
-                              CircleAvatar(
-                                // foregroundImage: Image.network('https://etr.hexacit.com/uploads/images/users/defualtUser.jpg'),
-                                backgroundColor: Color(0xff6D2B70),
-                                backgroundImage: NetworkImage(
-                                    "${sharedPreferences!.getString('image')}"),
-                              ),
-                              SizedBox(
-                                width: 10.w,
-                              ),
-                              Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  CustomText(
-                                      textText:
-                                          "${sharedPreferences!.getString('username')}",
-                                      color: Colors.white,
-                                      fontSize: 16),
-                                  CustomText(
-                                      textText: 'الملف الشخصي',
-                                      color: Color(0xffC1C1C1),
-                                      fontSize: 14)
-                                ],
-                              ),
-
-                              //   (
-                              //   MyIcons.person,
-                              //   color: Colors.white,
-                              //   size: 16,
-                              // ),
-                            ],
-                          ),
+                          child: FutureBuilder(
+                              future: profileDataController.getUserData(),
+                              builder: (context, snapshot) {
+                                if (snapshot.hasData) {
+                                  return Row(
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    children: [
+                                      CircleAvatar(
+                                        // foregroundImage: Image.network('https://etr.hexacit.com/uploads/images/users/defualtUser.jpg'),
+                                        backgroundColor: Color(0xff6D2B70),
+                                        backgroundImage: NetworkImage(
+                                            "${snapshot.data!.image}"),
+                                      ),
+                                      SizedBox(
+                                        width: 10.w,
+                                      ),
+                                      Column(
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: [
+                                          CustomText(
+                                              textText:
+                                              "${snapshot.data!.name}",
+                                              color: Colors.white,
+                                              fontSize: 16),
+                                          CustomText(
+                                              textText: 'profile',
+                                              color: Color(0xffC1C1C1),
+                                              fontSize: 14)
+                                        ],
+                                      ),
+                                    ],
+                                  );
+                                }
+                                return Center(child: const CircularProgressIndicator(),);
+                              }),
                         ),
                       ),
                       // :
@@ -246,19 +263,20 @@ class HomeCustomDrawer extends StatelessWidget {
                     unitIcon: MyIcons.message),
                 CustomDrawerUnit(
                     onTap: () {
-                      Get.to(() => HomePage());
+                      Get.back();
+                      _logOutController.logOut();
                       sharedPreferences!.remove('log');
                       // Scaffold.of(context).closeEndDrawer();
                     },
                     unitName: 'LogOut',
                     unitIcon: MyIcons.message),
-                CustomDrawerUnit(
-                    onTap: () {
-                      Scaffold.of(context).closeEndDrawer();
-                      Get.to(() => const CompanyProfilePage());
-                    },
-                    unitName: 'CO PROFILE',
-                    unitIcon: MyIcons.message),
+                // CustomDrawerUnit(
+                //     onTap: () {
+                //       Scaffold.of(context).closeEndDrawer();
+                //       Get.to(() => const CompanyProfilePage());
+                //     },
+                //     unitName: 'CO PROFILE',
+                //     unitIcon: MyIcons.message),
                 Container(
                   width: 240.w,
                   padding: EdgeInsets.only(top: 44.h, bottom: 28.h),

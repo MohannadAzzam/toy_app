@@ -17,6 +17,7 @@ class SignUpController extends GetxController {
   // TextEditingController typeMobileController = TextEditingController();
   String? countryIdController;
   String? userTypeController;
+
   // String? token;
 
   // TextEditingController Controller = TextEditingController();
@@ -35,7 +36,7 @@ class SignUpController extends GetxController {
       };
 
       var response =
-          await http.post(Uri.parse("${baseApiLink}signUp"),body: body );
+          await http.post(Uri.parse("${baseApiLink}signUp"), body: body);
 
       if (response.statusCode == 200) {
         var jsonData = await jsonDecode(response.body);
@@ -49,17 +50,20 @@ class SignUpController extends GetxController {
         // print("SingUp Done name :  ${jsonData['user']['name']}");
         // print("Login Done name :  ${jsonData['message']}");
 
-        if (jsonData['status'] == false){
+        if (jsonData['status'] == false) {
           Get.defaultDialog(
-            title: "Error",
-            content: Text("${jsonData['message']}")
-          );
+              title: "Error", content: Text("${jsonData['message']}"));
           // Get.snackbar("${jsonData['status']}", "${jsonData['message']}");
-        } else{
+        } else {
+          emailController.clear();
+          passwordController.clear();
+          confirmPasswordController.clear();
+          nameController.clear();
+          mobileController.clear();
+          countryController.clear();
           // token = sharedPreferences?.setString("token", "$token") as String?;
           Get.snackbar("${jsonData['status']}", "${jsonData['message']}");
           Get.to(() => LoginPage());
-
         }
       }
     } catch (e) {

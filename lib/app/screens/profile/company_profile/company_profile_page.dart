@@ -51,36 +51,7 @@ class CompanyProfilePage extends StatelessWidget {
                 // margin: EdgeInsets.only(top: 8.h),
                 width: Get.width,
                 child: Center(
-                    // FutureBuilder(
-                    //     future: profileDataController.getUserData(),
-                    //     builder: (context, snapshot) {
-                    //       if (snapshot.hasData) {
-                    //         return Column(
-                    //           children: [
-                    //             CircleAvatar(
-                    //               radius: 55.r,
-                    //               backgroundColor: Colors.white,
-                    //               child: CircleAvatar(
-                    //                 radius: 54.r,
-                    //                 backgroundColor: const Color(0xff6D2B70),
-                    //                 backgroundImage:
-                    //                 NetworkImage('${snapshot.data!.image}'),
-                    //               ),
-                    //             ),
-                    //             SizedBox(
-                    //               height: 20.h,
-                    //             ),
-                    //             const CustomText(
-                    //                 textText: 'الملف الشخصي',
-                    //                 color: Colors.white,
-                    //                 fontSize: 18),
-                    //           ],
-                    //         );
-                    //       }
-                    //       return Center(
-                    //         child: const CircularProgressIndicator(),
-                    //       );
-                    //     }).
+
                     child: FutureBuilder(
                         future: profileDataController.getUserData(),
                         builder: (context, snapshot) {
@@ -99,8 +70,8 @@ class CompanyProfilePage extends StatelessWidget {
                                 SizedBox(
                                   height: 20.h,
                                 ),
-                                const CustomText(
-                                    textText: 'اسم الشركة',
+                                 CustomText(
+                                    textText: "${snapshot.data!.name}",
                                     color: Colors.white,
                                     fontSize: 18),
                               ],

@@ -6,6 +6,7 @@ class MyLocale extends Translations {
   Map<String, Map<String, String>> get keys => {
         "ar": {
           "home": "الرئيسية",
+          "profile": "الملف الشخصي",
           "exhibitors": "العارضين",
           "blog": "المدونة",
           "whoUs": "من نحن",
@@ -45,6 +46,7 @@ class MyLocale extends Translations {
           "pleaseEnterYourEmail": "Please enter your email",
           "thisIsNotEmail": "This is not an email",
           "home": "Home page",
+          "profile": "profile",
           "exhibitors": "Exhibitors",
           "blog": "Blog",
           "whoUs": "About Us",

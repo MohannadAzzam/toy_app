@@ -8,6 +8,8 @@ import 'package:toy_app/app/screens/auth/registers/register_visitor_account/regi
 import 'package:toy_app/main.dart';
 import 'package:toy_app/my_icons_icons.dart';
 
+import '../registers/register_sponsor_aacount/register_sponsor_account_page.dart';
+
 class AccountTypePage extends StatelessWidget {
   const AccountTypePage({Key? key}) : super(key: key);
 
@@ -50,25 +52,31 @@ class AccountTypePage extends StatelessWidget {
                     sharedPreferences!.setString("userType", "1");
                     Get.to(() => const RegisterVisitorAccountPage());
                   },
-                  child:  CustomAccType(
+                  child: CustomAccType(
                       image: "assets/images/visitor_acc.png",
                       name: "حساب زائر",
                       icon: MyIcons.person),
                 ),
-                const SizedBox(height: 20,), InkWell(
+                const SizedBox(
+                  height: 20,
+                ),
+                InkWell(
                   onTap: () {
                     sharedPreferences!.setString("userType", "2");
-                    Get.to(() =>  registerViewerAccountPage());
+                    Get.to(() => registerViewerAccountPage());
                   },
                   child: const CustomAccType(
                       image: "assets/images/exhibtor_acc.png",
                       name: "حساب عارض",
                       icon: MyIcons.store),
                 ),
-                const SizedBox(height: 20,),
-                 InkWell(
+                const SizedBox(
+                  height: 20,
+                ),
+                InkWell(
                   onTap: () {
-                    // Get.to(() =>  RegisterVisitorAccountPage());
+                    sharedPreferences!.setString("userType", "3");
+                    Get.to(() =>  RegisterSponsorAccountPage());
                   },
                   child: const CustomAccType(
                       image: "assets/images/sponsor_acc.png",

@@ -8,11 +8,7 @@ import 'package:toy_app/app/const/constants.dart';
 import '../../main.dart';
 
 class ChangePasswordController extends GetxController {
-  @override
-  void onInit() {
-    super.onInit();
-    // changePassword();
-  }
+
 
   TextEditingController oldPasswordController = TextEditingController();
   TextEditingController newPasswordController = TextEditingController();

@@ -29,162 +29,171 @@ class RegisterVisitorAccountPage extends StatelessWidget {
 
     var loading = false;
 
-    return
-      loading == true ? Center(child: CircularProgressIndicator(),) :
-      Scaffold(
-      appBar: AppBar(
-        elevation: 0,
-        backgroundColor: const Color(0xff6D2B70),
-        leading: IconButton(
-          onPressed: () {
-            Get.back();
-          },
-          icon: const Icon(MyIcons.ionic_ios_arrow_back),
-        ),
-      ),
-      body: SingleChildScrollView(
-        scrollDirection: Axis.vertical,
-        child: Column(
-          // mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Stack(
-              children: [
-                Container(
-                  color: const Color(0xff6D2B70),
-                  height: 223,
-                ),
-                Center(
-                  child: Column(
+    return loading == true
+        ? const Center(
+            child: CircularProgressIndicator(),
+          )
+        : Scaffold(
+            appBar: AppBar(
+              elevation: 0,
+              backgroundColor: const Color(0xff6D2B70),
+              leading: IconButton(
+                onPressed: () {
+                  Get.back();
+                },
+                icon: const Icon(MyIcons.ionic_ios_arrow_back),
+              ),
+            ),
+            body: SingleChildScrollView(
+              scrollDirection: Axis.vertical,
+              child: Column(
+                // mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Stack(
                     children: [
-                      SizedBox(
-                        height: 20.h,
+                      Container(
+                        color: const Color(0xff6D2B70),
+                        height: 223,
                       ),
-                      CircleAvatar(
-                        radius: 51.r,
-                        backgroundColor: Colors.white,
-                        child: CircleAvatar(
-                          radius: 50.r,
-                          backgroundColor: const Color(0xff6D2B70),
-                          child: const Icon(
-                            MyIcons.person,
-                            color: Colors.white,
-                            size: 40,
-                          ),
+                      Center(
+                        child: Column(
+                          children: [
+                            SizedBox(
+                              height: 20.h,
+                            ),
+                            CircleAvatar(
+                              radius: 51.r,
+                              backgroundColor: Colors.white,
+                              child: CircleAvatar(
+                                radius: 50.r,
+                                backgroundColor: const Color(0xff6D2B70),
+                                child: const Icon(
+                                  MyIcons.person,
+                                  color: Colors.white,
+                                  size: 40,
+                                ),
+                              ),
+                            ),
+                            SizedBox(
+                              height: 10.h,
+                            ),
+                            const CustomText(
+                                textText: 'انشاء حساب زائر',
+                                color: Colors.white,
+                                fontSize: 20)
+                          ],
                         ),
                       ),
-                      SizedBox(
-                        height: 10.h,
-                      ),
-                      const CustomText(
-                          textText: 'انشاء حساب زائر',
-                          color: Colors.white,
-                          fontSize: 20)
                     ],
                   ),
-                ),
-              ],
-            ),
-            SizedBox(
-              height: 50.h,
-            ),
-            Form(
-              key: formState,
-              child: Column(
-                children: [
-                  CustomTextFormField(
-                    controller: signUpController.nameController ,
-                      valid: (value) {
-                        if (value!.length < 3) {
-                          return "يجب أن يكون الاسم اكبر من 3 حروف";
-                        } else if (value.isEmpty) {
-                          return "لا يمكن ترك الاسم فارغ";
-                        }
-                      },
-                      isObscure: false,
-                      icon: MyIcons.person,
-                      hint: 'الاسم'),
-                  CustomTextFormField(
-                      controller: signUpController.emailController,                        valid: (value) {
-                        if (!GetUtils.isEmail(value!)) {
-                          return "يجب أن يكون البريد الاكتروني صالح";
-                        } else if (value.isEmpty) {
-                          return "لا يمكن ترك البريد الإلكتروني فارغ";
-                        }
-                      },
-                      isObscure: false,
-                      icon: MyIcons.message,
-                      hint: 'البريد الإلكتروني'),
-                  CustomTextFormField(
-                      valid: (value) {
-                        if (value!.isEmpty) {
-                          return "لا يمكن ترك رقم الجوال فارغ";
-                        } else if (!GetUtils.isPhoneNumber(value)) {
-                          return "لا يمكن ترك الاسم فارغ";
-                        }
-                      },
-                      isObscure: false,
-                      icon: MyIcons.phone,
-                      controller: signUpController.mobileController,
-                      hint: 'رقم الجوال'),
-                  CustomDropDownButtonFormField(
-                    onChange: (val) {
-                      if (val == "السعودية") {
-                        val = '1';
-                        print(val);
-                        // signUpController.userTypeController = val;
-                      } else if (val == 'الإمارات') {
-                        val = "2";
-                        print(val);
-                        // signUpController.userTypeController = val;
-                      } else if (val == 'مصر') {
-                        val = "3";
-                        print(val);
-                      }
-                      signUpController.countryIdController = val;
-                    },
+                  SizedBox(
+                    height: 50.h,
                   ),
-                  CustomTextFormField(
-                    controller: signUpController.passwordController,
-                      valid: (value) {
-                        if (value!.isEmpty) {
-                          return "لا يمكن ترك كلمة المرور فارغة";
-                        } else if (value.length < 6) {
-                          return "لا يمكن أن تكون كلمة المرور اقل من 6 حروف";
-                        }
+                  Form(
+                    key: formState,
+                    child: Column(
+                      children: [
+                        CustomTextFormField(
+                            controller: signUpController.nameController,
+                            valid: (value) {
+                              if (value!.length < 3) {
+                                return "يجب أن يكون الاسم اكبر من 3 حروف";
+                              } else if (value.isEmpty) {
+                                return "لا يمكن ترك الاسم فارغ";
+                              }
+                              return null;
+                            },
+                            isObscure: false,
+                            icon: MyIcons.person,
+                            hint: 'الاسم'),
+                        CustomTextFormField(
+                            controller: signUpController.emailController,
+                            valid: (value) {
+                              if (!GetUtils.isEmail(value!)) {
+                                return "يجب أن يكون البريد الاكتروني صالح";
+                              } else if (value.isEmpty) {
+                                return "لا يمكن ترك البريد الإلكتروني فارغ";
+                              }
+                              return null;
+                            },
+                            isObscure: false,
+                            icon: MyIcons.message,
+                            hint: 'البريد الإلكتروني'),
+                        CustomTextFormField(
+                            valid: (value) {
+                              if (value!.isEmpty) {
+                                return "لا يمكن ترك رقم الجوال فارغ";
+                              } else if (!GetUtils.isPhoneNumber(value)) {
+                                return "لا يمكن ترك الاسم فارغ";
+                              }
+                              return null;
+                            },
+                            isObscure: false,
+                            icon: MyIcons.phone,
+                            controller: signUpController.mobileController,
+                            hint: 'رقم الجوال'),
+                        CustomDropDownButtonFormField(
+                          onChange: (val) {
+                            if (val == "السعودية") {
+                              val = '1';
+                              // print(val);
+                              // signUpController.userTypeController = val;
+                            } else if (val == 'الإمارات') {
+                              val = "2";
+                              // print(val);
+                              // signUpController.userTypeController = val;
+                            } else if (val == 'مصر') {
+                              val = "3";
+                              // print(val);
+                            }
+                            signUpController.countryIdController = val;
+                          },
+                        ),
+                        CustomTextFormField(
+                            controller: signUpController.passwordController,
+                            valid: (value) {
+                              if (value!.isEmpty) {
+                                return "لا يمكن ترك كلمة المرور فارغة";
+                              } else if (value.length < 6) {
+                                return "لا يمكن أن تكون كلمة المرور اقل من 6 حروف";
+                              }
+                              return null;
+                            },
+                            isObscure: true,
+                            icon: MyIcons.locker,
+                            hint: 'كلمة المرور'),
+                        CustomTextFormField(
+                            controller:
+                                signUpController.confirmPasswordController,
+                            valid: (value) {
+                              if (value!.isEmpty) {
+                                return "يجب كتابة كلمة المرور مرة أخرى";
+                              } else if (value.length < 6) {
+                                return "لا يمكن أن تكون كلمة المرور اقل من 6 حروف";
+                              }
+                              return null;
+                            },
+                            isObscure: true,
+                            icon: MyIcons.locker,
+                            hint: 'اعادة كلمة المرور'),
+                      ],
+                    ),
+                  ),
+                  CustomButton(
+                      onPressed: () {
+                        loading = true;
+                        validator();
                       },
-                      isObscure: true,
-                      icon: MyIcons.locker,
-                      hint: 'كلمة المرور'),
-                  CustomTextFormField(
-                    controller: signUpController.confirmPasswordController,
-                      valid: (value) {
-                        if (value!.isEmpty) {
-                          return "يجب كتابة كلمة المرور مرة أخرى";
-                        } else if (value.length < 6) {
-                          return "لا يمكن أن تكون كلمة المرور اقل من 6 حروف";
-                        }
-                      },
-                      isObscure: true,
-                      icon: MyIcons.locker,
-                      hint: 'اعادة كلمة المرور'),
+                      bottomMargin: 20,
+                      topMargin: 40,
+                      height: 60,
+                      width: 200,
+                      text: 'تسجيل',
+                      rightMargin: 0,
+                      leftMargin: 0)
                 ],
               ),
             ),
-            CustomButton(
-                onPressed: () {
-                  loading = true;
-                  validator();
-                },
-                bottomMargin: 20,
-                topMargin: 40,
-                height: 60,
-                width: 200,
-                text: 'تسجيل',
-                rightMargin: 0,
-                leftMargin: 0)
-          ],
-        ),
-      ),
-    );
+          );
   }
 }

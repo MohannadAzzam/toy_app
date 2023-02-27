@@ -10,13 +10,12 @@ import '../data/models/aboutUs/abouUs_response.dart';
 class AboutUsController extends GetxController {
   @override
   void onInit() {
-    // TODO: implement onInit
     super.onInit();
     fetchPage();
   }
 
   Future<AboutUsResponse> fetchPage() async {
-    final MyLocalController m = Get.put(MyLocalController());
+    // final MyLocalController m = Get.put(MyLocalController());
     try {
       Map<String, String> headers = {
         "Accept-Language": "${MyLocalController.locale}",

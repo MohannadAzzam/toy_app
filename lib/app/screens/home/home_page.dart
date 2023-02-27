@@ -8,10 +8,11 @@ import 'package:toy_app/app/screens/home/widgets/custom_helper.dart';
 import 'package:toy_app/app/screens/home/widgets/custom_new_blog_card.dart';
 import 'package:toy_app/app/screens/home/widgets/custom_ticket_booking_card.dart';
 import 'package:toy_app/app/screens/home/widgets/home_custom_drawer.dart';
-import 'package:toy_app/main.dart';
 import 'package:toy_app/my_icons_icons.dart';
 import '../../data/data_source/Home_top_card_list.dart';
 import 'dart:math' as math;
+
+import '../notification/notification_page.dart';
 
 class HomePage extends StatelessWidget {
   HomePage({Key? key}) : super(key: key);
@@ -21,7 +22,7 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    String? myToken = sharedPreferences!.getString("token");
+    // String? myToken = sharedPreferences!.getString("token");
     return Scaffold(
       drawer: HomeCustomDrawer(),
       appBar: AppBar(
@@ -66,7 +67,8 @@ class HomePage extends StatelessWidget {
         actions:  [
           InkWell(
               onTap: (){
-                print("myToken ${sharedPreferences!.getString("token")}");
+                Get.to(()=> NotificationPage());
+                // print("myToken ${sharedPreferences!.getString("token")}");
               },
               child:
           Image(image: AssetImage('assets/images/notification_icon.png')))

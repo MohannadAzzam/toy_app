@@ -131,7 +131,15 @@ class registerViewerAccountPage extends StatelessWidget {
                       isObscure: false,
                       icon: MyIcons.phone,
                       hint: 'رقم الجوال'),
-                  const CustomTextFormField(
+                   CustomTextFormField(valid: (value) {
+                    if(value!.isEmpty){
+                      return "لا يمكن ترك اسم الشركة فارغ";
+                    }
+                    if (value.length < 5) {
+                      return "يجب ان يكون اسم الشركة اطول من 5 حروف";
+                    }
+                    return null;
+                  },
                       // controller: signUpController.countryIdController,
                       isObscure: false,
                       icon: MyIcons.company,
@@ -168,6 +176,7 @@ class registerViewerAccountPage extends StatelessWidget {
                       suffixWidget: TextFormFieldSuffex(onPressed: () {}),
                       icon: MyIcons.file,
                       hint: 'ملفات الشركة الرسمية'),
+
                    CustomTextFormField(
                        valid: (value) {
                          if (value!.isEmpty) {

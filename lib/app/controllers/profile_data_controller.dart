@@ -39,7 +39,7 @@ class RemoteDataResponse {
     if (response.statusCode == 200) {
       var jsonData = await jsonDecode(response.body);
       ProfileResponse profileResponse = ProfileResponse.fromJson(jsonData);
-      print("jsonData $jsonData");
+      // print("jsonData $jsonData");
       return profileResponse;
     } else {
       return throw Exception(
