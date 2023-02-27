@@ -43,7 +43,7 @@ class EditCompanyAccountPage extends StatelessWidget {
           onPressed: () {
             Get.back();
           },
-          icon: const Icon(MyIcons.ionic_ios_arrow_back),
+          icon: const Icon(Icons.arrow_back_ios),
         ),
       ),
       body: SingleChildScrollView(
@@ -100,6 +100,7 @@ class EditCompanyAccountPage extends StatelessWidget {
                                   } else if (!GetUtils.isPhoneNumber(value)) {
                                     return "لا يمكن ترك الاسم فارغ";
                                   }
+                                  return null;
                                 },
                                 isObscure: false,
                                 icon: MyIcons.phone,
@@ -120,15 +121,12 @@ class EditCompanyAccountPage extends StatelessWidget {
                             CustomDropDownButtonFormField(onChange: (val) {
                               if (val == "السعودية") {
                                 val = '1';
-                                print(val);
                                 // signUpController.userTypeController = val;
                               } else if (val == 'الإمارات') {
                                 val = "2";
-                                print(val);
                                 // signUpController.userTypeController = val;
                               } else if (val == 'مصر') {
                                 val = "3";
-                                print(val);
                               }
                               editProfileController.country = val;
                             }),
@@ -155,6 +153,7 @@ class EditCompanyAccountPage extends StatelessWidget {
                                   if (value!.isEmpty) {
                                     return "لا يمكن ترك هذه الخانة فارغة";
                                   }
+                                  return null;
                                 },
                                 // controller:
                                 // changePasswordController.oldPasswordController,
@@ -169,6 +168,7 @@ class EditCompanyAccountPage extends StatelessWidget {
                                   } else if (value.length < 6) {
                                     return "لا يمكن أن تكون كلمة المرور اقل من 6 حروف";
                                   }
+                                  return null;
                                 },
                                 isObscure: false,
                                 icon: MyIcons.locker,
@@ -182,6 +182,7 @@ class EditCompanyAccountPage extends StatelessWidget {
                                   } else if (value.length < 6) {
                                     return "لا يمكن أن تكون كلمة المرور اقل من 6 حروف";
                                   }
+                                  return null;
                                 },
                                 controller: changePasswordController.confirmNewPasswordController,
 
@@ -207,8 +208,8 @@ class EditCompanyAccountPage extends StatelessWidget {
                           ],
                         );
                       }
-                      return Center(
-                        child: const CircularProgressIndicator(),
+                      return const Center(
+                        child: CircularProgressIndicator(),
                       );
                     })),
             CustomButton(

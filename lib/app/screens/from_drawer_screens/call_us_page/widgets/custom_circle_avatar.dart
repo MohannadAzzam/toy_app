@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:toy_app/my_icons_icons.dart';
 
 class CustomCircleAvatar extends StatelessWidget {
   final IconData icon;

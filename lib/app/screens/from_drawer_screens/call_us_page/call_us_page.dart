@@ -41,7 +41,7 @@ class CallUsPage extends StatelessWidget {
             onPressed: () {
               Get.back();
             },
-            icon: const Icon(MyIcons.ionic_ios_arrow_back),
+            icon: const Icon(Icons.arrow_back_ios),
           ),
         ),
         body: SingleChildScrollView(
@@ -91,7 +91,7 @@ class CallUsPage extends StatelessWidget {
                     padding: EdgeInsets.only(top: 20.h, bottom: 28.h),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: [
+                      children: const [
                         CustomCircleAvatar(icon: MyIcons.linkedin),
                         CustomCircleAvatar(icon: MyIcons.twitter),
                         CustomCircleAvatar(icon: MyIcons.instagram),
@@ -114,6 +114,7 @@ class CallUsPage extends StatelessWidget {
                               } else if(value.length <5){
                                 return "لا يمكن ان يكون الاسم اقل من 5 حروف";
                               }
+                              return null;
                             },
                             controller: contactUsController.nameController,
                             icon: MyIcons.person,
@@ -126,6 +127,7 @@ class CallUsPage extends StatelessWidget {
                               } else if(!GetUtils.isEmail(value)){
                                 return "هذا البريد الالكتروني غير صالح";
                               }
+                              return null;
                             },
                             controller: contactUsController.emailController,
 
@@ -139,6 +141,7 @@ class CallUsPage extends StatelessWidget {
                               } else if(!GetUtils.isPhoneNumber(value)){
                                 return "رقم الجوال هذا غير صالح";
                               }
+                              return null;
                             },
                             controller: contactUsController.mobileController,
 
@@ -174,6 +177,7 @@ class CallUsPage extends StatelessWidget {
                               } else if(value.length < 5){
                                 return "يجب ان يكون عوان الرسالة اكبر من 5 حروف";
                               }
+                              return null;
                             },
                             controller: contactUsController.messageTitleController,
 
@@ -193,7 +197,7 @@ class CallUsPage extends StatelessWidget {
                               left: 20.w, right: 20.w, bottom: 10.h),
                           height: 200.h,
                           width: 320.w,
-                          decoration: BoxDecoration(
+                          decoration: const BoxDecoration(
                               borderRadius:
                                   BorderRadius.all(Radius.circular(10))),
                           child: TextFormField(
@@ -203,6 +207,7 @@ class CallUsPage extends StatelessWidget {
                                 } else if(value.length < 10){
                                   return "يجب ان يكون نص الرسالة اكبر من 10 حرف";
                               }
+                              return null;
                             },
                             controller: contactUsController.messageTextController,
                             maxLines: 10,

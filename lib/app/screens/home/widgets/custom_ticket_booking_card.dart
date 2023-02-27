@@ -22,7 +22,7 @@ class CustomTicketBookingCard extends StatelessWidget {
                 scrollDirection: Axis.horizontal,
                 itemBuilder: (context, index) {
                   return Container(
-                    margin: EdgeInsets.only(left: 5,right: 5),
+                    margin: const EdgeInsets.only(left: 5,right: 5),
                     width: 317.7.w,
                     decoration: BoxDecoration(
                         borderRadius: const BorderRadius.all(Radius.circular(15)),

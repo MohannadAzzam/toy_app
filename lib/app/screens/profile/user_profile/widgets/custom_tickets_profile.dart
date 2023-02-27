@@ -12,22 +12,22 @@ class CustomProfileTicket extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       height: 60.h,
-      margin: EdgeInsets.only( right: 5, left: 5),
+      margin: const EdgeInsets.only( right: 5, left: 5),
       child: Row(
         // crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Container(
             margin: EdgeInsets.symmetric(horizontal: 10.w),
             decoration: BoxDecoration(
-                color: Color(0xffF5F5F5),
+                color: const Color(0xffF5F5F5),
                 border: Border.all(color: Colors.transparent),
-                borderRadius: BorderRadius.all(Radius.circular(15))),
+                borderRadius: const BorderRadius.all(Radius.circular(15))),
             width: 50.w,
             height: 50.h,
             child: Icon(
               MyIcons.ticket,
               size: 40.r,
-              color: Color(0xff911D74),
+              color: const Color(0xff911D74),
             ),
           ),
           Column(
@@ -35,13 +35,13 @@ class CustomProfileTicket extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               CustomText(
-                  textText:"${profileTicket.ticketName}" ,
+                  textText:profileTicket.ticketName ,
 
                   color: Colors.black,
                   fontSize: 16),
               CustomText(
-                  textText: '${profileTicket.ticketDate}',
-                  color: Color(0xffC1C1C1),
+                  textText: profileTicket.ticketDate,
+                  color: const Color(0xffC1C1C1),
                   fontSize: 14)
             ],
           )

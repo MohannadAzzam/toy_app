@@ -3,7 +3,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:toy_app/app/screens/auth/login/widgets/custom_text.dart';
 import 'package:toy_app/app/screens/from_drawer_screens/choose_exhibition_location/widgets/custom_travel_and_hotels_company_name.dart';
-import 'package:toy_app/my_icons_icons.dart';
 
 class TravelAndHotelsPage extends StatelessWidget {
   const TravelAndHotelsPage({Key? key}) : super(key: key);
@@ -22,7 +21,7 @@ class TravelAndHotelsPage extends StatelessWidget {
             onPressed: () {
               Get.back();
             },
-            icon: const Icon(MyIcons.ionic_ios_arrow_back),
+            icon: const Icon(Icons.arrow_back_ios),
           ),
         ),
         body: Column(

@@ -7,7 +7,7 @@ import 'package:toy_app/app/screens/profile/user_profile/widgets/custom_button_w
 import 'package:toy_app/my_icons_icons.dart';
 
 class TicketPage extends StatelessWidget {
-  TicketPage({Key? key}) : super(key: key);
+  const TicketPage({Key? key}) : super(key: key);
 
 
   @override
@@ -24,7 +24,7 @@ class TicketPage extends StatelessWidget {
               onPressed: () {
                 Get.back();
               },
-              icon: const Icon(MyIcons.ionic_ios_arrow_back),
+              icon: const Icon(Icons.arrow_back_ios),
             ),
           ),
           body: ListView(

@@ -31,12 +31,12 @@ class CompanyProfilePage extends StatelessWidget {
             onPressed: () {
               Get.to(() => HomePage());
             },
-            icon: const Icon(MyIcons.ionic_ios_arrow_back),
+            icon: const Icon(Icons.arrow_back_ios),
           ),
           actions: [
             IconButton(
                 onPressed: () {
-                  Get.to(() => EditCompanyAccountPage());
+                  Get.to(() => const EditCompanyAccountPage());
                 },
                 icon: const Icon(Icons.more_vert))
           ],
@@ -63,7 +63,7 @@ class CompanyProfilePage extends StatelessWidget {
                                     backgroundColor: const Color(0xffF5F5F5),
                                     child: CircleAvatar(
                                       backgroundImage: NetworkImage(
-                                          '${snapshot.data!.image}'),
+                                          snapshot.data!.image),
                                       radius: 54.r,
                                       // backgroundColor: Colors.red,
                                     )),
@@ -71,14 +71,14 @@ class CompanyProfilePage extends StatelessWidget {
                                   height: 20.h,
                                 ),
                                  CustomText(
-                                    textText: "${snapshot.data!.name}",
+                                    textText: snapshot.data!.name,
                                     color: Colors.white,
                                     fontSize: 18),
                               ],
                             );
                           }
-                          return Center(
-                            child: const CircularProgressIndicator(),
+                          return const Center(
+                            child: CircularProgressIndicator(),
                           );
                         })),
               ),
@@ -90,21 +90,21 @@ class CompanyProfilePage extends StatelessWidget {
                         children: [
                           CustomProfileDataUnit(
                               icon: MyIcons.person,
-                              text: '${snapshot.data!.name}'),
+                              text: snapshot.data!.name),
                           CustomProfileDataUnit(
                               icon: MyIcons.phone,
-                              text: '${snapshot.data!.mobile}'),
+                              text: snapshot.data!.mobile),
                           CustomProfileDataUnit(
                               icon: MyIcons.message,
-                              text: '${snapshot.data!.email}'),
+                              text: snapshot.data!.email),
                           CustomProfileDataUnit(
                               icon: MyIcons.location,
-                              text: '${snapshot.data!.countryName}'),
+                              text: snapshot.data!.countryName),
                         ],
                       );
                     }
-                    return Center(
-                      child: const CircularProgressIndicator(),
+                    return const Center(
+                      child: CircularProgressIndicator(),
                     );
                   }),
 
@@ -172,8 +172,8 @@ class CompanyProfilePage extends StatelessWidget {
                                   BorderRadius.all(Radius.circular(10))),
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              const CustomText(
+                            children: const [
+                              CustomText(
                                 textText: "1",
                                 color: Color(0xff911D74),
                                 fontSize: 20,
@@ -230,7 +230,7 @@ class CompanyProfilePage extends StatelessWidget {
                   right: 0,
                   onTap: () {
                     Get.bottomSheet(CustomImageBottomSheet(
-                      image: Image(
+                      image: const Image(
                           image: AssetImage("assets/images/work_space.png")),
                       firstText: "تهانينا",
                       secondText: "تم طلب مساحة العمل بنجاح",

@@ -28,7 +28,7 @@ class UserProfilePage extends StatelessWidget {
           onPressed: () {
             Get.to(() => HomePage());
           },
-          icon: const Icon(MyIcons.ionic_ios_arrow_back),
+          icon: const Icon(Icons.arrow_back_ios),
         ),
         actions: [
           IconButton(
@@ -63,7 +63,7 @@ class UserProfilePage extends StatelessWidget {
                                       ))),
                               Directionality(
                                 textDirection: TextDirection.rtl,
-                                child: Container(
+                                child: SizedBox(
                                   width: Get.width,
                                   child: Column(
                                     crossAxisAlignment:
@@ -92,7 +92,7 @@ class UserProfilePage extends StatelessWidget {
                                           left: 0,
                                           right: 0,
                                           onTap: () {
-                                            Get.to(() => ChangePasswordPage());
+                                            Get.to(() => const ChangePasswordPage());
                                           }),
                                     ],
                                   ),
@@ -130,21 +130,21 @@ class UserProfilePage extends StatelessWidget {
                                   radius: 54.r,
                                   backgroundColor: const Color(0xff6D2B70),
                                   backgroundImage:
-                                      NetworkImage('${snapshot.data!.image}'),
+                                      NetworkImage(snapshot.data!.image),
                                 ),
                               ),
                               SizedBox(
                                 height: 20.h,
                               ),
                                CustomText(
-                                  textText: "${snapshot.data!.name}",
+                                  textText: snapshot.data!.name,
                                   color: Colors.white,
                                   fontSize: 18),
                             ],
                           );
                         }
-                        return Center(
-                          child: const CircularProgressIndicator(),
+                        return const Center(
+                          child: CircularProgressIndicator(),
                         );
                       })),
             ),

@@ -15,17 +15,17 @@ class FullExhibitionMapPage extends StatelessWidget {
           child: SafeArea(
             child: Stack(
               children: [
-                Image(
+                const Image(
                   image: AssetImage('assets/images/full_exhibition_map.png'),
                   fit: BoxFit.cover,
                 ),
                 InkWell(
                   onTap: (){
-                    Get.to(()=>ChooseExhibitionLocationPage());
+                    Get.to(()=>const ChooseExhibitionLocationPage());
                   },
                   child: CircleAvatar(
                       backgroundColor: Colors.black.withOpacity(0.5),
-                      child: Icon(
+                      child: const Icon(
                         MyIcons.exit,
                         color: Colors.white,
                       )),

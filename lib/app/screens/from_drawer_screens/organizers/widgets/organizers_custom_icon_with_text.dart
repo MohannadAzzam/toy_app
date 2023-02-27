@@ -17,30 +17,26 @@ class OrganizersCustomIconWithText extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      // margin: EdgeInsets.symmetric(horizontal: 10.w),
-      // width: Get.width,
-      child: Row(
-        children: [
-          // SizedBox(
-          //   height: 30.h,
-          // ),
-          Icon(
-            icon,
-            size: 10.r,
-            color: Color(0xff911D74),
-          ),
-          SizedBox(
-            width: 5.w,
-          ),
-          CustomText(
-            textText: text,
-            color: Colors.black,
-            fontSize: fontSize.sp,
-            fontWeight: FontWeight.w400,
-          )
-        ],
-      ),
+    return Row(
+      children: [
+        // SizedBox(
+        //   height: 30.h,
+        // ),
+        Icon(
+          icon,
+          size: 10.r,
+          color: const Color(0xff911D74),
+        ),
+        SizedBox(
+          width: 5.w,
+        ),
+        CustomText(
+          textText: text,
+          color: Colors.black,
+          fontSize: fontSize.sp,
+          fontWeight: FontWeight.w400,
+        )
+      ],
     );
   }
 }

@@ -7,7 +7,6 @@ import 'package:toy_app/app/screens/auth/login/widgets/custom_text.dart';
 import 'package:toy_app/app/screens/from_drawer_screens/choose_exhibition_location/choose_package_page.dart';
 import 'package:toy_app/app/screens/from_drawer_screens/choose_exhibition_location/full_exhibition_map_page.dart';
 import 'package:toy_app/app/screens/from_drawer_screens/choose_exhibition_location/widgets/custom_radio_list_tile.dart';
-import 'package:toy_app/my_icons_icons.dart';
 
 class ChooseExhibitionLocationPage extends StatelessWidget {
   const ChooseExhibitionLocationPage({Key? key}) : super(key: key);
@@ -26,7 +25,7 @@ class ChooseExhibitionLocationPage extends StatelessWidget {
             onPressed: () {
               Get.back();
             },
-            icon: const Icon(MyIcons.ionic_ios_arrow_back),
+            icon: const Icon(Icons.arrow_back_ios),
           ),
         ),
         body: Container(

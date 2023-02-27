@@ -31,12 +31,12 @@ class SponsorProfilePage extends StatelessWidget {
             onPressed: () {
               Get.to(() => HomePage());
             },
-            icon: const Icon(MyIcons.ionic_ios_arrow_back),
+            icon: const Icon(Icons.arrow_back_ios),
           ),
           actions: [
             IconButton(
                 onPressed: () {
-                  Get.to(() => EditCompanyAccountPage());
+                  Get.to(() => const EditCompanyAccountPage());
                 },
                 icon: const Icon(Icons.more_vert))
           ],
@@ -63,7 +63,7 @@ class SponsorProfilePage extends StatelessWidget {
                                     backgroundColor: const Color(0xffF5F5F5),
                                     child: CircleAvatar(
                                       backgroundImage: NetworkImage(
-                                          '${snapshot.data!.image}'),
+                                          snapshot.data!.image),
                                       radius: 54.r,
                                       // backgroundColor: Colors.red,
                                     )),
@@ -71,14 +71,14 @@ class SponsorProfilePage extends StatelessWidget {
                                   height: 20.h,
                                 ),
                                  CustomText(
-                                    textText: "${snapshot.data!.name}",
+                                    textText: snapshot.data!.name,
                                     color: Colors.white,
                                     fontSize: 18),
                               ],
                             );
                           }
-                          return Center(
-                            child: const CircularProgressIndicator(),
+                          return const Center(
+                            child: CircularProgressIndicator(),
                           );
                         })),
               ),
@@ -90,21 +90,21 @@ class SponsorProfilePage extends StatelessWidget {
                         children: [
                           CustomProfileDataUnit(
                               icon: MyIcons.person,
-                              text: '${snapshot.data!.name}'),
+                              text: snapshot.data!.name),
                           CustomProfileDataUnit(
                               icon: MyIcons.phone,
-                              text: '${snapshot.data!.mobile}'),
+                              text: snapshot.data!.mobile),
                           CustomProfileDataUnit(
                               icon: MyIcons.message,
-                              text: '${snapshot.data!.email}'),
+                              text: snapshot.data!.email),
                           CustomProfileDataUnit(
                               icon: MyIcons.location,
-                              text: '${snapshot.data!.countryName}'),
+                              text: snapshot.data!.countryName),
                         ],
                       );
                     }
-                    return Center(
-                      child: const CircularProgressIndicator(),
+                    return const Center(
+                      child: CircularProgressIndicator(),
                     );
                   }),
 
@@ -124,12 +124,12 @@ class SponsorProfilePage extends StatelessWidget {
                     color: Colors.black,
                     fontSize: 14),
               ),
-              SizedBox(height: 30,),
+              const SizedBox(height: 30,),
               Card(
                 elevation: 2,
                 shape:
                 RoundedRectangleBorder(
-                    side: BorderSide(color: Color(0xffF0F0F0)),
+                    side: const BorderSide(color: Color(0xffF0F0F0)),
                     borderRadius: BorderRadius.circular(20)),
                 child: Stack(
                   children: [
@@ -147,7 +147,7 @@ class SponsorProfilePage extends StatelessWidget {
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
+                        children: const [
                           Image(image: AssetImage("assets/images/golden_sponsor.png")),
                           CustomText(
                               textText: "الراعي الذهبي",
@@ -265,7 +265,7 @@ class SponsorProfilePage extends StatelessWidget {
                   right: 0,
                   onTap: () {
                     Get.bottomSheet(CustomImageBottomSheet(
-                      image: Image(
+                      image: const Image(
                           image: AssetImage("assets/images/sponsor_package.png")),
                       firstText: "تهانينا",
                       secondText: "تم طلب باقة الرعاية بنجاح",

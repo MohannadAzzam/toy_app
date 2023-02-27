@@ -17,7 +17,7 @@ class SponsorsCustomIconWithText extends StatelessWidget {
           Icon(
             icon,
             size: 10.r,
-            color: Color(0xff911D74),
+            color: const Color(0xff911D74),
           ),
           SizedBox(
             width: 5.w,

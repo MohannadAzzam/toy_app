@@ -34,7 +34,7 @@ class EditPersonalDetails extends StatelessWidget {
           onPressed: () {
             Get.back();
           },
-          icon: const Icon(MyIcons.ionic_ios_arrow_back),
+          icon: const Icon(Icons.arrow_back_ios),
         ),
         actions: [
           IconButton(
@@ -67,7 +67,7 @@ class EditPersonalDetails extends StatelessWidget {
                                         MyIcons.exit,
                                         color: Color(0xffD4D4D4),
                                       ))),
-                              Container(
+                              SizedBox(
                                 width: Get.width,
                                 child: Column(
                                   crossAxisAlignment: CrossAxisAlignment.center,
@@ -190,6 +190,7 @@ class EditPersonalDetails extends StatelessWidget {
                                   } else if (!GetUtils.isPhoneNumber(value)) {
                                     return "لا يمكن ترك الاسم فارغ";
                                   }
+                                  return null;
                                 },
                                 icon: MyIcons.message,
                                 hint: snapshot.data!.mobile,
@@ -197,22 +198,19 @@ class EditPersonalDetails extends StatelessWidget {
                           ],
                         );
                       }
-                      return Center(
-                        child: const CircularProgressIndicator(),
+                      return const Center(
+                        child: CircularProgressIndicator(),
                       );
                     })),
             CustomDropDownButtonFormField(onChange: (val) {
               if (val == "السعودية") {
                 val = '1';
-                print(val);
                 // signUpController.userTypeController = val;
               } else if (val == 'الإمارات') {
                 val = "2";
-                print(val);
                 // signUpController.userTypeController = val;
               } else if (val == 'مصر') {
                 val = "3";
-                print(val);
               }
               editProfileController.country = val;
             }),

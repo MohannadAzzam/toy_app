@@ -30,7 +30,7 @@ class AccountTypePage extends StatelessWidget {
             onPressed: () {
               Get.back();
             },
-            icon: const Icon(MyIcons.ionic_ios_arrow_back),
+            icon: const Icon(Icons.arrow_back_ios),
           ),
         ),
         body: SizedBox(
@@ -52,7 +52,7 @@ class AccountTypePage extends StatelessWidget {
                     sharedPreferences!.setString("userType", "1");
                     Get.to(() => const RegisterVisitorAccountPage());
                   },
-                  child: CustomAccType(
+                  child: const CustomAccType(
                       image: "assets/images/visitor_acc.png",
                       name: "حساب زائر",
                       icon: MyIcons.person),
@@ -76,7 +76,7 @@ class AccountTypePage extends StatelessWidget {
                 InkWell(
                   onTap: () {
                     sharedPreferences!.setString("userType", "3");
-                    Get.to(() =>  RegisterSponsorAccountPage());
+                    Get.to(() =>  const RegisterSponsorAccountPage());
                   },
                   child: const CustomAccType(
                       image: "assets/images/sponsor_acc.png",

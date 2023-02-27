@@ -9,6 +9,7 @@ class NotificationPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return  Scaffold(
       appBar: AppBar(
+        title: const CustomText(textText: 'الإشعارات', color: Colors.white, fontSize: 18),
         elevation: 0,
         backgroundColor: const Color(0xff6D2B70),
         leading: IconButton(

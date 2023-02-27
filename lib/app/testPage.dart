@@ -142,7 +142,7 @@ class TestPage extends StatelessWidget {
                     onTap: () {
                       Scaffold.of(context).closeEndDrawer();
 
-                      Get.to(() => TicketPage());
+                      Get.to(() => const TicketPage());
                     },
                     unitName: "ticket",
                     unitIcon: MyIcons.ticket),
@@ -157,7 +157,7 @@ class TestPage extends StatelessWidget {
                 CustomDrawerUnit(
                     onTap: () {
                       Scaffold.of(context).closeEndDrawer();
-                      Get.to(() => BlogPage());
+                      Get.to(() => const BlogPage());
                     },
                     unitName: "blog",
                     unitIcon: MyIcons.blog),

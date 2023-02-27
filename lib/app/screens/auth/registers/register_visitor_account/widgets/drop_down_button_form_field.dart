@@ -20,12 +20,13 @@ class CustomDropDownButtonFormField extends StatelessWidget {
       child: DropdownButtonFormField(
         // selectedItemBuilder: ,
         validator: (val){
-          if(val! == null){
+          if(val == null){
             return "يرجى اختيار دولتك";
           }
+          return null;
         },
           hint:
-              CustomText(textText: "الدولة", color: Colors.black, fontSize: 18),
+              const CustomText(textText: "الدولة", color: Colors.black, fontSize: 18),
           borderRadius: BorderRadius.circular(10),
           decoration: const InputDecoration(
             prefixIcon: Icon(

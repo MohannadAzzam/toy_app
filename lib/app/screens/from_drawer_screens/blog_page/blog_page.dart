@@ -2,10 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:toy_app/app/screens/auth/login/widgets/custom_text.dart';
 import 'package:toy_app/app/screens/from_drawer_screens/blog_page/widgets/custom_blog_card.dart';
-import 'package:toy_app/my_icons_icons.dart';
 
 class BlogPage extends StatelessWidget {
-  BlogPage({Key? key}) : super(key: key);
+  const BlogPage({Key? key}) : super(key: key);
   // final BlogController _blogController = Get.put(BlogController());
 
   @override
@@ -22,7 +21,7 @@ class BlogPage extends StatelessWidget {
             onPressed: () {
               Get.back();
             },
-            icon: const Icon(MyIcons.ionic_ios_arrow_back),
+            icon: const Icon(Icons.arrow_back_ios),
           ),
         ),
         body:

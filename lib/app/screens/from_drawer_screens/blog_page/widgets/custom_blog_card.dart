@@ -28,7 +28,7 @@ class CustomBlogCard extends StatelessWidget {
                 itemBuilder: (context, index) {
                   return InkWell(
                     onTap: () {
-                      Get.to(() => BlogDetailsPage(
+                      Get.to(() => const BlogDetailsPage(
                           ),arguments: snapshot.data![index]);
                     },
                     child: Container(

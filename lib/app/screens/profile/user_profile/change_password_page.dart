@@ -38,7 +38,7 @@ class ChangePasswordPage extends StatelessWidget {
           onPressed: () {
             Get.back();
           },
-          icon: const Icon(MyIcons.ionic_ios_arrow_back),
+          icon: const Icon(Icons.arrow_back_ios),
         ),
       ),
       body: SingleChildScrollView(
@@ -67,7 +67,7 @@ class ChangePasswordPage extends StatelessWidget {
                                     radius: 54.r,
                                     backgroundColor: const Color(0xff6D2B70),
                                     backgroundImage:
-                                        NetworkImage('${snapshot.data!.image}'),
+                                        NetworkImage(snapshot.data!.image),
                                   ),
                                 ),
                               ),
@@ -81,8 +81,8 @@ class ChangePasswordPage extends StatelessWidget {
                             ],
                           );
                         }
-                        return Center(
-                          child: const CircularProgressIndicator(),
+                        return const Center(
+                          child: CircularProgressIndicator(),
                         );
                       })),
             ),
@@ -97,8 +97,8 @@ class ChangePasswordPage extends StatelessWidget {
             Form(
               key: formStatePassword,
               child: changePasswordController.isLoading == true
-                  ? Center(
-                      child: const CircularProgressIndicator(),
+                  ? const Center(
+                      child: CircularProgressIndicator(),
                     )
                   : Column(
                       children: [
@@ -107,6 +107,7 @@ class ChangePasswordPage extends StatelessWidget {
                               if (value!.isEmpty) {
                                 return "لا يمكن ترك هذه الخانة فارغة";
                               }
+                              return null;
                             },
                             controller:
                                 changePasswordController.oldPasswordController,
@@ -118,6 +119,7 @@ class ChangePasswordPage extends StatelessWidget {
                               if (value!.isEmpty) {
                                 return "لا يمكن ترك هذه الخانة فارغة";
                               }
+                              return null;
                             },
                             controller:
                                 changePasswordController.newPasswordController,
@@ -129,6 +131,7 @@ class ChangePasswordPage extends StatelessWidget {
                               if (value!.isEmpty) {
                                 return "لا يمكن ترك هذه الخانة فارغة";
                               }
+                              return null;
                             },
                             controller: changePasswordController
                                 .confirmNewPasswordController,

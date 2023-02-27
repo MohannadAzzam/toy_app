@@ -69,8 +69,6 @@ class HomeCustomDrawer extends StatelessWidget {
                     )
                   ],
                 )),
-            // Image(
-            //    image: AssetImage('assets/images/home_drawer_uper.png')),
             Container(
               // padding: EdgeInsets.only(top: 20.h, bottom: 16.h),
               color: const Color(0xff622665),
@@ -109,9 +107,9 @@ class HomeCustomDrawer extends StatelessWidget {
                                     children: [
                                       CircleAvatar(
                                         // foregroundImage: Image.network('https://etr.hexacit.com/uploads/images/users/defualtUser.jpg'),
-                                        backgroundColor: Color(0xff6D2B70),
+                                        backgroundColor: const Color(0xff6D2B70),
                                         backgroundImage: NetworkImage(
-                                            "${snapshot.data!.image}"),
+                                            snapshot.data!.image),
                                       ),
                                       SizedBox(
                                         width: 10.w,
@@ -122,10 +120,10 @@ class HomeCustomDrawer extends StatelessWidget {
                                         children: [
                                           CustomText(
                                               textText:
-                                              "${snapshot.data!.name}",
+                                              snapshot.data!.name,
                                               color: Colors.white,
                                               fontSize: 16),
-                                          CustomText(
+                                          const CustomText(
                                               textText: 'profile',
                                               color: Color(0xffC1C1C1),
                                               fontSize: 14)
@@ -134,7 +132,7 @@ class HomeCustomDrawer extends StatelessWidget {
                                     ],
                                   );
                                 }
-                                return Center(child: const CircularProgressIndicator(),);
+                                return const Center(child: CircularProgressIndicator(),);
                               }),
                         ),
                       ),
@@ -158,7 +156,7 @@ class HomeCustomDrawer extends StatelessWidget {
                             SizedBox(
                               width: 6.w,
                             ),
-                            CustomText(
+                            const CustomText(
                                 textText: "login",
                                 color: Colors.white,
                                 fontSize: 18),
@@ -200,7 +198,7 @@ class HomeCustomDrawer extends StatelessWidget {
                     onTap: () {
                       Scaffold.of(context).closeEndDrawer();
 
-                      Get.to(() => TicketPage());
+                      Get.to(() => const TicketPage());
                     },
                     unitName: "ticket",
                     unitIcon: MyIcons.ticket),
@@ -208,14 +206,14 @@ class HomeCustomDrawer extends StatelessWidget {
                     onTap: () {
                       Scaffold.of(context).closeEndDrawer();
 
-                      Get.to(() => TravelAndHotelsPage());
+                      Get.to(() => const TravelAndHotelsPage());
                     },
                     unitName: "travelAndHotel",
                     unitIcon: MyIcons.travelandhote),
                 CustomDrawerUnit(
                     onTap: () {
                       Scaffold.of(context).closeEndDrawer();
-                      Get.to(() => BlogPage());
+                      Get.to(() => const BlogPage());
                     },
                     unitName: "blog",
                     unitIcon: MyIcons.blog),
@@ -231,7 +229,7 @@ class HomeCustomDrawer extends StatelessWidget {
                     onTap: () {
                       Scaffold.of(context).closeEndDrawer();
 
-                      Get.to(() => CommonQuestionPage());
+                      Get.to(() => const CommonQuestionPage());
                     },
                     unitName: "commonQuestions",
                     unitIcon: MyIcons.question_circle),

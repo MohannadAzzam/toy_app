@@ -24,7 +24,7 @@ class CustomProfileDataUnit extends StatelessWidget {
           Icon(
             icon,
             size: 14.r,
-            color: Color(0xff911D74),
+            color: const Color(0xff911D74),
           ),
           SizedBox(
             width: 4.w,

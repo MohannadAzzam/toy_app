@@ -47,7 +47,7 @@ class CustomTabBar extends StatelessWidget {
                           SizedBox(
                             width: 10.w,
                           ),
-                          Text('التذاكر')
+                          const Text('التذاكر')
                         ],
                       ),
                     ),
@@ -63,7 +63,7 @@ class CustomTabBar extends StatelessWidget {
                           SizedBox(
                             width: 10.w,
                           ),
-                          Text('الملف الشخصي')
+                          const Text('الملف الشخصي')
                         ],
                       ),
                     ),
@@ -74,11 +74,11 @@ class CustomTabBar extends StatelessWidget {
             children: [
               Column(
                 children: [
-                  Container(
+                  SizedBox(
                     // margin: EdgeInsets.only(top: 20.h),
                     height: 290.h,
                     child: ListView.builder(
-                        physics: BouncingScrollPhysics(),
+                        physics: const BouncingScrollPhysics(),
                         itemCount: profileTicketList.length,
                         itemBuilder: (context, index) {
                           return CustomProfileTicket(
@@ -88,8 +88,6 @@ class CustomTabBar extends StatelessWidget {
                   CustomButtonWithIcon(
                       onTap: () {
                         profileDataController.getUserData();
-                        print(
-                            "profileDataController.getUserData()  ${profileDataController.getUserData()}");
                       },
                       top: 15,
                       bottom: 0,
@@ -109,21 +107,21 @@ class CustomTabBar extends StatelessWidget {
                         children: [
                           CustomProfileDataUnit(
                               icon: MyIcons.person,
-                              text: '${snapshot.data!.name}'),
+                              text: snapshot.data!.name),
                           CustomProfileDataUnit(
                               icon: MyIcons.phone,
-                              text: '${snapshot.data!.mobile}'),
+                              text: snapshot.data!.mobile),
                           CustomProfileDataUnit(
                               icon: MyIcons.message,
-                              text: '${snapshot.data!.email}'),
+                              text: snapshot.data!.email),
                           CustomProfileDataUnit(
                               icon: MyIcons.location,
-                              text: '${snapshot.data!.countryName}'),
+                              text: snapshot.data!.countryName),
                         ],
                       );
                     }
-                    return Center(
-                      child: const CircularProgressIndicator(),
+                    return const Center(
+                      child: CircularProgressIndicator(),
                     );
                   })
             ],

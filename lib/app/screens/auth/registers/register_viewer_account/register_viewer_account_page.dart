@@ -13,7 +13,7 @@ import '../../../../controllers/signup_controller.dart';
 
 // ignore: camel_case_types
 class registerViewerAccountPage extends StatelessWidget {
-   registerViewerAccountPage({Key? key}) : super(key: key);
+   const registerViewerAccountPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -38,7 +38,7 @@ class registerViewerAccountPage extends StatelessWidget {
           onPressed: () {
             Get.back();
           },
-          icon: const Icon(MyIcons.ionic_ios_arrow_back),
+          icon: const Icon(Icons.arrow_back_ios),
         ),
       ),
       body: SingleChildScrollView(
@@ -126,6 +126,7 @@ class registerViewerAccountPage extends StatelessWidget {
                          } else if (!GetUtils.isPhoneNumber(value)) {
                            return "لا يمكن ترك الاسم فارغ";
                          }
+                         return null;
                        },
                       controller: signUpController.mobileController,
                       isObscure: false,
@@ -148,15 +149,12 @@ class registerViewerAccountPage extends StatelessWidget {
                     onChange: (val) {
                       if(val == "السعودية"){
                         val = '1';
-                        print(val);
                         // signUpController.userTypeController = val;
                       } else if(val == 'الإمارات'){
                         val = "2";
-                        print(val);
                         // signUpController.userTypeController = val;
                       } else if (val == 'مصر'){
                         val = "3";
-                        print(val);
                       }
                       signUpController.countryIdController = val;
                     },
@@ -184,6 +182,7 @@ class registerViewerAccountPage extends StatelessWidget {
                          } else if (value.length < 6) {
                            return "لا يمكن أن تكون كلمة المرور اقل من 6 حروف";
                          }
+                         return null;
                        },
                       controller: signUpController.passwordController,
                       isObscure: true,
@@ -196,6 +195,7 @@ class registerViewerAccountPage extends StatelessWidget {
                          } else if (value.length < 6) {
                            return "لا يمكن أن تكون كلمة المرور اقل من 6 حروف";
                          }
+                         return null;
                        },
                        controller: signUpController.confirmPasswordController,
                       isObscure: true,

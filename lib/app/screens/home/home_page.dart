@@ -29,7 +29,6 @@ class HomePage extends StatelessWidget {
         elevation: 0,
         backgroundColor: const Color(0xff6D2B70),
         leading: Builder(builder: (context) {
-          print("MyLocalController.l ${MyLocalController.locale}");
           if (MyLocalController.locale == "ar") {
             return IconButton(
               onPressed: () {
@@ -49,7 +48,6 @@ class HomePage extends StatelessWidget {
           } else {
             return IconButton(
               onPressed: () {
-                print(Get.deviceLocale);
                 Scaffold.of(context).openDrawer();
               },
               icon: Transform(
@@ -67,11 +65,11 @@ class HomePage extends StatelessWidget {
         actions:  [
           InkWell(
               onTap: (){
-                Get.to(()=> NotificationPage());
+                Get.to(()=> const NotificationPage());
                 // print("myToken ${sharedPreferences!.getString("token")}");
               },
               child:
-          Image(image: AssetImage('assets/images/notification_icon.png')))
+          const Image(image: AssetImage('assets/images/notification_icon.png')))
         ],
       ),
       body: SingleChildScrollView(

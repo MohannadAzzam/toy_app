@@ -39,7 +39,7 @@ class RegisterSponsorAccountPage extends StatelessWidget {
             onPressed: () {
               Get.back();
             },
-            icon: const Icon(MyIcons.ionic_ios_arrow_back),
+            icon: const Icon(Icons.arrow_back_ios),
           ),
         ),
         body: SingleChildScrollView(

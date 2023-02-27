@@ -70,27 +70,3 @@ class LoginController extends GetxController {
     update();
   }
 }
-
-// class RemoteLoginService {
-//   static Future<LoginResponse?> loginWithEmail(var email, var password) async {
-//     try {
-//       Map body = {'email': email, 'password': password};
-//       var response =
-//           await http.post(Uri.parse("${baseApiLink}login"), body: body);
-//       if (response.statusCode == 200) {
-//         var jsonData = await jsonDecode(response.body);
-//         // print("Login Done \n emailController.text : ${emailController.text} \n passwordController.text : ${passwordController.text}");
-//         print("Login Done name :  ${jsonData['user']['name']}");
-//         // User user = jsonData;
-//         LoginResponse loginResponse = LoginResponse.fromJson(jsonData);
-//         // print("Login Done :  ${user.name}");
-//         // print("Login Done :  ${user['name']}");
-//         return loginResponse;
-//       }
-//     } catch (e) {
-//       // print("Login Failed \n emailController.text : ${emailController.text} \n passwordController.text : ${passwordController.text}");
-//       print("Login Failed  $e");
-//     }
-//     return null;
-//   }
-// }

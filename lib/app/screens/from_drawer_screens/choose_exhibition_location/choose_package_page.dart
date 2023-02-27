@@ -4,7 +4,6 @@ import 'package:get/get.dart';
 import 'package:toy_app/app/data/data_source/sponsor_packages_list.dart';
 import 'package:toy_app/app/screens/from_drawer_screens/choose_exhibition_location/full_exhibition_map_page.dart';
 import 'package:toy_app/app/screens/from_drawer_screens/choose_exhibition_location/widgets/custom_choose_package_grid.dart';
-import 'package:toy_app/my_icons_icons.dart';
 
 import '../../auth/login/widgets/custom_text.dart';
 
@@ -23,7 +22,7 @@ class ChoosePackagePage extends StatelessWidget {
           onPressed: () {
             Get.back();
           },
-          icon: const Icon(MyIcons.ionic_ios_arrow_back),
+          icon: const Icon(Icons.arrow_back_ios),
         ),
       ),
       body: SingleChildScrollView(

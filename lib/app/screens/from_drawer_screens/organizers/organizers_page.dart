@@ -26,19 +26,18 @@ class OrganizersPage extends StatelessWidget {
               onPressed: () {
                 Get.back();
               },
-              icon: const Icon(MyIcons.ionic_ios_arrow_back),
+              icon: const Icon(Icons.arrow_back_ios),
             ),
           ),
           body:
 
-          Container(
+          SizedBox(
             // color: Colors.red,
             height: Get.height,
             child: FutureBuilder(
                 future: _organizerController.fetchOrganizer(),
                 builder: (context, snapshot) {
                   if (snapshot.hasData) {
-                    print("snapshot.data!.length ${snapshot.data}");
                     return ListView.builder(
                         physics: const BouncingScrollPhysics(),
                         itemCount: snapshot.data!.length,
@@ -67,7 +66,7 @@ class OrganizersPage extends StatelessWidget {
                                               decoration: BoxDecoration(
                                                   border: Border.all(
                                                       color: Colors.transparent),
-                                                  borderRadius: BorderRadius.all(
+                                                  borderRadius: const BorderRadius.all(
                                                       Radius.circular(15)),
                                                   image: DecorationImage(
                                                       image: NetworkImage(
@@ -281,7 +280,7 @@ class OrganizersPage extends StatelessWidget {
                             //   ));
                         });
                   } else if (!snapshot.hasData) {
-                    return Center(
+                    return const Center(
                       child: Text("NO DATA TO SHOW"),
                     );
                   }else{

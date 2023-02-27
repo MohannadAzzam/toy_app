@@ -26,7 +26,7 @@ class SponsorshipRequestAccount extends StatelessWidget {
             onPressed: () {
               Get.to(() =>  HomePage());
             },
-            icon: const Icon(MyIcons.ionic_ios_arrow_back),
+            icon: const Icon(Icons.arrow_back_ios),
           ),
           actions: [
             IconButton(
@@ -113,11 +113,11 @@ class SponsorshipRequestAccount extends StatelessWidget {
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [
-                            const Image(
+                          children: const [
+                            Image(
                                 image: AssetImage(
                                     "assets/images/diamond_sponsor.png")),
-                            const CustomText(
+                            CustomText(
                                 textText: "الراعي الماسي",
                                 color: Colors.black,
                                 fontSize: 14)

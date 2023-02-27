@@ -46,7 +46,7 @@ class ContactUsController extends GetxController {
           Get.defaultDialog(
               title: "Error", content: Text("$jsonData"));
         } else {
-          Get.snackbar("Login Successfully", "Enjoy");
+          Get.snackbar("Message sent", "");
           nameController.clear();
           mobileController.clear();
           emailController.clear();
