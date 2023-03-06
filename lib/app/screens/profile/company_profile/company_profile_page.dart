@@ -10,6 +10,7 @@ import 'package:toy_app/app/screens/profile/user_profile/widgets/custom_profile_
 import 'package:toy_app/my_icons_icons.dart';
 
 import '../../../controllers/profile_data_controller.dart';
+import '../update_profile_image.dart';
 
 class CompanyProfilePage extends StatelessWidget {
   const CompanyProfilePage({Key? key}) : super(key: key);
@@ -29,7 +30,7 @@ class CompanyProfilePage extends StatelessWidget {
           backgroundColor: const Color(0xff6D2B70),
           leading: IconButton(
             onPressed: () {
-              Get.to(() => HomePage());
+              Get.to(() => const HomePage());
             },
             icon: const Icon(Icons.arrow_back_ios),
           ),
@@ -58,15 +59,8 @@ class CompanyProfilePage extends StatelessWidget {
                           if (snapshot.hasData) {
                             return Column(
                               children: [
-                                CircleAvatar(
-                                    radius: 55.r,
-                                    backgroundColor: const Color(0xffF5F5F5),
-                                    child: CircleAvatar(
-                                      backgroundImage: NetworkImage(
-                                          snapshot.data!.image),
-                                      radius: 54.r,
-                                      // backgroundColor: Colors.red,
-                                    )),
+                                const UpdateProfileImage(),
+
                                 SizedBox(
                                   height: 20.h,
                                 ),
@@ -235,7 +229,9 @@ class CompanyProfilePage extends StatelessWidget {
                       firstText: "تهانينا",
                       secondText: "تم طلب مساحة العمل بنجاح",
                       buttonText: "تم",
-                      onPressed: () {},
+                      onPressed: () {
+                        Get.back();
+                      },
                     ));
                   }),
             ],

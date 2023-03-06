@@ -5,11 +5,11 @@ import 'package:toy_app/app/screens/auth/login/widgets/custom_button.dart';
 import 'package:toy_app/app/screens/auth/login/widgets/custom_text.dart';
 import 'package:toy_app/app/screens/auth/login/widgets/custom_text_form_field.dart';
 import 'package:toy_app/app/screens/auth/registers/register_visitor_account/widgets/drop_down_button_form_field.dart';
-import 'package:toy_app/app/screens/profile/user_profile/widgets/custom_button_with_icon.dart';
 import 'package:toy_app/my_icons_icons.dart';
-
 import '../../../controllers/edit_profile_controller.dart';
 import '../../../controllers/profile_data_controller.dart';
+import '../../../controllers/update_image_controller.dart';
+import '../update_profile_image.dart';
 
 class EditPersonalDetails extends StatelessWidget {
   EditPersonalDetails({Key? key}) : super(key: key);
@@ -17,6 +17,7 @@ class EditPersonalDetails extends StatelessWidget {
       Get.put(EditProfileController());
   final formState = GlobalKey<FormState>();
   final profileDataController = Get.put(ProfileDataController());
+  final updateImageController = Get.put(UpdateImageController());
 
   validator() async {
     if (formState.currentState!.validate()) {
@@ -36,74 +37,6 @@ class EditPersonalDetails extends StatelessWidget {
           },
           icon: const Icon(Icons.arrow_back_ios),
         ),
-        actions: [
-          IconButton(
-              onPressed: () {
-                Get.bottomSheet(BottomSheet(
-                    backgroundColor: Colors.transparent,
-                    onClosing: () {},
-                    builder: (context) {
-                      return Container(
-                        height: 250.h,
-                        decoration: BoxDecoration(
-                            color: Colors.white,
-                            border: Border.all(color: Colors.transparent),
-                            borderRadius: const BorderRadius.only(
-                                topLeft: Radius.circular(20),
-                                topRight: Radius.circular(20))),
-                        child: SingleChildScrollView(
-                          scrollDirection: Axis.vertical,
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Container(
-                                  margin: EdgeInsets.only(
-                                      top: 25.h, left: 30.w, right: 30.w),
-                                  child: IconButton(
-                                      onPressed: () {
-                                        Get.back();
-                                      },
-                                      icon: const Icon(
-                                        MyIcons.exit,
-                                        color: Color(0xffD4D4D4),
-                                      ))),
-                              SizedBox(
-                                width: Get.width,
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.center,
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                    CustomButtonWithIcon(
-                                        height: 60,
-                                        width: 294,
-                                        icon: MyIcons.person,
-                                        text: "تعديل البيانات الشخصية",
-                                        top: 20,
-                                        bottom: 10,
-                                        left: 0,
-                                        right: 0,
-                                        onTap: () {}),
-                                    CustomButtonWithIcon(
-                                        height: 60,
-                                        width: 294,
-                                        icon: MyIcons.locker,
-                                        text: "تغيير كلمة المرور",
-                                        top: 0,
-                                        bottom: 10,
-                                        left: 0,
-                                        right: 0,
-                                        onTap: () {}),
-                                  ],
-                                ),
-                              )
-                            ],
-                          ),
-                        ),
-                      );
-                    }));
-              },
-              icon: const Icon(Icons.more_vert))
-        ],
       ),
       body: SingleChildScrollView(
         scrollDirection: Axis.vertical,
@@ -117,19 +50,7 @@ class EditPersonalDetails extends StatelessWidget {
               child: Center(
                   child: Column(
                 children: [
-                  CircleAvatar(
-                    radius: 55.r,
-                    backgroundColor: Colors.white,
-                    child: CircleAvatar(
-                      radius: 54.r,
-                      backgroundColor: const Color(0xff6D2B70),
-                      child: Icon(
-                        MyIcons.person,
-                        color: Colors.white,
-                        size: 50.r,
-                      ),
-                    ),
-                  ),
+                  const UpdateProfileImage(),
                   SizedBox(
                     height: 15.h,
                   ),
@@ -152,6 +73,8 @@ class EditPersonalDetails extends StatelessWidget {
                         return Column(
                           children: [
                             CustomTextFormField(
+                                keyboardType: TextInputType.name,
+
                                 valid: (value) {
                                   if (value!.isEmpty) {
                                     return "لا يمكن ترك الاسم فارغ";
@@ -164,9 +87,13 @@ class EditPersonalDetails extends StatelessWidget {
                                 controller:
                                     editProfileController.nameController,
                                 icon: MyIcons.person,
-                                hint: snapshot.data!.name,
+                                hint: "name",
+                                helperText: "بياناتك السابقة : ${snapshot.data!.name}",
+
                                 isObscure: false),
                             CustomTextFormField(
+                                keyboardType: TextInputType.emailAddress,
+
                                 controller:
                                     editProfileController.emailController,
                                 valid: (value) {
@@ -179,9 +106,12 @@ class EditPersonalDetails extends StatelessWidget {
                                   return null;
                                 },
                                 icon: MyIcons.message,
-                                hint: snapshot.data!.email,
+                                hint: "email",
+                                helperText: "بياناتك السابقة : ${snapshot.data!.email}",
                                 isObscure: false),
                             CustomTextFormField(
+                                keyboardType: TextInputType.phone,
+
                                 controller:
                                     editProfileController.mobileController,
                                 valid: (value) {
@@ -193,8 +123,21 @@ class EditPersonalDetails extends StatelessWidget {
                                   return null;
                                 },
                                 icon: MyIcons.message,
-                                hint: snapshot.data!.mobile,
+                                hint: "mobile",
+                                helperText: "بياناتك السابقة : ${snapshot.data!.mobile}",
                                 isObscure: false),
+                            CustomDropDownButtonFormField(onChange: (val) {
+                              if (val == "السعودية") {
+                                val = '1';
+                                // signUpController.userTypeController = val;
+                              } else if (val == 'الإمارات') {
+                                val = "2";
+                                // signUpController.userTypeController = val;
+                              } else if (val == 'مصر') {
+                                val = "3";
+                              }
+                              editProfileController.country = val;
+                            }),
                           ],
                         );
                       }
@@ -202,18 +145,7 @@ class EditPersonalDetails extends StatelessWidget {
                         child: CircularProgressIndicator(),
                       );
                     })),
-            CustomDropDownButtonFormField(onChange: (val) {
-              if (val == "السعودية") {
-                val = '1';
-                // signUpController.userTypeController = val;
-              } else if (val == 'الإمارات') {
-                val = "2";
-                // signUpController.userTypeController = val;
-              } else if (val == 'مصر') {
-                val = "3";
-              }
-              editProfileController.country = val;
-            }),
+
             CustomButton(
                 onPressed: () {
                   validator();

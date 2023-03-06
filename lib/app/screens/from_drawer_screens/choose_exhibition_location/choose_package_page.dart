@@ -15,7 +15,7 @@ class ChoosePackagePage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const CustomText(
-            textText: 'اختر الباقة', color: Colors.white, fontSize: 18),
+            textText: "sponsor", color: Colors.white, fontSize: 18),
         elevation: 0,
         backgroundColor: const Color(0xff6D2B70),
         leading: IconButton(
@@ -37,7 +37,7 @@ class ChoosePackagePage extends StatelessWidget {
                 child: const CustomText(
                     textAlign: TextAlign.center,
                     textText:
-                        'اختر الباقة حسب ما يظهر بالخريطة الاماكن التي تخص الراعي حسب اللون',
+                        "sponsorUp",
                     color: Colors.black,
                     fontSize: 16),
               ),

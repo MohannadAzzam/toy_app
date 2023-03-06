@@ -89,6 +89,8 @@ class LoginPage extends GetView<LoginController> {
                       child: Column(
                         children: [
                           CustomTextFormField(
+                              keyboardType: TextInputType.emailAddress,
+
                               controller: controller.emailController,
                               valid: (value) {
                                 if (value!.isEmpty) {

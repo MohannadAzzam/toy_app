@@ -61,6 +61,7 @@ class CustomBottomSheet extends StatelessWidget {
                         ),
                         Form(
                           child:  CustomTextFormField(
+                            keyboardType: TextInputType.emailAddress,
                               valid: (value) {
                                 if(value!.isEmpty){
                                   return "pleaseEnterYourEmail".tr;

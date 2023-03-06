@@ -56,12 +56,12 @@ class CustomBlogCard extends StatelessWidget {
                           mainAxisAlignment: MainAxisAlignment.end,
                           children: [
                             CustomText(
-                                textText: snapshot.data![index].name,
+                                textText: snapshot.data![index].name.replaceAll('[^A-Za-z0-9]', ''),
                                 color: Colors.white,
                                 fontSize: 18),
                             CustomText(
                                 textText: "${snapshot.data![index].createdAt}"
-                                    .substring(0, 10),
+                                    .substring(0, 10).replaceAll('[^A-Za-z0-9]', ''),
                                 color: const Color(0xffC1C1C1),
                                 fontSize: 16)
                           ],

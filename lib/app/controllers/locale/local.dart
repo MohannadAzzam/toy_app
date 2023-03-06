@@ -5,6 +5,16 @@ class MyLocale extends Translations {
   // TODO: implement keys
   Map<String, Map<String, String>> get keys => {
         "ar": {
+          "contactUs": "راسلنا",
+          "contactDetails": "بيانات التواصل",
+          "address": "السعودية - الرياض - أرض المعارض",
+          "name": "الاسم",
+          "sponsorUp": "اختر الباقة حسب ما يظهر بالخريطة الاماكن التي تخص الراعي حسب اللون",
+  "ticketUp" : "وفرنا لكم قائمة بافضل الشركات والعروض لشراء تذاكر السفر وافضل الفنادق وبعض الخدمات المساعدة اثناء اقامتكم",
+  "callUsUp":
+              "نعمل على راحتكم على مدار الساعه مع فريق دعم فني مميز لتسهيل جميع طلباتكم ومتابعه مراسلاتكم والرد باسرع وقت ممكن ويمكنك ايضا التواصل مع مدراء المبيعات لطلب التسيجل او الاستفسار وتسهيل التعاون معكم وتوفير جميع الخدمات باسلوب مميز وراقي. ",
+        "travelUp": "وفرنا لكم قائمة بافضل الشركات والعروض لشراء تذاكر السفر وافضل الفنادق وبعض الخدمات المساعدة اثناء اقامتكم",
+          "mobile": "رقم الجوال",
           "home": "الرئيسية",
           "profile": "الملف الشخصي",
           "exhibitors": "العارضين",
@@ -20,8 +30,7 @@ class MyLocale extends Translations {
           "travelAndHotel": "السفر والفنادق",
           "BookTickets": "احجز تذاكر",
           "helping": "المساعدة",
-          "subHelping":
-              "سيسعد فريق المبيعات لدينا بالإجابة على أي أسئلة قد تكون لديك ومساعدتك في التسجيل",
+          "subHelping": "سيسعد فريق المبيعات لدينا بالإجابة على أي أسئلة قد تكون لديك ومساعدتك في التسجيل",
           "blogNews": "جديد المدونة",
           "login": "تسجيل الدخول",
           "loginDO5OL": "دخول",
@@ -38,11 +47,28 @@ class MyLocale extends Translations {
           "thisIsNotEmail": "هذا ليس بريد الكتروني",
           "pleaseEnterYourPassword": "يرجى ادخال كلمة المرور",
           "thePasswordShouldBeMoreThan8Char":
-              "كلمة المرور يجب ان تكون اكثر من 8 حروف"
+              "كلمة المرور يجب ان تكون اكثر من 8 حروف",
+          "lastData" : "بياناتك السابقة : ",
         },
         "en": {
+          "lastData" : "Last data :",
+
+          "travelUp": "We have provided you with a list of the best companies and offers to buy travel tickets, the best hotels, and some assistance services during your stay",
+          "ticketUp" : "We have provided you with a list of the best companies and offers to buy travel tickets, the best hotels, and some assistance services during your stay"
+,
+          "sponsorUp": "Choose the package according to what appears on the map, the places that belong to the sponsor, by color",
+
+          "callUs": "Call us",
+          "contactUs": "Contact us",
+          "contactDetails": "Contact Details",
+          "address": "Saudi arabia - Riyadh - Exhibitions Land",
+          "callUsUp":
+              "We work at your convenience around the clock with a distinguished technical support team to facilitate all your requests, follow up your correspondence, and respond as soon as possible. You can also contact sales managers to request registration or inquiries, facilitate cooperation with you, and provide all services in a distinguished and elegant manner.",
+          "mobile": "mobile",
+          "name": "Name",
           "pleaseEnterYourPassword": "Please enter your password",
-          "thePasswordShouldBeMoreThan8Char": "The password should be more than 8 character",
+          "thePasswordShouldBeMoreThan8Char":
+              "The password should be more than 8 character",
           "pleaseEnterYourEmail": "Please enter your email",
           "thisIsNotEmail": "This is not an email",
           "home": "Home page",
@@ -52,7 +78,6 @@ class MyLocale extends Translations {
           "whoUs": "About Us",
           "commonQuestions": "Common Questions",
           "English": "Arabic",
-          "callUs": "Call Us",
           "RiyadhExhibition": "Riyadh Exhibition",
           "foChildrenGames": "fo Children's Games",
           "ticket": "Tickets",

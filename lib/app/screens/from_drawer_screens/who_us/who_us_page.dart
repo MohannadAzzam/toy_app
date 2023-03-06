@@ -4,6 +4,8 @@ import 'package:get/get.dart';
 import 'package:toy_app/app/controllers/aboutUs_controller.dart';
 import 'package:toy_app/app/screens/auth/login/widgets/custom_text.dart';
 
+import '../../../const/constants.dart';
+
 class WhoUsPage extends StatelessWidget {
   const WhoUsPage({Key? key}) : super(key: key);
 
@@ -50,13 +52,13 @@ class WhoUsPage extends StatelessWidget {
                       child: ListView(
                         children: [
                           CustomText(
-                              textText: snapshot.data!.page.title,
+                              textText: snapshot.data!.page.title.replaceAll(exp," "),
                               color: Colors.black,
                               fontWeight: FontWeight.w600,
                               fontSize: 16),
                           CustomText(
                               textText:
-                                  snapshot.data!.page.description,
+                                  snapshot.data!.page.description.replaceAll(exp," "),
                               color: Colors.black,
                               fontSize: 14),
                         ],

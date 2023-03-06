@@ -22,6 +22,7 @@ import 'package:toy_app/my_icons_icons.dart';
 import '../../../controllers/lougout_controller.dart';
 import '../../../controllers/profile_data_controller.dart';
 import '../../from_drawer_screens/sponsors_page/sponsors_page.dart';
+import '../../profile/company_profile/company_profile_page.dart';
 import '../../profile/sponsor_profile/sponsor_profile_page.dart';
 
 class HomeCustomDrawer extends StatelessWidget {
@@ -83,9 +84,8 @@ class HomeCustomDrawer extends StatelessWidget {
                           Scaffold.of(context).closeEndDrawer();
                           if (sharedPreferences!.getString('userType') == "1") {
                             Get.to(() => const UserProfilePage());
-                          } else if (sharedPreferences!.getString('userType') ==
-                              "2") {
-                            Get.to(() => const UserProfilePage());
+                          } else if (sharedPreferences!.getString('userType') == "2") {
+                            Get.to(() => const CompanyProfilePage());
                           } else if (sharedPreferences!.getString('userType') ==
                               "3") {
                             Get.to(() => const SponsorProfilePage());
@@ -264,6 +264,7 @@ class HomeCustomDrawer extends StatelessWidget {
                       Get.back();
                       _logOutController.logOut();
                       sharedPreferences!.remove('log');
+                      // sharedPreferences!.clear();
                       // Scaffold.of(context).closeEndDrawer();
                     },
                     unitName: 'LogOut',

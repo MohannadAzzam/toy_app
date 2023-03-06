@@ -93,6 +93,8 @@ class RegisterSponsorAccountPage extends StatelessWidget {
                   children: [
                     CustomTextFormField(
                         controller: signUpController.nameController ,
+                        keyboardType: TextInputType.name,
+
                         valid: (value) {
                           if (value!.length < 3) {
                             return "يجب أن يكون الاسم اكبر من 3 حروف";
@@ -105,6 +107,8 @@ class RegisterSponsorAccountPage extends StatelessWidget {
                         icon: MyIcons.person,
                         hint: 'الاسم'),
                     CustomTextFormField(
+                        keyboardType: TextInputType.emailAddress,
+
                         controller: signUpController.emailController,                        valid: (value) {
                       if (!GetUtils.isEmail(value!)) {
                         return "يجب أن يكون البريد الاكتروني صالح";
@@ -117,6 +121,8 @@ class RegisterSponsorAccountPage extends StatelessWidget {
                         icon: MyIcons.message,
                         hint: 'البريد الإلكتروني'),
                     CustomTextFormField(
+                        keyboardType: TextInputType.phone,
+
                         valid: (value) {
                           if (value!.isEmpty) {
                             return "لا يمكن ترك رقم الجوال فارغ";

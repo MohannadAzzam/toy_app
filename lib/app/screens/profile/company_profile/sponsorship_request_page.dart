@@ -24,7 +24,7 @@ class SponsorshipRequestAccount extends StatelessWidget {
           backgroundColor: const Color(0xff6D2B70),
           leading: IconButton(
             onPressed: () {
-              Get.to(() =>  HomePage());
+              Get.to(() =>  const HomePage());
             },
             icon: const Icon(Icons.arrow_back_ios),
           ),

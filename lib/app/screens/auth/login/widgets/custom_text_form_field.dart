@@ -8,8 +8,9 @@ class CustomTextFormField extends StatelessWidget {
   final Widget? suffixWidget;
   final bool isObscure;
   final TextEditingController? controller;
-
+  final String? helperText;
   final String? Function(String?)? valid;
+  final TextInputType? keyboardType;
 
   const CustomTextFormField({
     Key? key,
@@ -19,6 +20,8 @@ class CustomTextFormField extends StatelessWidget {
     required this.isObscure,
     this.valid,
     this.controller,
+    this.helperText,
+    this.keyboardType,
   }) : super(key: key);
 
   @override
@@ -28,6 +31,7 @@ class CustomTextFormField extends StatelessWidget {
       // height: 60.h,
       width: 320.w,
       child: TextFormField(
+        keyboardType: keyboardType,
         controller: controller,
         validator: valid,
         strutStyle: StrutStyle.fromTextStyle(TextStyle(
@@ -37,6 +41,10 @@ class CustomTextFormField extends StatelessWidget {
         )),
         obscureText: isObscure,
         decoration: InputDecoration(
+            helperText: helperText?.tr,
+            helperStyle: const TextStyle(
+              fontFamily: 'din-next-lt-w23',
+            ),
             suffixIcon: suffixWidget,
             // contentPadding: EdgeInsets.only(top: 22.h,bottom: 22.h,right: 20.w),
             prefixIcon: Icon(

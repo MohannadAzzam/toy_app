@@ -63,7 +63,7 @@ class AccountTypePage extends StatelessWidget {
                 InkWell(
                   onTap: () {
                     sharedPreferences!.setString("userType", "2");
-                    Get.to(() => registerViewerAccountPage());
+                    Get.to(() => const registerViewerAccountPage());
                   },
                   child: const CustomAccType(
                       image: "assets/images/exhibtor_acc.png",

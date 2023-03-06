@@ -94,6 +94,8 @@ class RegisterVisitorAccountPage extends StatelessWidget {
                     child: Column(
                       children: [
                         CustomTextFormField(
+                            keyboardType: TextInputType.name,
+
                             controller: signUpController.nameController,
                             valid: (value) {
                               if (value!.length < 3) {
@@ -107,6 +109,8 @@ class RegisterVisitorAccountPage extends StatelessWidget {
                             icon: MyIcons.person,
                             hint: 'الاسم'),
                         CustomTextFormField(
+                            keyboardType: TextInputType.emailAddress,
+
                             controller: signUpController.emailController,
                             valid: (value) {
                               if (!GetUtils.isEmail(value!)) {
@@ -120,6 +124,8 @@ class RegisterVisitorAccountPage extends StatelessWidget {
                             icon: MyIcons.message,
                             hint: 'البريد الإلكتروني'),
                         CustomTextFormField(
+                            keyboardType: TextInputType.phone,
+
                             valid: (value) {
                               if (value!.isEmpty) {
                                 return "لا يمكن ترك رقم الجوال فارغ";

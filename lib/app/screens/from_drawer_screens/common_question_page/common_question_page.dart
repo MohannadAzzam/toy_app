@@ -10,24 +10,21 @@ class CommonQuestionPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Directionality(
-      textDirection: TextDirection.rtl,
-      child: Scaffold(
-          appBar: AppBar(
-            title: const CustomText(
-                textText: 'الأسئلة الشائعة', color: Colors.white, fontSize: 18),
-            elevation: 0.r,
-            backgroundColor: const Color(0xff6D2B70),
-            leading: IconButton(
-              onPressed: () {
-                Get.back();
-                //     }),
-              },
-              icon: const Icon(Icons.arrow_back_ios),
-            ),
+    return Scaffold(
+        appBar: AppBar(
+          title: const CustomText(
+              textText: "commonQuestions", color: Colors.white, fontSize: 18),
+          elevation: 0.r,
+          backgroundColor: const Color(0xff6D2B70),
+          leading: IconButton(
+            onPressed: () {
+              Get.back();
+              //     }),
+            },
+            icon: const Icon(Icons.arrow_back_ios),
           ),
-          body: CustomCommonQuestion()
-          ),
-    );
+        ),
+        body: CustomCommonQuestion()
+        );
   }
 }

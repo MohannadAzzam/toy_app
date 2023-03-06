@@ -8,8 +8,13 @@ class CallUsIconWithText extends StatelessWidget {
   final String text;
   final Color color;
   final double fontSize;
+
   const CallUsIconWithText(
-      {Key? key, required this.icon, required this.text,required this.color,required this.fontSize})
+      {Key? key,
+      required this.icon,
+      required this.text,
+      required this.color,
+      required this.fontSize})
       : super(key: key);
 
   @override
@@ -30,7 +35,14 @@ class CallUsIconWithText extends StatelessWidget {
           SizedBox(
             width: 5.w,
           ),
-          CustomText(textText: text, color: color, fontSize: fontSize.sp,fontWeight: FontWeight.w300,)
+          Expanded(
+            child: CustomText(
+              textText: text,
+              color: color,
+              fontSize: fontSize.sp,
+              fontWeight: FontWeight.w300,
+            ),
+          ),
         ],
       ),
     );

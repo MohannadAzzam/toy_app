@@ -89,11 +89,6 @@ class ChangePasswordPage extends StatelessWidget {
             SizedBox(
               height: 30.h,
             ),
-            // FutureBuilder(
-            // future: profileDataController.getUserData(),
-            // builder: (context, snapshot) {
-            //   if (snapshot.hasData) {
-            //     return
             Form(
               key: formStatePassword,
               child: changePasswordController.isLoading == true
@@ -140,12 +135,7 @@ class ChangePasswordPage extends StatelessWidget {
                             isObscure: true),
                       ],
                     ),
-              // );
-              // }
-              // return Center(
-              //   child: const CircularProgressIndicator(),
-              // );
-              // }
+
             ),
             CustomButton(
                 onPressed: () async {

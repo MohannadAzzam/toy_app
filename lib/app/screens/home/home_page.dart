@@ -15,10 +15,10 @@ import 'dart:math' as math;
 import '../notification/notification_page.dart';
 
 class HomePage extends StatelessWidget {
-  HomePage({Key? key}) : super(key: key);
+   const HomePage({Key? key}) : super(key: key);
 
   // final HomeController _categoryController = Get.put(HomeController());
-  MyLocalController myLocalController = Get.put(MyLocalController());
+  // MyLocalController myLocalController = Get.put(MyLocalController());
 
   @override
   Widget build(BuildContext context) {

@@ -6,6 +6,9 @@ import 'package:http/http.dart' as http;
 import 'package:toy_app/app/const/constants.dart';
 
 import '../../main.dart';
+import '../screens/profile/company_profile/company_profile_page.dart';
+import '../screens/profile/sponsor_profile/sponsor_profile_page.dart';
+import '../screens/profile/user_profile/user_profile_page.dart';
 
 class EditProfileController extends GetxController {
   TextEditingController nameController = TextEditingController();
@@ -47,7 +50,15 @@ class EditProfileController extends GetxController {
           nameController.clear();
           emailController.clear();
           mobileController.clear();
-          // oldPasswordController.clear();
+          if (sharedPreferences!.getString('userType') == "1") {
+            Get.to(() => const UserProfilePage());
+          } else if (sharedPreferences!.getString('userType') ==
+              "2") {
+            Get.to(() => const CompanyProfilePage());
+          } else if (sharedPreferences!.getString('userType') ==
+              "3") {
+            Get.to(() => const SponsorProfilePage());
+          }          // oldPasswordController.clear();
           // newPasswordController.clear();
           // confirmNewPasswordController.clear();
           // Get.back();

@@ -62,6 +62,8 @@ class EditCompanyAccountPage extends StatelessWidget {
                         return Column(
                           children: [
                             CustomTextFormField(
+                                keyboardType: TextInputType.name,
+
                                 valid: (value) {
                                   if (value!.isEmpty) {
                                     return "لا يمكن ترك الاسم فارغ";
@@ -75,8 +77,11 @@ class EditCompanyAccountPage extends StatelessWidget {
                                     editProfileController.nameController,
                                 isObscure: false,
                                 icon: MyIcons.person,
-                                hint: snapshot.data!.name),
+                                helperText: "بياناتك السابقة : ${snapshot.data!.name}",
+                                hint: "name"),
                             CustomTextFormField(
+                                keyboardType: TextInputType.emailAddress,
+
                                 controller:
                                     editProfileController.emailController,
                                 valid: (value) {
@@ -90,8 +95,11 @@ class EditCompanyAccountPage extends StatelessWidget {
                                 },
                                 isObscure: false,
                                 icon: MyIcons.message,
-                                hint: snapshot.data!.email),
+                                helperText: "بياناتك السابقة : ${snapshot.data!.email}",
+                                hint: "email"),
                             CustomTextFormField(
+                                keyboardType: TextInputType.phone,
+
                                 controller:
                                     editProfileController.mobileController,
                                 valid: (value) {
@@ -102,10 +110,13 @@ class EditCompanyAccountPage extends StatelessWidget {
                                   }
                                   return null;
                                 },
+                                helperText: "بياناتك السابقة : ${snapshot.data!.mobile}",
                                 isObscure: false,
                                 icon: MyIcons.phone,
-                                hint: snapshot.data!.mobile),
+                                hint: "mobile"),
                             CustomTextFormField(
+                                keyboardType: TextInputType.name,
+
                                 valid: (value) {
                                   if (value!.isEmpty) {
                                     return "لا يمكن ترك اسم الشركة فارغ";
@@ -117,7 +128,8 @@ class EditCompanyAccountPage extends StatelessWidget {
                                 },
                                 isObscure: false,
                                 icon: MyIcons.company,
-                                hint: snapshot.data!.name),
+                                hint: "اسم الشركة"
+                            ),
                             CustomDropDownButtonFormField(onChange: (val) {
                               if (val == "السعودية") {
                                 val = '1';
@@ -190,18 +202,24 @@ class EditCompanyAccountPage extends StatelessWidget {
                                 icon: MyIcons.locker,
                                 hint: 'اعادة كلمة المرور'),
                             const CustomTextFormField(
+                                keyboardType: TextInputType.url,
+
                                 icon: MyIcons.facebook,
                                 hint: "ضع رابط حسابك على الفيسبوك",
                                 isObscure: false),
                             const CustomTextFormField(
+                                keyboardType: TextInputType.url,
+
                                 icon: MyIcons.instagram,
                                 hint: "ضع رابط حسابك على الانستجرام",
                                 isObscure: false),
                             const CustomTextFormField(
+                                keyboardType: TextInputType.url,
                                 icon: MyIcons.twitter,
                                 hint: "ضع رابط حسابك على تويتر",
                                 isObscure: false),
                             const CustomTextFormField(
+                                keyboardType: TextInputType.url,
                                 icon: MyIcons.linkedin,
                                 hint: "ضع رابط حسابك على اللنكد ان",
                                 isObscure: false),

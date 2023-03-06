@@ -4,7 +4,9 @@ import 'package:get/get.dart';
 import 'package:toy_app/app/screens/auth/login/widgets/custom_button.dart';
 import 'package:toy_app/app/screens/auth/login/widgets/custom_text.dart';
 
+import '../../../const/constants.dart';
 import '../../../controllers/home_controller.dart';
+import '../../from_drawer_screens/ticket_page/ticket_page.dart';
 
 class CustomTicketBookingCard extends StatelessWidget {
 
@@ -39,7 +41,7 @@ class CustomTicketBookingCard extends StatelessWidget {
                               top: 175.h, right: 20.w, left: 20.w),
 
                           child: CustomText(
-                              textText: "${snapshot.data![index]!.name}",
+                              textText: snapshot.data![index]!.name?.replaceAll(exp," "),
                               color: Colors.white,
                               fontSize: 20),
                         ),
@@ -49,7 +51,7 @@ class CustomTicketBookingCard extends StatelessWidget {
                                 right: 20.w, top: 5.h, bottom: 5.h, left: 20.w),
                             child: CustomText(
                                 textText:
-                                    "${snapshot.data![index]!.shortDetails}",
+                                    "${snapshot.data![index]!.shortDetails?.replaceAll(exp," ")}",
                                 color: Colors.white,
                                 fontSize: 18)),
                         Expanded(
@@ -61,14 +63,16 @@ class CustomTicketBookingCard extends StatelessWidget {
                                       EdgeInsets.only(right: 20.w, left: 20.w),
                                   child: CustomText(
                                       textText:
-                                          "${snapshot.data![index]!.details}",
+                                          "${snapshot.data![index]!.details?.replaceAll(exp," ")}",
                                       color: const Color(0xffC1C1C1),
                                       fontSize: 14))
                             ],
                           ),
                         ),
                         CustomButton(
-                            onPressed: () {},
+                            onPressed: () {
+                              Get.to(()=>const TicketPage());
+                            },
                             bottomMargin: 20,
                             topMargin: 20,
                             height: 60,

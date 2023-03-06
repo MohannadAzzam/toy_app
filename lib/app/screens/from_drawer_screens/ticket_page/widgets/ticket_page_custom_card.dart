@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:toy_app/app/screens/auth/login/widgets/custom_text.dart';
+import '../../../../const/constants.dart';
 import '../../../../controllers/tickets_controller.dart';
 
 class CustomTicketPageCard extends StatelessWidget {
@@ -38,7 +39,7 @@ class CustomTicketPageCard extends StatelessWidget {
                                     EdgeInsets.only(left: 10.w, right: 10.w),
                                 child: CustomText(
                                     textAlign: TextAlign.start,
-                                    textText: snapshot.data![index].name,
+                                    textText: snapshot.data![index].name.replaceAll(exp," "),
                                     color: const Color(0xff911D74),
                                     fontSize: 20)),
                             Container(
@@ -61,7 +62,7 @@ class CustomTicketPageCard extends StatelessWidget {
                                         CustomText(
                                             textText: snapshot
                                                 .data![index].events[index].time
-                                                .substring(0, 5),
+                                                .substring(0, 5).replaceAll(exp," "),
                                             color: Colors.white,
                                             fontSize: 16),
                                         // CustomText(
@@ -90,7 +91,7 @@ class CustomTicketPageCard extends StatelessWidget {
                                           children: [
                                             CustomText(
                                               textText: snapshot.data![index]
-                                                  .events[index].name,
+                                                  .events[index].name.replaceAll(exp," "),
                                               color: Colors.black,
                                               fontSize: 18,
                                               fontWeight: FontWeight.w600,
@@ -111,7 +112,7 @@ class CustomTicketPageCard extends StatelessWidget {
                                                         textText: snapshot
                                                             .data![index]
                                                             .events[index]
-                                                            .details,
+                                                            .details.replaceAll(exp," "),
                                                         color: Colors.black,
                                                         fontSize: 18);
                                                   }),

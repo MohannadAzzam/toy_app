@@ -13,22 +13,21 @@ import '../../../../controllers/signup_controller.dart';
 
 // ignore: camel_case_types
 class registerViewerAccountPage extends StatelessWidget {
-   const registerViewerAccountPage({Key? key}) : super(key: key);
+  const registerViewerAccountPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-
     final formState = GlobalKey<FormState>();
 
     SignUpController signUpController = Get.put(SignUpController());
-    validator(){
-      if(formState.currentState!.validate()){
-          signUpController.signUp();
+    validator() {
+      if (formState.currentState!.validate()) {
+        signUpController.signUp();
       }
     }
+
     String? userType = sharedPreferences!.getString('userType');
     signUpController.userTypeController = userType;
-
 
     return Scaffold(
       appBar: AppBar(
@@ -91,9 +90,9 @@ class registerViewerAccountPage extends StatelessWidget {
               child: Column(
                 children: [
                   CustomTextFormField(
-
+                      keyboardType: TextInputType.name,
                       valid: (value) {
-                        if(value!.isEmpty){
+                        if (value!.isEmpty) {
                           return "لا يمكن ترك الاسم فارغ";
                         }
                         if (value.length < 5) {
@@ -101,16 +100,17 @@ class registerViewerAccountPage extends StatelessWidget {
                         }
                         return null;
                       },
-                    controller: signUpController.nameController,
+                      controller: signUpController.nameController,
                       isObscure: false,
                       icon: MyIcons.person,
                       hint: 'الاسم'),
-                   CustomTextFormField(
-                       controller: signUpController.emailController,
+                  CustomTextFormField(
+                      keyboardType: TextInputType.emailAddress,
+                      controller: signUpController.emailController,
                       isObscure: false,
                       icon: MyIcons.message,
                       valid: (value) {
-                        if(value!.isEmpty){
+                        if (value!.isEmpty) {
                           return "pleaseEnterYourEmail".tr;
                         }
                         if (!GetUtils.isEmail(value)) {
@@ -119,42 +119,49 @@ class registerViewerAccountPage extends StatelessWidget {
                         return null;
                       },
                       hint: 'البريد الإلكتروني'),
-                   CustomTextFormField(
-                       valid: (value) {
-                         if (value!.isEmpty) {
-                           return "لا يمكن ترك رقم الجوال فارغ";
-                         } else if (!GetUtils.isPhoneNumber(value)) {
-                           return "لا يمكن ترك الاسم فارغ";
-                         }
-                         return null;
-                       },
+                  CustomTextFormField(
+                      keyboardType: TextInputType.phone,
+                      valid: (value) {
+                        if (value!.isEmpty) {
+                          return "لا يمكن ترك رقم الجوال فارغ";
+                        } else if (!GetUtils.isPhoneNumber(value)) {
+                          return "لا يمكن ترك الاسم فارغ";
+                        }
+                        return null;
+                      },
                       controller: signUpController.mobileController,
                       isObscure: false,
                       icon: MyIcons.phone,
                       hint: 'رقم الجوال'),
-                   CustomTextFormField(valid: (value) {
-                    if(value!.isEmpty){
-                      return "لا يمكن ترك اسم الشركة فارغ";
-                    }
-                    if (value.length < 5) {
-                      return "يجب ان يكون اسم الشركة اطول من 5 حروف";
-                    }
-                    return null;
-                  },
+                  CustomTextFormField(
+                      keyboardType: TextInputType.name,
+
+                      valid: (value) {
+                        if (value!.isEmpty) {
+                          return "لا يمكن ترك اسم الشركة فارغ";
+                        }
+                        if (value.length < 5) {
+                          return "يجب ان يكون اسم الشركة اطول من 5 حروف";
+                        }
+                        return null;
+                      },
                       // controller: signUpController.countryIdController,
                       isObscure: false,
                       icon: MyIcons.company,
                       hint: 'اسم الشركة'),
-                   CustomDropDownButtonFormField(
+                  CustomDropDownButtonFormField(
                     onChange: (val) {
-                      if(val == "السعودية"){
+                      if (val == "السعودية") {
                         val = '1';
+                        // print(val);
                         // signUpController.userTypeController = val;
-                      } else if(val == 'الإمارات'){
+                      } else if (val == 'الإمارات') {
                         val = "2";
+                        // print(val);
                         // signUpController.userTypeController = val;
-                      } else if (val == 'مصر'){
+                      } else if (val == 'مصر') {
                         val = "3";
+                        // print(val);
                       }
                       signUpController.countryIdController = val;
                     },
@@ -174,30 +181,29 @@ class registerViewerAccountPage extends StatelessWidget {
                       suffixWidget: TextFormFieldSuffex(onPressed: () {}),
                       icon: MyIcons.file,
                       hint: 'ملفات الشركة الرسمية'),
-
-                   CustomTextFormField(
-                       valid: (value) {
-                         if (value!.isEmpty) {
-                           return "لا يمكن ترك كلمة المرور فارغة";
-                         } else if (value.length < 6) {
-                           return "لا يمكن أن تكون كلمة المرور اقل من 6 حروف";
-                         }
-                         return null;
-                       },
+                  CustomTextFormField(
+                      valid: (value) {
+                        if (value!.isEmpty) {
+                          return "لا يمكن ترك كلمة المرور فارغة";
+                        } else if (value.length < 6) {
+                          return "لا يمكن أن تكون كلمة المرور اقل من 6 حروف";
+                        }
+                        return null;
+                      },
                       controller: signUpController.passwordController,
                       isObscure: true,
                       icon: MyIcons.locker,
                       hint: 'كلمة المرور'),
-                   CustomTextFormField(
-                       valid: (value) {
-                         if (value!.isEmpty) {
-                           return "لا يمكن ترك كلمة المرور فارغة";
-                         } else if (value.length < 6) {
-                           return "لا يمكن أن تكون كلمة المرور اقل من 6 حروف";
-                         }
-                         return null;
-                       },
-                       controller: signUpController.confirmPasswordController,
+                  CustomTextFormField(
+                      valid: (value) {
+                        if (value!.isEmpty) {
+                          return "لا يمكن ترك كلمة المرور فارغة";
+                        } else if (value.length < 6) {
+                          return "لا يمكن أن تكون كلمة المرور اقل من 6 حروف";
+                        }
+                        return null;
+                      },
+                      controller: signUpController.confirmPasswordController,
                       isObscure: true,
                       icon: MyIcons.locker,
                       hint: 'اعادة كلمة المرور'),

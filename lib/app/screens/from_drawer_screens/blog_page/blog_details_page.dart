@@ -4,6 +4,8 @@ import 'package:get/get.dart';
 
 import 'package:toy_app/app/screens/auth/login/widgets/custom_text.dart';
 
+import '../../../const/constants.dart';
+
 class BlogDetailsPage extends StatelessWidget {
 
   const BlogDetailsPage({Key? key, }) : super(key: key);
@@ -12,6 +14,8 @@ class BlogDetailsPage extends StatelessWidget {
   Widget build(BuildContext context) {
 
     final data = Get.arguments  ;
+    // RegExp exp = RegExp(r"<[^>]*>",multiLine: true,caseSensitive: true);
+
     // String s = "هذا النص هو مثال لنص يمكن أن"
     //     " يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد النص العربى، حيث يمكنك أن تولد مثل هذا النص أو"
     //     " العديد من النصوص الأخرى إضافة إلى زيادة عدد الحروف التى يولدها التطبيق.\n إذا كنت تحتاج إلى عدد أكبر"
@@ -50,14 +54,14 @@ class BlogDetailsPage extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       CustomText(
-                          textText: "${data.name}",
+                          textText: "${data.name.replaceAll(exp," ")}",
                           color: Colors.black,
                           fontSize: 18),
                       CustomText(
                           textText: "${data.createdAt}".substring(0,10),
                           color: const Color(0xff949494),
                           fontSize: 16),
-                      CustomText(textText: "${data.details}", color: Colors.black, fontSize: 14)
+                      CustomText(textText: data.details.replaceAll(exp," "), color: Colors.black, fontSize: 14)
                     ],
                   ),
                 ),
